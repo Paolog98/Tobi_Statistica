@@ -64,7 +64,8 @@ plt.show()'''
 
 #PUPILS STATICS.CSV DA SELEZIONARE
 
-file=sg.popup_get_file(sg.FolderBrowse())
+file=sg.popup_get_file(sg.FileBrowse())
+
 
 with open(file,'r') as dati:
     for linea in csv.reader(dati):
@@ -86,20 +87,22 @@ MaxDiameterRight=float(linea[6])
 
 plt.rcParams['figure.figsize'] = [12,8]
 plt.bar(1,TotalAverageLeft,label="TotalAvarageLeft")
-plt.bar(2,TotalAverageRight, label="TotalAverageRight")
+plt.bar(1.8,TotalAverageRight, label="TotalAverageRight")
 plt.bar(3,TotalAverageLFandRG, label="TotalAverageLFandRG")
 plt.bar(4,MinDiameterLeft, label="MinDiameterLeft")
-plt.bar(5,MinDiameterRight, label="MinDiameterRight")
+plt.bar(4.8,MinDiameterRight, label="MinDiameterRight")
 plt.bar(6,MaxDiameterLeft,label="MaxDiameterLeft")
-plt.bar(7,MaxDiameterRight,label="MaxDiameterRight")
+plt.bar(6.8,MaxDiameterRight,label="MaxDiameterRight")
 
 plt.title("Confronto dati pupillari")
 plt.xlabel("VALORI DEL FILE CSV PUPILS STATISTIC")
 plt.ylabel("VALORE PUPILLARE")
 plt.legend(loc="upper right")
+plt.savefig("res/PUPILSSTATISTIC.png")
 
 plt.show()
 
+'''
 labels = ["Data Scientist","Android Developer","iOS Developer",
          "Ingegnere Informatico","Web Developer"]
 
@@ -114,5 +117,5 @@ plt.title("Confronto salari professionisti IT")
 plt.xlabel("Professione")
 plt.ylabel("Salario")
 
-plt.show()
+plt.show()'''
 
