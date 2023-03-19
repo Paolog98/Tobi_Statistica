@@ -1,7 +1,9 @@
 import matplotlib.pyplot as plt
 import csv
 import numpy as np
+import PySimpleGUI as sg
 import pandas as pd
+import os
 import matplotlib.image as mpimg
 
 #img=mpimg.imread('res/chicca.jpg')
@@ -60,10 +62,11 @@ plt.grid()
 plt.plot(stock_price)
 plt.show()'''
 
-#PUPILS STATICS.CSV DATI A BARRE
+#PUPILS STATICS.CSV DA SELEZIONARE
 
-csv_file2 = 'out/pupilsStatistics.csv'
-with open(csv_file2,'r') as dati:
+file=sg.popup_get_file(sg.FolderBrowse())
+
+with open(file,'r') as dati:
     for linea in csv.reader(dati):
         print(linea[0])
 
