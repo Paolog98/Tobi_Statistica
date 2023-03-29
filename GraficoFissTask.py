@@ -154,7 +154,7 @@ def numFissP(dataTime):
 
 
 
-n=int(sg.popup_get_text("Quanti pazienti vuoi analizzare?(max 4)"))
+n=int(sg.popup_get_text("Quanti pazienti vuoi analizzare?(max 5)"))
 
 sum_f1=[]
 sum_f2=[]
@@ -176,6 +176,8 @@ for j in range(len(sum_array)):
      sum_f1.append(sum_array[j] + sum_array[j]+sum_array[j])
     elif i == 3:
         sum_f1.append(sum_array[j] + sum_array[j] + sum_array[j]+sum_array[j])
+    elif i == 4:
+        sum_f1.append(sum_array[j] + sum_array[j] + sum_array[j] + sum_array[j]+sum_array[j])
 
 for j in range(len(sum_array2)):
     if i == 0:
@@ -186,7 +188,8 @@ for j in range(len(sum_array2)):
         sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j])
     elif i == 3:
         sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j] + sum_array2[j])
-
+    elif i == 4:
+        sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j] + sum_array2[j]+sum_array2[j])
 
 
 
