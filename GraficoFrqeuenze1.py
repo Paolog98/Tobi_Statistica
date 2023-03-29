@@ -37,7 +37,7 @@ def Fisstask(time1,time2,time3,time4,time5,time6,csv_filef):
     inter = []
     Timeimg = [time1,time2,time3,time4,time5]
     print(Timeimg)
-    num = 2
+    num = 5
 
     for i in range(num):
 
@@ -185,13 +185,15 @@ def numFissP(dataTime):
     #SECONDA VOLTA 3 TASK
     Img33=Fisstask(delta31,delta32,delta33,delta34,delta35,delta36,csv_file)
 
+
     #SECONDA VOLTA 4 TASK
     Img44=Fisstask(delta43,delta44,delta45,delta46,delta47,delta48,csv_file)
+    print("valoreeeeeeeeeee")
+    print(Img44)
 
 
-
-    FisstaskP=[Img1[1],Img1[2],Img1[3],Img1[4],  Img2[1],Img2[2],Img2[3],Img2[4],  Img3[1],Img3[2],Img3[3],Img3[4], Img4[1],Img4[2],Img4[3],Img4[4] ]
-    FisstaskP2 = [Img11[1], Img11[2], Img11[3], Img11[4], Img22[1], Img22[2], Img22[3], Img22[4], Img33[1], Img33[2], Img33[3], Img3[4], Img44[1], Img44[2], Img44[3], Img44[4]]
+    FisstaskP=[Img1[1],Img1[2],Img1[3],Img1[4],Img2[1],Img2[2],Img2[3],Img2[4],Img3[1],Img3[2],Img3[3],Img3[4],Img4[1],Img4[2],Img4[3],Img4[4]]
+    FisstaskP2 = [Img11[1], Img11[2], Img11[3], Img11[4], Img22[1], Img22[2], Img22[3], Img22[4], Img33[1], Img33[2], Img33[3], Img33[4], Img44[1], Img44[2], Img44[3], Img44[4]]
 
 
 
@@ -201,7 +203,7 @@ def numFissP(dataTime):
 
 
 
-n=int(sg.popup_get_text("Quanti pazienti vuoi analizzare?(max 4)"))
+n=int(sg.popup_get_text("Quanti pazienti vuoi analizzare(grafico immagini)?(max 4)"))
 
 sum_f1=[]
 sum_f2=[]
@@ -249,8 +251,8 @@ for j in range(len(sum_array2)):
 
 # Dettagli del grafico
 #Marcatori
-Idimg=["Tsk1","Tsk2","Tsk3","Tsk4"]
-colors = ["green","purple"]
+Idimg=["Img1","Img2","Img3","Img4","Img5","Img6","Img7","Img8","Img9","Img10","Img11","Img12","Img13","Img14","Img15","Img16"]
+colors = ["blue","red"]
 
 
 
@@ -272,9 +274,50 @@ plt.bar(2.3, sum_f2[2], width=0.3,color=colors[1])
 #QUARTO TASK
 plt.bar(Idimg[3], sum_f1[3], width=0.3,color=colors[0])
 plt.bar(3.3, sum_f2[3], width=0.3,color=colors[1])
+
+plt.bar(Idimg[4], sum_f1[4], width=0.3,color=colors[0])
+plt.bar(4.3, sum_f2[4], width=0.3,color=colors[1])
+
+plt.bar(Idimg[5], sum_f1[5], width=0.3,color=colors[0])
+plt.bar(5.3, sum_f2[5], width=0.3,color=colors[1])
+
+plt.bar(Idimg[6], sum_f1[6], width=0.3,color=colors[0])
+plt.bar(6.3, sum_f2[6], width=0.3,color=colors[1])
+
+plt.bar(Idimg[7], sum_f1[7], width=0.3,color=colors[0])
+plt.bar(7.3, sum_f2[7], width=0.3,color=colors[1])
+
+plt.bar(Idimg[8], sum_f1[8], width=0.3,color=colors[0])
+plt.bar(8.3, sum_f2[8], width=0.3,color=colors[1])
+
+plt.bar(Idimg[9], sum_f1[9], width=0.3,color=colors[0])
+plt.bar(9.3, sum_f2[9], width=0.3,color=colors[1])
+
+plt.bar(Idimg[10], sum_f1[10], width=0.3,color=colors[0])
+plt.bar(10.3, sum_f2[10], width=0.3,color=colors[1])
+
+plt.bar(Idimg[11], sum_f1[11], width=0.3,color=colors[0])
+plt.bar(11.3, sum_f2[11], width=0.3,color=colors[1])
+
+plt.bar(Idimg[12], sum_f1[12], width=0.3,color=colors[0])
+plt.bar(12.3, sum_f2[12], width=0.3,color=colors[1])
+
+plt.bar(Idimg[13], sum_f1[13], width=0.3,color=colors[0])
+plt.bar(13.3, sum_f2[13], width=0.3,color=colors[1])
+
+plt.bar(Idimg[14], sum_f1[14], width=0.3,color=colors[0])
+plt.bar(14.3, sum_f2[14], width=0.3,color=colors[1])
+
+plt.bar(Idimg[15], sum_f1[15], width=0.3,color=colors[0])
+plt.bar(15.3, sum_f2[15], width=0.3,color=colors[1])
+
+
+
+
+
 # Annotazioni per ogni barra che restituisce il numero di fissazioni
 for i in range(len(sum_f1)):
-    plt.annotate(sum_f1[i], (-0.05 + i, sum_f1[i]))
+    plt.annotate(sum_f1[i], (-0.19 + i, sum_f1[i]))
 for j in range(len(sum_f2)):
     plt.annotate(sum_f2[j], ( j+0.2, sum_f2[j]))
 
@@ -284,8 +327,8 @@ ytempf=[ytemp,ytemp2]
 
 plt.ylim([0, max(ytempf)+50])
 plt.ylabel('Numero di fissazioni')
-plt.xlabel('Task eseguito ')
-plt.title('Grafico delle Frequenze assolute relativo a un singolo task',fontweight='bold', fontsize=15)
+plt.xlabel('Immagine ')
+plt.title('Grafico delle Frequenze assolute relativo a una singola immagine',fontweight='bold', fontsize=15)
 plt.legend(loc="best")
 fig.savefig('grafic/graficNumFissazioniImg.png')
 plt.show()
