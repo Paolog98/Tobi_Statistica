@@ -97,8 +97,8 @@ plt.bar(6.8,MaxDiameterRight,label="MaxDiameterRight")
 plt.title("Confronto dati pupillari")
 plt.xlabel("VALORI DEL FILE CSV PUPILS STATISTIC")
 plt.ylabel("VALORE PUPILLARE")
-plt.legend(loc="upper right")
-plt.savefig("res/PUPILSSTATISTIC.png")
+plt.legend(loc="best")
+plt.savefig("grafic/PUPILSSTATISTIC.png")
 
 plt.show()
 
