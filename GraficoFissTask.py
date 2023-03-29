@@ -26,12 +26,6 @@ def delta_unix_respect_to_video_start(video_start_unix, actual_unix):
 
 
 
-pathTime= sg.popup_get_file(sg.FileBrowse(),title="RECUPERA TEMPI.TXT")
-fileTime = pd.read_csv(pathTime, sep=',', engine='python', header=None)
-dataTime = fileTime.values.tolist()
-
-csv_file= sg.popup_get_file(sg.FileBrowse(),title="RECUPERA FILE FIX.CSV")
-
 
 
 # dati del grafico fixation
@@ -44,65 +38,6 @@ smin = 0
 numF2 = []'''
 
 
-#TEMPI TASK 1 PRIMA VOLTA
-delta_sec_7_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[7][2])
-delta_sec_13_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[13][3])
-print(delta_sec_7_1,delta_sec_13_2)
-
-#SECONDA VOLTA
-delta_sec1_1=  delta_unix_respect_to_video_start(dataTime[0][2], dataTime[61][3])
-delta_sec1_2=  delta_unix_respect_to_video_start(dataTime[0][2], dataTime[69][3])
-print(delta_sec1_1,delta_sec1_2)
-
-
-
-
-
-
-
-
-
-#TEMPI TASK 2 PRIMA VOLTA
-
-delta_sec_15_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[15][2])
-delta_sec_21_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[21][3])
-
-#SSECONDA VOLTA
-delta_sec2_1=  delta_unix_respect_to_video_start(dataTime[0][2], dataTime[69][3])
-delta_sec2_2=  delta_unix_respect_to_video_start(dataTime[0][2], dataTime[75][3])
-print(delta_sec2_1,delta_sec2_2)
-
-
-
-
-
-
-
-
-
-
-#TEMPI TASK 3 PRIMA VOLTA
-delta_sec_23_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[23][2])
-delta_sec_29_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[29][3])
-
-#SECONDA VOLTA TASK3
-delta_sec3_1=  delta_unix_respect_to_video_start(dataTime[0][2], dataTime[75][3])
-delta_sec3_2=  delta_unix_respect_to_video_start(dataTime[0][2], dataTime[81][3])
-
-
-
-
-
-
-
-#TEMPI TASK 4 PRIMA VOLTA
-delta_sec_31_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[32][3])
-delta_sec_38_2=  delta_unix_respect_to_video_start(dataTime[0][2], dataTime[59][3])
-
-
-#SECONDA VOLTA
-delta_sec4_1=  delta_unix_respect_to_video_start(dataTime[0][2], dataTime[81][3])
-delta_sec4_2=  delta_unix_respect_to_video_start(dataTime[0][2], dataTime[109][3])
 
 
 
@@ -152,40 +87,106 @@ def Fisstask(time1,time2,csv_filef):
     return numF1
 
 
+def numFissP(dataTime):
+    # TEMPI TASK 1 PRIMA VOLTA
+    delta_sec_7_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[7][2])
+    delta_sec_13_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[13][3])
+    print(delta_sec_7_1, delta_sec_13_2)
+
+    # SECONDA VOLTA
+    delta_sec1_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[61][3])
+    delta_sec1_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[69][3])
+    print(delta_sec1_1, delta_sec1_2)
+
+    # TEMPI TASK 2 PRIMA VOLTA
+
+    delta_sec_15_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[15][2])
+    delta_sec_21_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[21][3])
+
+    # SSECONDA VOLTA
+    delta_sec2_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[69][3])
+    delta_sec2_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[75][3])
+    print(delta_sec2_1, delta_sec2_2)
+
+    # TEMPI TASK 3 PRIMA VOLTA
+    delta_sec_23_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[23][2])
+    delta_sec_29_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[29][3])
+
+    # SECONDA VOLTA TASK3
+    delta_sec3_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[75][3])
+    delta_sec3_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[81][3])
+
+    # TEMPI TASK 4 PRIMA VOLTA
+    delta_sec_31_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[32][3])
+    delta_sec_38_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[56][3])
+
+    # SECONDA VOLTA
+    delta_sec4_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[81][3])
+    delta_sec4_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[105][3])
+
+    numFiss1_1=Fisstask(delta_sec_7_1,delta_sec_13_2,csv_file)
+    numFiss1_2=Fisstask(delta_sec1_1,delta_sec1_2,csv_file)
+
+        #CALCO FISS TASK 2  1 E 2 SECONDA VOLTA
+    numFiss2_1=Fisstask(delta_sec_15_1,delta_sec_21_2,csv_file)
+    numFiss2_2=Fisstask(delta_sec2_1,delta_sec2_2,csv_file)
+
+
+
+        #CALCO FISS TASK 3  1 E 2 SECONDA VOLTA
+    numFiss3_1=Fisstask(delta_sec_23_1,delta_sec_29_2,csv_file)
+    numFiss3_2=Fisstask(delta_sec3_1,delta_sec3_2,csv_file)
+
+
+
+        #CALCO FISS TASK 3  1 E 2 SECONDA VOLTA
+    numFiss4_1=Fisstask(delta_sec_31_1,delta_sec_38_2,csv_file)
+    numFiss4_2=Fisstask(delta_sec4_1,delta_sec4_2,csv_file)
+
+    FisstaskP=[numFiss1_1[1],numFiss2_1[1],numFiss3_1[1],numFiss4_1[1]]
+    FisstaskP2=[numFiss1_2[1],numFiss2_2[1],numFiss3_2[1],numFiss4_2[1]]
+
+
+
+    return FisstaskP,FisstaskP2
+
+
+
+
+
+n=int(sg.popup_get_text("Quanti pazienti vuoi analizzare?"))
+
+
+
+
+
+
+for i in range(n):
+
+    pathTime= sg.popup_get_file(sg.FileBrowse(),title="RECUPERA TEMPI.TXT")
+    fileTime = pd.read_csv(pathTime, sep=',', engine='python', header=None)
+    dataTime = fileTime.values.tolist()
+    csv_file= sg.popup_get_file(sg.FileBrowse(),title="RECUPERA FILE FIX.CSV")
+    FisstaskP, FisstaskP2 = numFissP(dataTime)
+    print("ARRAYYYY")
+    print(FisstaskP[i])
+    print(FisstaskP2[i])
+
+
 
 #CALCO FISS TASK 1    1 E 2 SECONDA VOLTA
-numFiss1_1=Fisstask(delta_sec_7_1,delta_sec_13_2,csv_file)
-numFiss1_2=Fisstask(delta_sec1_1,delta_sec1_2,csv_file)
-
-
-#CALCO FISS TASK 2  1 E 2 SECONDA VOLTA
-numFiss2_1=Fisstask(delta_sec_15_1,delta_sec_21_2,csv_file)
-numFiss2_2=Fisstask(delta_sec2_1,delta_sec2_2,csv_file)
 
 
 
 
-#CALCO FISS TASK 3  1 E 2 SECONDA VOLTA
-numFiss3_1=Fisstask(delta_sec_23_1,delta_sec_29_2,csv_file)
-numFiss3_2=Fisstask(delta_sec3_1,delta_sec3_2,csv_file)
 
 
-
-#CALCO FISS TASK 3  1 E 2 SECONDA VOLTA
-numFiss4_1=Fisstask(delta_sec_31_1,delta_sec_38_2,csv_file)
-numFiss4_2=Fisstask(delta_sec4_1,delta_sec4_2,csv_file)
-
-
-print(numFiss4_2[1])
 
 # Dettagli del grafico
 #Marcatori
 Idimg=["tsk1","tsk2","tsk3","tsk4"]
 colors = ["green","purple"]
-FisstaskP=[numFiss1_1[1],numFiss2_1[1],numFiss3_1[1],numFiss4_1[1]]
-FisstaskP2=[numFiss1_2[1],numFiss2_2[1],numFiss3_2[1],numFiss4_2[1]]
-print(FisstaskP)
-print(FisstaskP2)
+
 
 
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12, 8))
