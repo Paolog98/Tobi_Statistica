@@ -225,6 +225,9 @@ for j in range(len(sum_array)):
      sum_f1.append(sum_array[j] + sum_array[j]+sum_array[j])
     elif i == 3:
         sum_f1.append(sum_array[j] + sum_array[j] + sum_array[j]+sum_array[j])
+    elif i == 4:
+        sum_f1.append(sum_array[j] + sum_array[j] + sum_array[j] + sum_array[j] + sum_array[j])
+
 
 for j in range(len(sum_array2)):
     if i == 0:
@@ -235,6 +238,8 @@ for j in range(len(sum_array2)):
         sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j])
     elif i == 3:
         sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j] + sum_array2[j])
+    elif i == 4:
+        sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j] + sum_array2[j]+sum_array2[j])
 
 
 
