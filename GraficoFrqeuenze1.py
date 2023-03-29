@@ -177,7 +177,7 @@ def numFissP(dataTime):
 
 
     FisstaskP=[Img1[1],Img1[2],Img1[3],Img1[4],  Img2[1],Img2[2],Img2[3],Img2[4],  Img3[1],Img3[2],Img3[3],Img3[4], Img4[1],Img4[2],Img4[3],Img4[4] ]
-    FisstaskP2=[numFiss1_2[1],numFiss2_2[1],numFiss3_2[1],numFiss4_2[1]]
+    #FisstaskP2=[numFiss1_2[1],numFiss2_2[1],numFiss3_2[1],numFiss4_2[1]]
 
 
 
