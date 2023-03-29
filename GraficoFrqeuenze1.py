@@ -123,9 +123,6 @@ def numFissP(dataTime):
 
 
 
-
-
-
     # TEMPI TASK 3 PRIMA VOLTA
     delta25 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[23][2])
     delta26 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[24][3])
@@ -165,14 +162,21 @@ def numFissP(dataTime):
     delta48 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[90][3])
 
 
-    #PRIME 4 IMMAGINI TASK 1
+    #PRIME 4 IMMAGINI TASK 1 prima volta
     Img1=Fisstask(delta1,delta2,delta3,delta4,delta5,delta6,csv_file)
+
+    #task2 prima volta
     Img2=Fisstask(delta13, delta14, delta15, delta16, delta17, delta18, csv_file)
-    Img4=Fisstask(delta19, delta20, delta21, delta22, delta23, delta24, csv_file)
+
+    #task3 prima volta
+    Img3=Fisstask(delta25, delta26, delta27, delta28, delta29, delta30, csv_file)
+
+    #task4 primavolt
+    Img4=Fisstask(delta37, delta38, delta39, delta40, delta41, delta42, csv_file)
 
 
 
-    FisstaskP=[numFiss1_1[1],numFiss2_1[1],numFiss3_1[1],numFiss4_1[1]]
+    FisstaskP=[Img1[1],Img1[2],Img1[3],Img1[4],  Img2[1],Img2[2],Img2[3],Img2[4],  Img3[1],Img3[2],Img3[3],Img3[4], Img4[1],Img4[2],Img4[3],Img4[4] ]
     FisstaskP2=[numFiss1_2[1],numFiss2_2[1],numFiss3_2[1],numFiss4_2[1]]
 
 
