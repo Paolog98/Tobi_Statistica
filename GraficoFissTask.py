@@ -103,7 +103,7 @@ def numFissP(dataTime):
     delta_sec_15_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[15][2])
     delta_sec_21_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[21][3])
 
-    # SSECONDA VOLTA
+    # task 2 SSECONDA VOLTA
     delta_sec2_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[69][3])
     delta_sec2_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[75][3])
     print(delta_sec2_1, delta_sec2_2)
@@ -118,11 +118,11 @@ def numFissP(dataTime):
 
     # TEMPI TASK 4 PRIMA VOLTA
     delta_sec_31_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[32][3])
-    delta_sec_38_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[56][3])
+    delta_sec_38_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[41][3])
 
     # SECONDA VOLTA
     delta_sec4_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[81][3])
-    delta_sec4_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[105][3])
+    delta_sec4_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[87][3])
 
     numFiss1_1=Fisstask(delta_sec_7_1,delta_sec_13_2,csv_file)
     numFiss1_2=Fisstask(delta_sec1_1,delta_sec1_2,csv_file)
@@ -202,7 +202,7 @@ for j in range(len(sum_array2)):
 
 # Dettagli del grafico
 #Marcatori
-Idimg=["tsk1","tsk2","tsk3","tsk4"]
+Idimg=["Tsk1","Tsk2","Tsk3","Tsk4"]
 colors = ["green","purple"]
 
 

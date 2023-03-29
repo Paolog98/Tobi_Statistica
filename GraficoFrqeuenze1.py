@@ -25,102 +25,24 @@ def delta_unix_respect_to_video_start(video_start_unix, actual_unix):
 
 
 
-pathGaze=sg.popup_get_file(sg.FileBrowse(),title="RECUPERA GAZEDATA")
-with gzip.open(pathGaze) as f1:
-    time = []
-    for data in f1:
-     d = json.loads(data)
-     timestamp = d.get('timestamp')
-     time.append(timestamp)
-
-
-pathTime= sg.popup_get_file(sg.FileBrowse(),title="RECUPERA TEMPI.TXT")
-fileTime = pd.read_csv(pathTime, sep=',', engine='python', header=None)
-dataTime = fileTime.values.tolist()
-
-#recupero tempi delle immagini della prima parte
-delta_sec_7_1=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[7][2])
-delta_sec_7_2=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[7][3])
-delta_sec_9_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[9][2])#img croce
-delta_sec_9_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[9][3])
-delta_sec_11_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[11][2])
-delta_sec_11_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[11][3])
-delta_sec_13_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[13][2])
-delta_sec_13_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[13][3])
-delta_sec_15_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[15][3])
-
-
-#recupero quelli delle immagini della seconda parte
-#SECONDA IMMAGINE
-delta_sec_60_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[59][3])
-delta_sec_60_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[62][2])
-delta_sec_62_3 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[64][2])
-delta_sec_62_4 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[66][2])
-delta_sec_63_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[69][3])
-
-
-
-
-#PRENDO IL NUMERO DI FISSAZIONE DELLE PRIME 4 IMMAGINE
-listTime = []
-listTime.append(delta_sec_7_1)
-inter = []
-Timeimg=[delta_sec_7_1,delta_sec_7_2,delta_sec_9_2,delta_sec_11_2,delta_sec_13_2]
-print(Timeimg)
-num = 5
-
-for i in range(num):
-
-    if i == num - 1:
-        helpTime =delta_sec_15_2
-    else:
-        helpTime = Timeimg[i]
-    numTime = (str(listTime[i]) + '-' + str(helpTime))
-    listTime.append(helpTime)
-    inter.append(numTime)
-
-
-# dati del grafico fixation
-csv_file = 'out/fixation.csv'
-dataFrame = pd.read_csv(csv_file)
-data = dataFrame.iloc[:, [0, 1, 3, 4]].values               # Prendo i valori che mi serviranno
-times = [element for element in data[:, 1]]
-time2 = []
-smin = 0
-numF = []
-
-
-
-#calco numFix delle foto
-for i in range(1, len(listTime)):
-    for x in times:
-        if x <= listTime[i]:
-            time2.append(x)
-            numFix = [int(element) for element in data[smin:len(time2), 1]]
-
-    diff = len(time2) - smin
-    smin = smin + diff
-    numF.append(len(numFix))
-    numFix.clear()
-    time2.clear()
 
 
 
 
 
-#FUNZIONE PER IL CALCOLE DELLE SECONDE FISSAZIONI SULLA SECONDE IMMAGINI
-def contaImg2():
+#!!!!FUNZIONE PER IL CALCOLO DEI tempi delle immagini IN DET INTERVALLO!!!!!
+def Fisstask(time1,time2,time3,time4,time5,time6,csv_filef):
     listTime = []
-    listTime.append(delta_sec_60_1)
+    listTime.append(time1)
     inter = []
-    Timeimg = [delta_sec_60_1,delta_sec_60_2, delta_sec_62_3, delta_sec_62_4]
+    Timeimg = [time1,time2,time3,time4,time5]
     print(Timeimg)
-    num = 5
+    num = 2
 
     for i in range(num):
 
         if i == num - 1:
-            helpTime = delta_sec_63_1
+            helpTime = time6
         else:
             helpTime = Timeimg[i]
         numTime = (str(listTime[i]) + '-' + str(helpTime))
@@ -128,79 +50,228 @@ def contaImg2():
         inter.append(numTime)
 
     # dati del grafico fixation
-    csv_file = 'out/fixation.csv'
-    dataFrame = pd.read_csv(csv_file)
+    csv_filee = csv_filef
+    dataFrame = pd.read_csv(csv_filee)
     data = dataFrame.iloc[:, [0, 1, 3, 4]].values  # Prendo i valori che mi serviranno
     times = [element for element in data[:, 1]]
     time2 = []
     smin = 0
-    numF2 = []
+    numF1 = []
 
     # calco numFix delle foto
     for i in range(1, len(listTime)):
         for x in times:
             if x <= listTime[i]:
-                time2.append(x)
-                numFix2 = [int(element) for element in data[smin:len(time2), 1]]
+                 time2.append(x)
+                 numFix1 = [int(element) for element in data[smin:len(time2), 1]]
         diff = len(time2) - smin
         smin = smin + diff
-        numF2.append(len(numFix2))
-        numFix.clear()
+        numF1.append(len(numFix1))
+        numFix1.clear()
+        print("VALORIIIIIII")
+        print(numF1)
         time2.clear()
 
 
-    return numF2
+    return numF1
+
+
+def numFissP(dataTime):
+    # recupero tempi delle 1 immagini della prima parte TASK1
+    delta1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[8][2])
+    delta2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[9][3])
+    delta3 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[11][3])
+    delta4 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[12][3])
+    delta5 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[14][3])
+    delta6 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[15][3])
+
+
+    # SECONDA IMMAGINE TASK 1 SECONDA VOLTA
+    delta7 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[59][2])
+    delta8= delta_unix_respect_to_video_start(dataTime[0][2], dataTime[60][3])
+    delta9 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[62][3])
+    delta10 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[64][3])
+    delta11 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[66][3])
+    delta12 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[68][3])
+
+
+
+
+
+
+    # TEMPI TASK 2 PRIMA VOLTA
+
+    delta13 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[15][2])
+    delta14 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[16][3])
+    delta15 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[18][3])
+    delta16 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[20][3])
+    delta17 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[22][3])
+    delta18 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[24][3])
+
+    # SSECONDA VOLTA
+    delta19 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[69][2])
+    delta20 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[70][3])
+    delta21 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[72][3])
+    delta22 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[74][3])
+    delta23 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[76][3])
+    delta24 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[77][3])
+
+
+
+
+
+
+
+
+
+
+
+    # TEMPI TASK 3 PRIMA VOLTA
+    delta25 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[23][2])
+    delta26 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[24][3])
+    delta27 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[26][3])
+    delta28 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[28][3])
+    delta29 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[30][3])
+    delta30 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[32][3])
+
+    # SECONDA VOLTA TASK3
+    delta31 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[75][2])
+    delta_32 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[76][3])
+    delta33 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[78][3])
+    delta34 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[80][3])
+    delta35 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[82][3])
+    delta36 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[83][3])
+
+
+
+
+
+
+
+    # TEMPI TASK 4 PRIMA VOLTA
+    delta37 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[32][2])
+    delta38 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[33][3])
+    delta39 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[35][3])
+    delta40 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[37][3])
+    delta41 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[39][3])
+    delta42 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[41][3])
+
+    # SECONDA VOLTA
+    delta43 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[81][2])
+    delta44 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[82][3])
+    delta45 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[84][3])
+    delta46 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[86][3])
+    delta47 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[88][3])
+    delta48 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[90][3])
+
+
+    #PRIME 4 IMMAGINI TASK 1
+    Img1=Fisstask(delta1,delta2,delta3,delta4,delta5,delta6,csv_file)
+    Img2=Fisstask(delta13, delta14, delta15, delta16, delta17, delta18, csv_file)
+    Img4=Fisstask(delta19, delta20, delta21, delta22, delta23, delta24, csv_file)
+
+
+
+    FisstaskP=[numFiss1_1[1],numFiss2_1[1],numFiss3_1[1],numFiss4_1[1]]
+    FisstaskP2=[numFiss1_2[1],numFiss2_2[1],numFiss3_2[1],numFiss4_2[1]]
+
+
+
+    return FisstaskP,FisstaskP2
+
+
+
+
+
+n=int(sg.popup_get_text("Quanti pazienti vuoi analizzare?(max 4)"))
+
+sum_f1=[]
+sum_f2=[]
+
+for i in range(n):
+    sg.popup("Inserire i file del paziente n:",i+1)
+    pathTime= sg.popup_get_file(sg.FileBrowse(),title="RECUPERA TEMPI.TXT del paziente")
+    fileTime = pd.read_csv(pathTime, sep=',', engine='python', header=None)
+    dataTime = fileTime.values.tolist()
+    csv_file= sg.popup_get_file(sg.FileBrowse(),title="RECUPERA FILE FIX.CSV del paziente")
+    sum_array, sum_array2= numFissP(dataTime)
+
+for j in range(len(sum_array)):
+    if i==0:
+        sum_f1.append(sum_array[j])
+    elif i==1:
+     sum_f1.append(sum_array[j] + sum_array[j])
+    elif i==2:
+     sum_f1.append(sum_array[j] + sum_array[j]+sum_array[j])
+    elif i == 3:
+        sum_f1.append(sum_array[j] + sum_array[j] + sum_array[j]+sum_array[j])
+
+for j in range(len(sum_array2)):
+    if i == 0:
+        sum_f2.append(sum_array2[j])
+    elif i == 1:
+        sum_f2.append(sum_array2[j] + sum_array2[j])
+    elif i == 2:
+        sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j])
+    elif i == 3:
+        sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j] + sum_array2[j])
+
+
+
+
+
+
+#CALCO FISS TASK 1    1 E 2 SECONDA VOLTA
+
+
+
 
 
 
 
 # Dettagli del grafico
 #Marcatori
-Idimg=["Img1","img2","Img3","Img4"]
-colors = ["blue","red"]
+Idimg=["Tsk1","Tsk2","Tsk3","Tsk4"]
+colors = ["green","purple"]
 
-#Contiene le fissazioni delle seconde immagini
-Fix2=contaImg2()
-#Fix2[0] = Fix2[0]-(Fix2[0]-diff)
-#numF[0]=numF[0]-(numF[0]-diff)
+
+
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12, 8))
-numF.remove(numF[0])
-Fix2.remove(Fix2[0])
-print(numF)
-print(Fix2)
-#PRIMA IMMAGINE
-plt.bar(Idimg[0], numF[0], width=0.3,color=colors[0],label="Prima visione della foto")
-plt.bar(0.3, Fix2[0], width=0.3,color=colors[1],label="Seconda visione della foto")
 
-#SECONDA IMMAGINE
+#PRIM0 TASK
+plt.bar(Idimg[0], sum_f1[0], width=0.3,color=colors[0],label="Prima visione del task")
+plt.bar(0.3, sum_f2[0], width=0.3,color=colors[1],label="Seconda visione del task")
 
-plt.bar(Idimg[1], numF[1], width=0.3,color=colors[0])
-plt.bar(1.3, Fix2[1], width=0.3,color=colors[1])
+#SECONDO TASK
 
-#TERZA
-plt.bar(Idimg[2], numF[2], width=0.3,color=colors[0])
-plt.bar(2.3, Fix2[2], width=0.3,color=colors[1])
+plt.bar(Idimg[1], sum_f1[1], width=0.3,color=colors[0])
+plt.bar(1.3, sum_f2[1], width=0.3,color=colors[1])
 
-#QUARTA
-plt.bar(Idimg[3], numF[3], width=0.3,color=colors[0])
-plt.bar(3.3, Fix2[3], width=0.3,color=colors[1])
+#TERZO TASK
+plt.bar(Idimg[2], sum_f1[2], width=0.3,color=colors[0])
+plt.bar(2.3, sum_f2[2], width=0.3,color=colors[1])
+
+#QUARTO TASK
+plt.bar(Idimg[3], sum_f1[3], width=0.3,color=colors[0])
+plt.bar(3.3, sum_f2[3], width=0.3,color=colors[1])
 # Annotazioni per ogni barra che restituisce il numero di fissazioni
-for i in range(len(numF)):
-    plt.annotate(numF[i], (-0.05 + i, numF[i]))
-for j in range(len(Fix2)):
-    plt.annotate(Fix2[j], ( j+0.2, Fix2[j]))
+for i in range(len(sum_f1)):
+    plt.annotate(sum_f1[i], (-0.05 + i, sum_f1[i]))
+for j in range(len(sum_f2)):
+    plt.annotate(sum_f2[j], ( j+0.2, sum_f2[j]))
 
-ytemp = max(numF)
-ytemp2 = max(Fix2)
-ytempf = [ytemp, ytemp2]
+ytemp=max(sum_f1)
+ytemp2=max(sum_f2)
+ytempf=[ytemp,ytemp2]
 
-plt.ylim([0, max(ytempf) + 10])
+plt.ylim([0, max(ytempf)+50])
 plt.ylabel('Numero di fissazioni')
-plt.xlabel('Prime 4 immagini del task 1 nella prima e seconda parte ')
-plt.title('Grafico delle Frequenze assolute per ciasuna immagine',fontweight='bold', fontsize=15)
+plt.xlabel('Task eseguito ')
+plt.title('Grafico delle Frequenze assolute relativo a un singolo task',fontweight='bold', fontsize=15)
 plt.legend(loc="best")
 fig.savefig('grafic/graficNumFissazioniImg.png')
 plt.show()
+
 
 
 
