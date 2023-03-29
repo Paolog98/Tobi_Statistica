@@ -259,8 +259,8 @@ colors = ["blue","red"]
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12, 8))
 
 #PRIM0 TASK
-plt.bar(Idimg[0], sum_f1[0], width=0.3,color=colors[0],label="Prima visione del task")
-plt.bar(0.3, sum_f2[0], width=0.3,color=colors[1],label="Seconda visione del task")
+plt.bar(Idimg[0], sum_f1[0], width=0.3,color=colors[0],label="Prima visione della foto")
+plt.bar(0.3, sum_f2[0], width=0.3,color=colors[1],label="Seconda visione della foto")
 
 #SECONDO TASK
 
@@ -325,7 +325,7 @@ ytemp=max(sum_f1)
 ytemp2=max(sum_f2)
 ytempf=[ytemp,ytemp2]
 
-plt.ylim([0, max(ytempf)+50])
+plt.ylim([0, max(ytempf)+20])
 plt.ylabel('Numero di fissazioni')
 plt.xlabel('Immagine ')
 plt.title('Grafico delle Frequenze assolute relativo a una singola immagine',fontweight='bold', fontsize=15)
