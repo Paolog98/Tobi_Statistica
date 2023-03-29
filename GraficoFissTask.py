@@ -154,23 +154,41 @@ def numFissP(dataTime):
 
 
 
-n=int(sg.popup_get_text("Quanti pazienti vuoi analizzare?"))
+n=int(sg.popup_get_text("Quanti pazienti vuoi analizzare?(max 4)"))
 
-
-
-
-
+sum_f1=[]
+sum_f2=[]
 
 for i in range(n):
-
-    pathTime= sg.popup_get_file(sg.FileBrowse(),title="RECUPERA TEMPI.TXT")
+    sg.popup("Inserire i file del paziente n:",i+1)
+    pathTime= sg.popup_get_file(sg.FileBrowse(),title="RECUPERA TEMPI.TXT del paziente")
     fileTime = pd.read_csv(pathTime, sep=',', engine='python', header=None)
     dataTime = fileTime.values.tolist()
-    csv_file= sg.popup_get_file(sg.FileBrowse(),title="RECUPERA FILE FIX.CSV")
-    FisstaskP, FisstaskP2 = numFissP(dataTime)
-    print("ARRAYYYY")
-    print(FisstaskP[i])
-    print(FisstaskP2[i])
+    csv_file= sg.popup_get_file(sg.FileBrowse(),title="RECUPERA FILE FIX.CSV del paziente")
+    sum_array, sum_array2= numFissP(dataTime)
+
+for j in range(len(sum_array)):
+    if i==0:
+        sum_f1.append(sum_array[j])
+    elif i==1:
+     sum_f1.append(sum_array[j] + sum_array[j])
+    elif i==2:
+     sum_f1.append(sum_array[j] + sum_array[j]+sum_array[j])
+    elif i == 3:
+        sum_f1.append(sum_array[j] + sum_array[j] + sum_array[j]+sum_array[j])
+
+for j in range(len(sum_array2)):
+    if i == 0:
+        sum_f2.append(sum_array2[j])
+    elif i == 1:
+        sum_f2.append(sum_array2[j] + sum_array2[j])
+    elif i == 2:
+        sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j])
+    elif i == 3:
+        sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j] + sum_array2[j])
+
+
+
 
 
 
@@ -192,29 +210,29 @@ colors = ["green","purple"]
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12, 8))
 
 #PRIM0 TASK
-plt.bar(Idimg[0], FisstaskP[0], width=0.3,color=colors[0],label="Prima visione del task")
-plt.bar(0.3, FisstaskP2[0], width=0.3,color=colors[1],label="Seconda visione del task")
+plt.bar(Idimg[0], sum_f1[0], width=0.3,color=colors[0],label="Prima visione del task")
+plt.bar(0.3, sum_f2[0], width=0.3,color=colors[1],label="Seconda visione del task")
 
 #SECONDO TASK
 
-plt.bar(Idimg[1], FisstaskP[1], width=0.3,color=colors[0])
-plt.bar(1.3, FisstaskP2[1], width=0.3,color=colors[1])
+plt.bar(Idimg[1], sum_f1[1], width=0.3,color=colors[0])
+plt.bar(1.3, sum_f2[1], width=0.3,color=colors[1])
 
 #TERZO TASK
-plt.bar(Idimg[2], FisstaskP[2], width=0.3,color=colors[0])
-plt.bar(2.3, FisstaskP2[2], width=0.3,color=colors[1])
+plt.bar(Idimg[2], sum_f1[2], width=0.3,color=colors[0])
+plt.bar(2.3, sum_f2[2], width=0.3,color=colors[1])
 
 #QUARTO TASK
-plt.bar(Idimg[3], FisstaskP[3], width=0.3,color=colors[0])
-plt.bar(3.3, FisstaskP2[3], width=0.3,color=colors[1])
+plt.bar(Idimg[3], sum_f1[3], width=0.3,color=colors[0])
+plt.bar(3.3, sum_f2[3], width=0.3,color=colors[1])
 # Annotazioni per ogni barra che restituisce il numero di fissazioni
-for i in range(len(FisstaskP)):
-    plt.annotate(FisstaskP[i], (-0.05 + i, FisstaskP[i]))
-for j in range(len(FisstaskP2)):
-    plt.annotate(FisstaskP2[j], ( j+0.2, FisstaskP2[j]))
+for i in range(len(sum_f1)):
+    plt.annotate(sum_f1[i], (-0.05 + i, sum_f1[i]))
+for j in range(len(sum_f2)):
+    plt.annotate(sum_f2[j], ( j+0.2, sum_f2[j]))
 
-ytemp=max(FisstaskP)
-ytemp2=max(FisstaskP2)
+ytemp=max(sum_f1)
+ytemp2=max(sum_f2)
 ytempf=[ytemp,ytemp2]
 
 plt.ylim([0, max(ytempf)+50])
