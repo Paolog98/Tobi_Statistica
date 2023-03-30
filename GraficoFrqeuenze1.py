@@ -248,9 +248,17 @@ for j in range(len(sum_array2)):
 
 #CALCO FISS TASK 1    1 E 2 SECONDA VOLTA
 
+#dati grafico linee multiple max,medio,min
+valmax1=max(sum_array)
+valmax2=max(sum_array2)
 
+valavg1=sum(sum_array)/len(sum_array)
+valavg2=sum(sum_array2)/len(sum_array2)
 
+valmin1=min(sum_array)
+valmin2=min(sum_array2)
 
+print(valmax1,valmax2,valavg1,valavg2,valmin1,valmin2)
 
 
 
@@ -341,4 +349,26 @@ plt.show()
 
 
 
+#SECONDO GRAFICO VAL MAX MIN AVG
+fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12, 8))
+colori=["red","green"]
+val=["max","min","avg"]
+plt.bar(val[0], valmax1, width=0.3,color=colori[0],label="Primo valore(Step 1)")
+plt.bar(0.3, valmax2, width=0.3,color=colori[1],label="Secondo valore(Step 2)")
 
+plt.bar(val[1], valmin1, width=0.3,color=colori[0])
+plt.bar(1.3, valmin2, width=0.3,color=colori[1])
+
+plt.bar(val[2], valavg1, width=0.3,color=colori[0])
+plt.bar(2.3, valavg2, width=0.3,color=colori[1])
+
+
+
+
+plt.ylim([0, 60])
+plt.ylabel('valore')
+plt.xlabel('max,min,avg')
+plt.title('Grafico a linee multiple(max,avg,min)',fontweight='bold', fontsize=15)
+plt.legend(loc="best")
+fig.savefig('grafic/graficMediaMinMax.png')
+plt.show()
