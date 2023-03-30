@@ -37,8 +37,6 @@ ImgTask2_2=[dataTime[72][1],dataTime[74][1],dataTime[76][1],dataTime[78][1]]
 ImgTask3_2=[dataTime[80][1],dataTime[82][1],dataTime[82][1],dataTime[84][1]]
 ImgTask4_2=[dataTime[90][1],dataTime[92][1],dataTime[94][1],dataTime[96][1]]
 
-if ImgTask1[2]==ImgTask1_2[2]:
-   print("yes")
 
 
 print(ImgTask1)
