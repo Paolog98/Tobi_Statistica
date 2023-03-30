@@ -78,21 +78,21 @@ def Fisstask(time1,time2,time3,time4,time5,time6,csv_filef):
 
 def numFissP(dataTime):
     # recupero tempi delle 1 immagini della prima parte TASK1
-    delta1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[8][2])
-    delta2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[9][3])
-    delta3 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[11][3])
-    delta4 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[12][3])
-    delta5 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[14][3])
-    delta6 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[15][3])
+    delta1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[7][2])
+    delta2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[7][3])
+    delta3 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[9][3])
+    delta4 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[11][3])
+    delta5 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[12][3])
+    delta6 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[13][3])
 
 
     # SECONDA IMMAGINE TASK 1 SECONDA VOLTA
-    delta7 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[59][2])
-    delta8= delta_unix_respect_to_video_start(dataTime[0][2], dataTime[60][3])
-    delta9 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[62][3])
-    delta10 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[64][3])
-    delta11 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[66][3])
-    delta12 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[68][3])
+    delta7 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[63][2])
+    delta8= delta_unix_respect_to_video_start(dataTime[0][2], dataTime[63][3])
+    delta9 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[66][3])
+    delta10 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[68][3])
+    delta11 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[69][3])
+    delta12 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[70][3])
 
 
 
@@ -102,19 +102,19 @@ def numFissP(dataTime):
     # TEMPI TASK 2 PRIMA VOLTA
 
     delta13 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[15][2])
-    delta14 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[16][3])
-    delta15 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[18][3])
-    delta16 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[20][3])
-    delta17 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[22][3])
-    delta18 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[24][3])
+    delta14 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[15][3])
+    delta15 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[17][3])
+    delta16 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[19][3])
+    delta17 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[21][3])
+    delta18 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[22][3])
 
     # SSECONDA VOLTA
-    delta19 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[69][2])
-    delta20 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[70][3])
-    delta21 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[72][3])
-    delta22 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[74][3])
-    delta23 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[76][3])
-    delta24 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[77][3])
+    delta19 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[72][2])
+    delta20 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[72][3])
+    delta21 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[74][3])
+    delta22 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[76][3])
+    delta23 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[77][3])
+    delta24 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[78][3])
 
 
 
@@ -125,19 +125,19 @@ def numFissP(dataTime):
 
     # TEMPI TASK 3 PRIMA VOLTA
     delta25 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[23][2])
-    delta26 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[24][3])
-    delta27 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[26][3])
-    delta28 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[28][3])
-    delta29 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[30][3])
-    delta30 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[32][3])
+    delta26 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[23][3])
+    delta27 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[24][3])
+    delta28 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[26][3])
+    delta29 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[28][3])
+    delta30 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[29][3])
 
     # SECONDA VOLTA TASK3
-    delta31 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[75][2])
-    delta32 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[76][3])
-    delta33 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[78][3])
-    delta34 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[80][3])
-    delta35 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[82][3])
-    delta36 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[83][3])
+    delta31 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[80][2])
+    delta32 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[80][3])
+    delta33 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[82][3])
+    delta34 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[84][3])
+    delta35 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[86][3])
+    delta36 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[87][3])
 
 
 
@@ -146,20 +146,20 @@ def numFissP(dataTime):
 
 
     # TEMPI TASK 4 PRIMA VOLTA
-    delta37 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[32][2])
-    delta38 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[33][3])
-    delta39 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[35][3])
-    delta40 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[37][3])
-    delta41 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[39][3])
-    delta42 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[41][3])
+    delta37 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[31][2])
+    delta38 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[31][3])
+    delta39 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[33][3])
+    delta40 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[35][3])
+    delta41 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[37][3])
+    delta42 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[38][3])
 
     # SECONDA VOLTA
-    delta43 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[81][2])
-    delta44 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[82][3])
-    delta45 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[84][3])
-    delta46 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[86][3])
-    delta47 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[88][3])
-    delta48 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[90][3])
+    delta43 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[90][2])
+    delta44 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[90][3])
+    delta45 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[92][3])
+    delta46 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[94][3])
+    delta47 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[96][3])
+    delta48 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[97][3])
 
 
     #PRIME 4 IMMAGINI TASK 1 prima volta

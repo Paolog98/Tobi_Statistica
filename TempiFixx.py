@@ -27,6 +27,38 @@ fileTime = pd.read_csv(pathTime, sep=',', engine='python', header=None)
 dataTime = fileTime.values.tolist()
 
 
+ImgTask1=[dataTime[7][1],dataTime[9][1],dataTime[11][1],dataTime[13][1]]
+ImgTask2=[dataTime[15][1],dataTime[17][1],dataTime[19][1],dataTime[21][1]]
+ImgTas3=[dataTime[23][1],dataTime[25][1],dataTime[27][1],dataTime[29][1]]
+ImgTas4=[dataTime[31][1],dataTime[33][1],dataTime[35][1],dataTime[37][1]]
+
+ImgTask1_2=[dataTime[63][1],dataTime[66][1],dataTime[68][1],dataTime[70][1]]
+ImgTask2_2=[dataTime[72][1],dataTime[74][1],dataTime[76][1],dataTime[78][1]]
+ImgTask3_2=[dataTime[80][1],dataTime[82][1],dataTime[82][1],dataTime[84][1]]
+ImgTask4_2=[dataTime[90][1],dataTime[92][1],dataTime[94][1],dataTime[96][1]]
+
+if ImgTask1[2]==ImgTask1_2[2]:
+   print("yes")
+
+
+print(ImgTask1)
+print(ImgTask1_2)
+
+print("...")
+
+print(ImgTask2)
+print(ImgTask2_2)
+
+print("...")
+
+print(ImgTas3)
+print(ImgTask3_2)
+
+print("...")
+print(ImgTas4)
+print(ImgTask4_2)
+
+
 delta_sec_7_1=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[7][2])
 delta_sec_7_2=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[7][3])
 delta_sec_9_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[9][2])
@@ -42,4 +74,3 @@ delta_sec_60_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[61][
 delta_sec_62_3 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[63][3])
 delta_sec_62_4 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[66][3])
 delta_sec_63_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[68][3])
-print(delta_sec_60_1,delta_sec_60_2,delta_sec_62_3,delta_sec_62_4,delta_sec_63_1)
