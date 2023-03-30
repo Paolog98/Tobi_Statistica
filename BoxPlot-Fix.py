@@ -230,6 +230,8 @@ fig.savefig('grafic/boxplotsk1_2.png')
 # Mostra il grafico
 plt.show()
 
+
+
 #SECONDO TASK
 fig, ax = plt.subplots()
 fix1=[fiss1[4],fiss1[5],fiss1[6],fiss1[7]]
