@@ -154,6 +154,7 @@ ax.boxplot(fiss1)
 ax.set_ylabel('Durata delle fissazioni task prima parte')
 
 # Mostra il grafico
+fig.savefig('grafic/boxplot1.png')
 plt.show()
 
 
@@ -163,6 +164,6 @@ ax.boxplot(fiss2)
 
 # Personalizzazione dell'asse y
 ax.set_ylabel('Durata delle fissazioni task seconda parte')
-
+fig.savefig('grafic/boxplot2.png')
 # Mostra il grafico
 plt.show()
