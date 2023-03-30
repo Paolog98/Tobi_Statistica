@@ -138,12 +138,8 @@ def numFissP(dataTime):
     return FisstaskP,FisstaskP2
 
 
-
-
-
-# Dati di esempio
-
 fiss1,fiss2=numFissP(dataTime)
+
 
 
 # Creazione del box-plot
@@ -156,6 +152,7 @@ ax.set_ylabel('Durata delle fissazioni task prima parte')
 # Mostra il grafico
 fig.savefig('grafic/boxplot1.png')
 plt.show()
+
 
 
 fig, ax = plt.subplots()
