@@ -154,7 +154,7 @@ def numFissP(dataTime):
 
 
 
-n=int(sg.popup_get_text("Quanti pazienti vuoi analizzare?(max 5)"))
+n=int(sg.popup_get_text("Quanti pazienti vuoi analizzare?"))
 
 sum_f1=[]
 sum_f2=[]

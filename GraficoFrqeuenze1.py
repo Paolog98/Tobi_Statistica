@@ -203,7 +203,7 @@ def numFissP(dataTime):
 
 
 
-n=int(sg.popup_get_text("Quanti pazienti vuoi analizzare(grafico immagini)?(max 4)"))
+n=int(sg.popup_get_text("Quanti pazienti vuoi analizzare(grafico immagini)?"))
 
 sum_f1=[]
 sum_f2=[]
