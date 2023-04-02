@@ -376,19 +376,19 @@ valarray=[valmax1,valmax2,valavg2,valmin1,valmin2]
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12, 8))
 
 # Dati per il grafico
-x = [1, 2,3,4]  # Valori sull'asse x
-y1 = [valmax1,valmax2,valmax3,valmax4]  # Valori max
-y2 = [valmin1,valmin2,valmin3,valmin4]  # Valori min
-y3 = [valavg1,valavg2,valavg3,valavg4]  # Valori avg
+y = [7, 13,22,31]  # Valori sull'asse x
+x1 = [valmax1,valmax2,valmax3,valmax4]  # Valori max
+x2 = [valmin1,valmin2,valmin3,valmin4]  # Valori min
+x3 = [valavg1,valavg2,valavg3,valavg4]  # Valori avg
 
 # Creazione del grafico
-plt.plot(x, y2,'-o', label='Valore min')
-plt.plot(x, y3,'-o', label='Valore avg')
-plt.plot(x, y1,'-o',label='Valore max')
+plt.plot(y, x2,'-o', label='Valore min')
+plt.plot(y, x3,'-o', label='Valore avg')
+plt.plot(y, x1,'-o',label='Valore max')
 
 # Aggiunta di etichette e titolo
-plt.xlabel('Valori sull\'asse x')
-plt.ylabel('Valori sull\'asse y')
+plt.xlabel('Valori')
+plt.ylabel('tempo(sec)')
 plt.title('Grafico a linee multiple(max,min,avg)')
 plt.legend(loc="best")
 
