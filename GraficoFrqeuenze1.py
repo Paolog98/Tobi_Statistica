@@ -355,15 +355,18 @@ valmax2=max(sum_f1[4],sum_f1[5],sum_f1[6],sum_f1[7])
 valmax3=max(sum_f1[8],sum_f1[9],sum_f1[10],sum_f1[11])
 valmax4=max(sum_f1[12],sum_f1[13],sum_f1[14],sum_f1[15])
 
+
 array1=[sum_f1[0],sum_f1[1],sum_f1[2],sum_f1[3]]
 array2=[sum_f1[4],sum_f1[5],sum_f1[6],sum_f1[7]]
 array3=[sum_f1[8],sum_f1[9],sum_f1[10],sum_f1[11]]
 array4=[sum_f1[12],sum_f1[13],sum_f1[14],sum_f1[15]]
 
+
 valavg1=sum(array1)/4
 valavg2=sum(array2)/4
 valavg3=sum(array3)/4
 valavg4=sum(array4)/4
+
 
 valmin1=min(sum_f1[0],sum_f1[1],sum_f1[2],sum_f1[3])
 valmin2=min(sum_f1[4],sum_f1[5],sum_f1[6],sum_f1[7])
