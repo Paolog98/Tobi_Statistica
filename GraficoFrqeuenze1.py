@@ -391,7 +391,7 @@ plt.plot(x, y1,'-o',label='Valore max')
 
 # Aggiunta di etichette e titolo
 plt.xlabel('Tempo(sec)')
-plt.ylabel('Valori')
+plt.ylabel('Valore')
 plt.title('Grafico a linee multiple(max,min,avg)')
 plt.legend(loc="best")
 
