@@ -350,14 +350,25 @@ plt.show()
 
 #SECONDO GRAFICO VAL MAX MIN AVG
 #dati grafico linee multiple max,medio,min
-valmax1=max(sum_f1)
-valmax2=max(sum_f2)
+valmax1=max(sum_f1[0],sum_f1[1],sum_f1[2],sum_f1[3])
+valmax2=max(sum_f1[4],sum_f1[5],sum_f1[6],sum_f1[7])
+valmax3=max(sum_f1[8],sum_f1[9],sum_f1[10],sum_f1[11])
+valmax4=max(sum_f1[12],sum_f1[13],sum_f1[14],sum_f1[15])
 
-valavg1=sum(sum_f1)/len(sum_f1)
-valavg2=sum(sum_f2)/len(sum_f2)
+array1=[sum_f1[0],sum_f1[1],sum_f1[2],sum_f1[3]]
+array2=[sum_f1[4],sum_f1[5],sum_f1[6],sum_f1[7]]
+array3=[sum_f1[8],sum_f1[9],sum_f1[10],sum_f1[11]]
+array4=[sum_f1[12],sum_f1[13],sum_f1[14],sum_f1[15]]
 
-valmin1=min(sum_f1)
-valmin2=min(sum_f2)
+valavg1=sum(array1)/4
+valavg2=sum(array2)/4
+valavg3=sum(array3)/4
+valavg4=sum(array4)/4
+
+valmin1=min(sum_f1[0],sum_f1[1],sum_f1[2],sum_f1[3])
+valmin2=min(sum_f1[4],sum_f1[5],sum_f1[6],sum_f1[7])
+valmin3=min(sum_f1[8],sum_f1[9],sum_f1[10],sum_f1[11])
+valmin4=min(sum_f1[12],sum_f1[13],sum_f1[14],sum_f1[15])
 
 print(valmax1,valmax2,valavg1,valavg2,valmin1,valmin2)
 valarray=[valmax1,valmax2,valavg2,valmin1,valmin2]
@@ -365,10 +376,10 @@ valarray=[valmax1,valmax2,valavg2,valmin1,valmin2]
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12, 8))
 
 # Dati per il grafico
-x = [1, 2]  # Valori sull'asse x
-y1 = [valmax1,valmax2]  # Valori max
-y2 = [valmin1,valmin2]  # Valori min
-y3 = [valavg1,valavg2]  # Valori avg
+x = [1, 2,3,4]  # Valori sull'asse x
+y1 = [valmax1,valmax2,valmax3,valmax4]  # Valori max
+y2 = [valmin1,valmin2,valmin3,valmin4]  # Valori min
+y3 = [valavg1,valavg2,valavg3,valavg4]  # Valori avg
 
 # Creazione del grafico
 plt.plot(x, y2,'-o', label='Valore min')
