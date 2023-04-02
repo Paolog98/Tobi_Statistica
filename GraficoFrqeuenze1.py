@@ -371,9 +371,9 @@ y2 = [valmin1,valmin2]  # Valori min
 y3 = [valavg1,valavg2]  # Valori avg
 
 # Creazione del grafico
-plt.plot(x, y1, label='Valore max')
-plt.plot(x, y2, label='Valore min')
-plt.plot(x, y3, label='Valore avg')
+plt.plot(x, y2,'-o', label='Valore min')
+plt.plot(x, y3,'-o', label='Valore avg')
+plt.plot(x, y1,'-o',label='Valore max')
 
 # Aggiunta di etichette e titolo
 plt.xlabel('Valori sull\'asse x')
