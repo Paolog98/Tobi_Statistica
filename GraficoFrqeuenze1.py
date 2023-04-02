@@ -218,8 +218,10 @@ for i in range(n):
 
 for j in range(len(sum_array)):
     if i==0:
+        count=i+1
         sum_f1.append(sum_array[j])
     elif i==1:
+     count=i+2
      sum_f1.append(sum_array[j] + sum_array[j])
     elif i==2:
      sum_f1.append(sum_array[j] + sum_array[j]+sum_array[j])
@@ -333,7 +335,14 @@ plt.ylabel('Numero di fissazioni')
 plt.xlabel('Immagine ')
 plt.title('Grafico delle Frequenze assolute relativo a una singola immagine',fontweight='bold', fontsize=15)
 plt.legend(loc="best")
-fig.savefig('grafic/graficNumFissazioniImg.png')
+print(count)
+if count==1:
+ name=str(os.path.dirname(pathTime))
+ fig.savefig(name+"SingoloPazienteImg"+".png")
+elif count>2:
+    name = str(os.path.dirname(pathTime))
+    fig.savefig(name +"PiùPazientiImg" + ".png")
+
 plt.show()
 
 
@@ -351,25 +360,53 @@ valmin1=min(sum_f1)
 valmin2=min(sum_f2)
 
 print(valmax1,valmax2,valavg1,valavg2,valmin1,valmin2)
-
+valarray=[valmax1,valmax2,valavg2,valmin1,valmin2]
 
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12, 8))
-colori=["red","green"]
-val=["Max","Min","Avg"]
 
-plt.bar(val[0], valmax1, width=0.3,color=colori[0],label="Primo valore(Step 1)")
-plt.bar(0.3, valmax2, width=0.3,color=colori[1],label="Secondo valore(Step 2)")
+# Dati per il grafico
+x = [1, 2]  # Valori sull'asse x
+y1 = [valmax1,valmax2]  # Valori max
+y2 = [valmin1,valmin2]  # Valori min
+y3 = [valavg1,valavg2]  # Valori avg
 
-plt.bar(val[1], valmin1, width=0.3,color=colori[0])
-plt.bar(1.3, valmin2, width=0.3,color=colori[1])
+# Creazione del grafico
+plt.plot(x, y1, label='Valore max')
+plt.plot(x, y2, label='Valore min')
+plt.plot(x, y3, label='Valore avg')
 
-plt.bar(val[2], valavg1, width=0.3,color=colori[0])
-plt.bar(2.3, valavg2, width=0.3,color=colori[1])
+# Aggiunta di etichette e titolo
+plt.xlabel('Valori sull\'asse x')
+plt.ylabel('Valori sull\'asse y')
+plt.title('Grafico a linee multiple(max,min,avg)')
+plt.legend(loc="best")
+
+# Aggiunta di una legenda
+plt.legend()
+name=str(os.path.dirname(pathTime))
+if count==1:
+ name=str(os.path.dirname(pathTime))
+ fig.savefig(name+"SingoloPazienteMAX"+".png")
+elif count>2:
+    name = str(os.path.dirname(pathTime))
+    fig.savefig(name +"PiùPazientiMAX" + ".png")
+# Mostra il grafico
+plt.show()
 
 
+
+
+
+'''plt.plot(val[1], valmin1, width=0.3,color=colori[0])
+plt.plot(1.3, valmin2, width=0.3,color=colori[1])
+
+plt.plot(val[2], valavg1, width=0.3,color=colori[0])
+plt.plot(2.3, valavg2, width=0.3,color=colori[1])'''
+
+'''
 ytemp2=[valmax1,valmax2]
 plt.ylim([0,max(ytemp2)+15])
 plt.title('Grafico a linee multiple(max,avg,min)',fontweight='bold', fontsize=15)
 plt.legend(loc="best")
 fig.savefig('grafic/graficMediaMinMax.png')
-plt.show()
+plt.show()'''

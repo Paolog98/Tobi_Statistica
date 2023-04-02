@@ -72,3 +72,4 @@ delta_sec_60_2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[61][
 delta_sec_62_3 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[63][3])
 delta_sec_62_4 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[66][3])
 delta_sec_63_1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[68][3])
+

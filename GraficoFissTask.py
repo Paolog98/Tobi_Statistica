@@ -169,8 +169,10 @@ for i in range(n):
 
 for j in range(len(sum_array)):
     if i==0:
+        count=i+1
         sum_f1.append(sum_array[j])
     elif i==1:
+     count=i+2
      sum_f1.append(sum_array[j] + sum_array[j])
     elif i==2:
      sum_f1.append(sum_array[j] + sum_array[j]+sum_array[j])
@@ -243,5 +245,10 @@ plt.ylabel('Numero di fissazioni')
 plt.xlabel('Task eseguito ')
 plt.title('Grafico delle Frequenze assolute relativo a un singolo task',fontweight='bold', fontsize=15)
 plt.legend(loc="best")
-fig.savefig('grafic/graficNumFissazioniTASK.png')
+if count==1:
+ name=str(os.path.dirname(pathTime))
+ fig.savefig(name+"SingoloPazienteImg"+".png")
+elif count>2:
+    name = str(os.path.dirname(pathTime))
+    fig.savefig(name +"PiùPazientiImg" + ".png")
 plt.show()
