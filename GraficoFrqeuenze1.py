@@ -350,28 +350,59 @@ plt.show()
 
 #SECONDO GRAFICO VAL MAX MIN AVG
 #dati grafico linee multiple max,medio,min
+#Prima Parte
 valmax1=max(sum_f1[0],sum_f1[1],sum_f1[2],sum_f1[3])
 valmax2=max(sum_f1[4],sum_f1[5],sum_f1[6],sum_f1[7])
 valmax3=max(sum_f1[8],sum_f1[9],sum_f1[10],sum_f1[11])
 valmax4=max(sum_f1[12],sum_f1[13],sum_f1[14],sum_f1[15])
+#Seconda Parte
+valmax1_2=max(sum_f2[0],sum_f2[1],sum_f2[2],sum_f2[3])
+valmax2_2=max(sum_f2[4],sum_f2[5],sum_f2[6],sum_f2[7])
+valmax3_2=max(sum_f2[8],sum_f2[9],sum_f2[10],sum_f2[11])
+valmax4_2=max(sum_f2[12],sum_f2[13],sum_f2[14],sum_f2[15])
 
 
+#array prima e seconda parte
 array1=[sum_f1[0],sum_f1[1],sum_f1[2],sum_f1[3]]
 array2=[sum_f1[4],sum_f1[5],sum_f1[6],sum_f1[7]]
 array3=[sum_f1[8],sum_f1[9],sum_f1[10],sum_f1[11]]
 array4=[sum_f1[12],sum_f1[13],sum_f1[14],sum_f1[15]]
 
+array1_2=[sum_f2[0],sum_f2[1],sum_f2[2],sum_f2[3]]
+array2_2=[sum_f2[4],sum_f2[5],sum_f2[6],sum_f2[7]]
+array3_2=[sum_f2[8],sum_f2[9],sum_f2[10],sum_f2[11]]
+array4_2=[sum_f2[12],sum_f2[13],sum_f2[14],sum_f2[15]]
 
+
+
+#media prima parte
 valavg1=sum(array1)/4
 valavg2=sum(array2)/4
 valavg3=sum(array3)/4
 valavg4=sum(array4)/4
 
+#media seconda parte
+valavg1_2=sum(array1_2)/4
+valavg2_2=sum(array2_2)/4
+valavg3_2=sum(array3_2)/4
+valavg4_2=sum(array4_2)/4
 
+
+
+
+#valore minimo prima parte
 valmin1=min(sum_f1[0],sum_f1[1],sum_f1[2],sum_f1[3])
 valmin2=min(sum_f1[4],sum_f1[5],sum_f1[6],sum_f1[7])
 valmin3=min(sum_f1[8],sum_f1[9],sum_f1[10],sum_f1[11])
 valmin4=min(sum_f1[12],sum_f1[13],sum_f1[14],sum_f1[15])
+
+
+#valore minimo seconda parte
+valmin1_2=min(sum_f2[0],sum_f2[1],sum_f2[2],sum_f2[3])
+valmin2_2=min(sum_f2[4],sum_f2[5],sum_f2[6],sum_f2[7])
+valmin3_2=min(sum_f2[8],sum_f2[9],sum_f2[10],sum_f2[11])
+valmin4_2=min(sum_f2[12],sum_f2[13],sum_f2[14],sum_f2[15])
+
 
 print(valmax1,valmax2,valavg1,valavg2,valmin1,valmin2)
 valarray=[valmax1,valmax2,valavg2,valmin1,valmin2]
@@ -379,10 +410,10 @@ valarray=[valmax1,valmax2,valavg2,valmin1,valmin2]
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12, 8))
 
 # Dati per il grafico
-x = [7, 13,22,31]  # Valori sull'asse x
-y1 = [valmax1,valmax2,valmax3,valmax4]  # Valori max
-y2 = [valmin1,valmin2,valmin3,valmin4]  # Valori min
-y3 = [valavg1,valavg2,valavg3,valavg4]  # Valori avg
+x = [10,20,30,40,50,60,70,90]  # Valori sull'asse x
+y1 = [valmax1,valmax2,valmax3,valmax4,valmax1_2,valmax2_2,valmax3_2,valmax4_2]  # Valori max
+y2 = [valmin1,valmin2,valmin3,valmin4,valmin1_2,valmin2_2,valmin3_2,valmin4_2]  # Valori min
+y3 = [valavg1,valavg2,valavg3,valavg4,valavg1_2,valavg2_2,valavg3_2,valavg4_2]  # Valori avg
 
 # Creazione del grafico
 plt.plot(x, y2,'-o', label='Valore min')
@@ -391,8 +422,8 @@ plt.plot(x, y1,'-o',label='Valore max')
 
 # Aggiunta di etichette e titolo
 plt.xlabel('Tempo(sec)')
-plt.ylabel('Valore')
-plt.title('Grafico a linee multiple(max,min,avg)')
+plt.ylabel('Valori Fissazioni')
+plt.title('Grafico a linee multiple(7-38sec/63-97sec)')
 plt.legend(loc="best")
 
 # Aggiunta di una legenda
