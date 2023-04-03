@@ -165,6 +165,7 @@ def numFissP(dataTime):
     #PRIME 4 IMMAGINI TASK 1 prima volta
     Img1=Fisstask(delta1,delta2,delta3,delta4,delta5,delta6,csv_file)
 
+
     #task2 prima volta
     Img2=Fisstask(delta13, delta14, delta15, delta16, delta17, delta18, csv_file)
 
@@ -189,7 +190,9 @@ def numFissP(dataTime):
     #SECONDA VOLTA 4 TASK
     Img44=Fisstask(delta43,delta44,delta45,delta46,delta47,delta48,csv_file)
     print("valoreeeeeeeeeee")
+    print(Img1)
     print(Img44)
+    print(delta1,delta42,delta7,delta48)
 
 
     FisstaskP=[Img1[1],Img1[2],Img1[3],Img1[4],Img2[1],Img2[2],Img2[3],Img2[4],Img3[1],Img3[2],Img3[3],Img3[4],Img4[1],Img4[2],Img4[3],Img4[4]]
@@ -410,7 +413,7 @@ valarray=[valmax1,valmax2,valavg2,valmin1,valmin2]
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12, 8))
 
 # Dati per il grafico
-x = [10,20,30,40,50,60,70,90]  # Valori sull'asse x
+x = [26,60,90,133,206,236,266,319]  # Valori sull'asse x
 y1 = [valmax1,valmax2,valmax3,valmax4,valmax1_2,valmax2_2,valmax3_2,valmax4_2]  # Valori max
 y2 = [valmin1,valmin2,valmin3,valmin4,valmin1_2,valmin2_2,valmin3_2,valmin4_2]  # Valori min
 y3 = [valavg1,valavg2,valavg3,valavg4,valavg1_2,valavg2_2,valavg3_2,valavg4_2]  # Valori avg
@@ -423,7 +426,7 @@ plt.plot(x, y1,'-o',label='Valore max')
 # Aggiunta di etichette e titolo
 plt.xlabel('Tempo(sec)')
 plt.ylabel('Valori Fissazioni')
-plt.title('Grafico a linee multiple(7-38sec/63-97sec)')
+plt.title('Grafico a linee multiple(26-133sec/206-319sec)')
 plt.legend(loc="best")
 
 # Aggiunta di una legenda
