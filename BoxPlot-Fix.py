@@ -209,7 +209,7 @@ fix1=[fiss1[0],fiss1[1],fiss1[2],fiss1[3]]
 ax.boxplot(fix1)
 
 # Personalizzazione dell'asse y
-ax.set_ylabel('tempo(sec)')
+ax.set_ylabel('Tempo(sec)')
 plt.title('Durata delle fissazioni task 1 (7-13sec)')
 
 # Mostra il grafico
