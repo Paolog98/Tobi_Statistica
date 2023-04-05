@@ -227,7 +227,7 @@ ax.boxplot(fix2)
 
 
 # Personalizzazione dell'asse y
-ax.set_ylabel('tempo(sec)')
+ax.set_ylabel('Tempo(sec)')
 plt.title('Durata delle fissazioni task 1 (63-70sec)')
 fig.savefig('grafic/boxplotsk1_2.png')
 # Mostra il grafico
@@ -241,7 +241,7 @@ fix1=[fiss1[4],fiss1[5],fiss1[6],fiss1[7]]
 ax.boxplot(fix1)
 
 # Personalizzazione dell'asse y
-ax.set_ylabel('tempo(sec)')
+ax.set_ylabel('Tempo(sec)')
 plt.title('Durata delle fissazioni task 2 (15-22sec)')
 
 # Mostra il grafico
@@ -258,7 +258,7 @@ ax.boxplot(fix2)
 
 
 # Personalizzazione dell'asse y
-ax.set_ylabel('tempo(sec)')
+ax.set_ylabel('Tempo(sec)')
 plt.title('Durata delle fissazioni task 2 (72-78sec)')
 fig.savefig('grafic/boxplotsk2_2.png')
 # Mostra il grafico
@@ -274,7 +274,7 @@ fix1=[fiss1[8],fiss1[9],fiss1[10],fiss1[11]]
 ax.boxplot(fix1)
 
 # Personalizzazione dell'asse y
-ax.set_ylabel('tempo(sec)')
+ax.set_ylabel('Tempo(sec)')
 plt.title('Durata delle fissazioni task 3 (23-29sec)')
 
 # Mostra il grafico
@@ -291,7 +291,7 @@ ax.boxplot(fix2)
 
 
 # Personalizzazione dell'asse y
-ax.set_ylabel('tempo(sec)')
+ax.set_ylabel('Tempo(sec)')
 plt.title('Durata delle fissazioni task 3 (80-87sec)')
 fig.savefig('grafic/boxplotsk3_2.png')
 # Mostra il grafico
@@ -304,7 +304,7 @@ fix1=[fiss1[12],fiss1[13],fiss1[14],fiss1[15]]
 ax.boxplot(fix1)
 
 # Personalizzazione dell'asse y
-ax.set_ylabel('tempo(sec)')
+ax.set_ylabel('Tempo(sec)')
 plt.title('Durata delle fissazioni task 4 (31-38sec)')
 
 # Mostra il grafico
@@ -321,7 +321,7 @@ ax.boxplot(fix2)
 
 
 # Personalizzazione dell'asse y
-ax.set_ylabel('tempo(sec)')
+ax.set_ylabel('Tempo(sec)')
 plt.title('Durata delle fissazioni task 4 (90-97sec)')
 fig.savefig('grafic/boxplotsk4_2.png')
 # Mostra il grafico
