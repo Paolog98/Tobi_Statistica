@@ -259,7 +259,7 @@ for j in range(len(sum_array2)):
 
 # Dettagli del grafico
 #Marcatori
-Idimg=["Img1","Img2","Img3","Img4","Img5","Img6","Img7","Img8","Img9","Img10","Img11","Img12","Img13","Img14","Img15","Img16"]
+Idimg=["T1_01","T1_02","T1_03","T1_04","T2_01","T2_02","T2_03","T2_04","T3_01","T3_02","T3_03","T3_04","T4_01","T4_02","T4_03","T4_04"]
 colors = ["blue","red"]
 
 
