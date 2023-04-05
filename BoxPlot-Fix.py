@@ -7,6 +7,7 @@ import os
 import matplotlib.image as mpimg
 import json
 import datetime
+from PIL import Image
 
 def convert_unix_to_seconds(unix_timestamp):
  return datetime.datetime.fromtimestamp(unix_timestamp)
@@ -325,3 +326,31 @@ plt.title('Durata delle fissazioni task 4 (90-97sec)')
 fig.savefig('grafic/boxplotsk4_2.png')
 # Mostra il grafico
 plt.show()
+
+
+
+# definisci la cartella contenente le immagini da unire
+folder_path = 'grafic'
+
+# lista tutte le immagini nella cartella
+images = [Image.open(os.path.join(folder_path, f)) for f in os.listdir(folder_path) if f.endswith('.png')]
+
+# ottieni le dimensioni delle immagini
+widths, heights = zip(*(i.size for i in images))
+
+# ottieni la larghezza totale dell'immagine risultante
+total_width = sum(widths)
+
+# crea un'immagine vuota con la larghezza totale e l'altezza massima delle immagini
+max_height = max(heights)
+result_image = Image.new('RGB', (total_width, max_height))
+
+# unisci le immagini orizzontalmente
+x_offset = 0
+for im in images:
+    result_image.paste(im, (x_offset,0))
+    x_offset += im.size[0]
+
+# salva l'immagine risultante
+result_image.save("grafic/output.jpg")
+
