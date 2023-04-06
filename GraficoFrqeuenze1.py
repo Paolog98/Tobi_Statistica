@@ -248,6 +248,93 @@ for j in range(len(sum_array2)):
 
 
 
+#RECUPERO LE IMMAGINI E FACCIO IL CONTROLLO
+ImgTask1=[dataTime[7][1],dataTime[9][1],dataTime[11][1],dataTime[13][1]]
+ImgTask2=[dataTime[15][1],dataTime[17][1],dataTime[19][1],dataTime[21][1]]
+ImgTask3=[dataTime[23][1],dataTime[25][1],dataTime[27][1],dataTime[29][1]]
+ImgTask4=[dataTime[31][1],dataTime[33][1],dataTime[35][1],dataTime[37][1]]
+
+ImgTask1_2=[dataTime[63][1],dataTime[66][1],dataTime[68][1],dataTime[70][1]]
+ImgTask2_2=[dataTime[72][1],dataTime[74][1],dataTime[76][1],dataTime[78][1]]
+ImgTask3_2=[dataTime[80][1],dataTime[82][1],dataTime[82][1],dataTime[84][1]]
+ImgTask4_2=[dataTime[90][1],dataTime[92][1],dataTime[94][1],dataTime[96][1]]
+
+
+print(ImgTask1)
+print(ImgTask1_2)
+
+print("...")
+
+print(ImgTask2)
+print(ImgTask2_2)
+
+print("...")
+
+print(ImgTask3)
+print(ImgTask3_2)
+
+print("...")
+print(ImgTask4)
+print(ImgTask4_2)
+
+# Rimuovi gli apici singoli e gli spazi vuoti
+#LE IMMAGINI DEL TASK 1 PRIMA E SECONDA PARTE ORDINTE
+ImgTask1 = [x.strip("' ").strip() for x in ImgTask1]
+ImgTask1_2 = [x.strip("' ").strip() for x in ImgTask1_2]
+
+#SECONDO TASK
+ImgTask2 = [x.strip("' ").strip() for x in ImgTask2]
+ImgTask2_2 = [x.strip("' ").strip() for x in ImgTask2_2]
+
+#TERZO TASK
+ImgTask3=[x.strip("' ").strip() for x in ImgTask3]
+ImgTask3_2 = [x.strip("' ").strip() for x in ImgTask3_2]
+
+#QUARTO TASK
+ImgTask4=[x.strip("' ").strip() for x in ImgTask4]
+ImgTask4_2=[x.strip("' ").strip() for x in ImgTask4_2]
+
+
+
+
+
+
+
+
+
+
+# Ordina gli array
+ImgTask1.sort()
+ImgTask1_2.sort()
+
+ImgTask2.sort()
+ImgTask2_2.sort()
+
+ImgTask3.sort()
+ImgTask3_2.sort()
+
+ImgTask4.sort()
+ImgTask4_2.sort()
+
+print(ImgTask1)
+print(ImgTask1_2)
+
+print("...")
+print(ImgTask2)
+print(ImgTask2_2)
+
+print("...")
+
+print(ImgTask3)
+print(ImgTask3_2)
+
+print("...")
+print(ImgTask4)
+print(ImgTask4_2)
+
+
+
+
 
 
 
@@ -259,64 +346,75 @@ for j in range(len(sum_array2)):
 
 # Dettagli del grafico
 #Marcatori
-Idimg=["T1_01","T1_02","T1_03","T1_04","T2_01","T2_02","T2_03","T2_04","T3_01","T3_02","T3_03","T3_04","T4_01","T4_02","T4_03","T4_04"]
+
 colors = ["blue","red"]
 
 
 
-fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12, 8))
+fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12,8))
+ax.set_xticks(np.arange(-4, 16, 1))
+ax.tick_params(axis='x', which='major', labelsize=3.9, pad=4)
+
 
 #PRIM0 TASK
-plt.bar(Idimg[0], sum_f1[0], width=0.3,color=colors[0],label="Prima visione della foto")
+
+plt.bar(ImgTask1[0], sum_f1[0], width=0.3,color=colors[0],label="Prima visione della foto")
 plt.bar(0.3, sum_f2[0], width=0.3,color=colors[1],label="Seconda visione della foto")
 
-#SECONDO TASK
-
-plt.bar(Idimg[1], sum_f1[1], width=0.3,color=colors[0])
+plt.bar(ImgTask1[1], sum_f1[1], width=0.3,color=colors[0])
 plt.bar(1.3, sum_f2[1], width=0.3,color=colors[1])
 
-#TERZO TASK
-plt.bar(Idimg[2], sum_f1[2], width=0.3,color=colors[0])
+plt.bar(ImgTask1[2], sum_f1[2], width=0.3,color=colors[0])
 plt.bar(2.3, sum_f2[2], width=0.3,color=colors[1])
 
-#QUARTO TASK
-plt.bar(Idimg[3], sum_f1[3], width=0.3,color=colors[0])
+plt.bar(ImgTask1[3], sum_f1[3], width=0.3,color=colors[0])
 plt.bar(3.3, sum_f2[3], width=0.3,color=colors[1])
 
-plt.bar(Idimg[4], sum_f1[4], width=0.3,color=colors[0])
+
+
+
+
+plt.bar(ImgTask2[0], sum_f1[4], width=0.3,color=colors[0])
 plt.bar(4.3, sum_f2[4], width=0.3,color=colors[1])
 
-plt.bar(Idimg[5], sum_f1[5], width=0.3,color=colors[0])
+plt.bar(ImgTask2[1], sum_f1[5], width=0.3,color=colors[0])
 plt.bar(5.3, sum_f2[5], width=0.3,color=colors[1])
 
-plt.bar(Idimg[6], sum_f1[6], width=0.3,color=colors[0])
+
+plt.bar(ImgTask2[2], sum_f1[6], width=0.3,color=colors[0])
 plt.bar(6.3, sum_f2[6], width=0.3,color=colors[1])
 
-plt.bar(Idimg[7], sum_f1[7], width=0.3,color=colors[0])
+
+plt.bar(ImgTask2[3], sum_f1[7], width=0.3,color=colors[0])
 plt.bar(7.3, sum_f2[7], width=0.3,color=colors[1])
 
-plt.bar(Idimg[8], sum_f1[8], width=0.3,color=colors[0])
+
+
+plt.bar(ImgTask3[0], sum_f1[8], width=0.3,color=colors[0])
 plt.bar(8.3, sum_f2[8], width=0.3,color=colors[1])
 
-plt.bar(Idimg[9], sum_f1[9], width=0.3,color=colors[0])
+
+plt.bar(ImgTask3[1], sum_f1[9], width=0.3,color=colors[0])
 plt.bar(9.3, sum_f2[9], width=0.3,color=colors[1])
 
-plt.bar(Idimg[10], sum_f1[10], width=0.3,color=colors[0])
+plt.bar(ImgTask3[2], sum_f1[10], width=0.3,color=colors[0])
 plt.bar(10.3, sum_f2[10], width=0.3,color=colors[1])
 
-plt.bar(Idimg[11], sum_f1[11], width=0.3,color=colors[0])
+plt.bar(ImgTask3[3], sum_f1[11], width=0.3,color=colors[0])
 plt.bar(11.3, sum_f2[11], width=0.3,color=colors[1])
 
-plt.bar(Idimg[12], sum_f1[12], width=0.3,color=colors[0])
+
+
+plt.bar(ImgTask4[0], sum_f1[12], width=0.3,color=colors[0])
 plt.bar(12.3, sum_f2[12], width=0.3,color=colors[1])
 
-plt.bar(Idimg[13], sum_f1[13], width=0.3,color=colors[0])
+plt.bar(ImgTask4[1], sum_f1[13], width=0.3,color=colors[0])
 plt.bar(13.3, sum_f2[13], width=0.3,color=colors[1])
 
-plt.bar(Idimg[14], sum_f1[14], width=0.3,color=colors[0])
+plt.bar(ImgTask4[2], sum_f1[14], width=0.3,color=colors[0])
 plt.bar(14.3, sum_f2[14], width=0.3,color=colors[1])
 
-plt.bar(Idimg[15], sum_f1[15], width=0.3,color=colors[0])
+plt.bar(ImgTask4[3], sum_f1[15], width=0.3,color=colors[0])
 plt.bar(15.3, sum_f2[15], width=0.3,color=colors[1])
 
 
