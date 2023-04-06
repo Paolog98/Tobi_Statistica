@@ -25,11 +25,6 @@ def delta_unix_respect_to_video_start(video_start_unix, actual_unix):
 
 
 
-
-
-
-
-
 #!!!!FUNZIONE PER IL CALCOLO DEI tempi delle immagini IN DET INTERVALLO!!!!!
 def Fisstask(time1,time2,time3,time4,time5,time6,csv_filef):
     listTime = []
@@ -63,7 +58,7 @@ def Fisstask(time1,time2,time3,time4,time5,time6,csv_filef):
         for x in times:
             if x <= listTime[i]:
                  time2.append(x)
-                 numFix1 = [int(element) for element in data[smin:len(time2), 1]]
+        numFix1 = [int(element) for element in data[smin:len(time2), 1]]
         diff = len(time2) - smin
         smin = smin + diff
         numF1.append(len(numFix1))
@@ -88,19 +83,15 @@ def numFissP(dataTime):
     delta6 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[13][3])
 
 
-
     # SECONDA IMMAGINE TASK 1 SECONDA VOLTA
 
 
-    delta7 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[63][3])
+    delta7 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[63][2])
     delta8= delta_unix_respect_to_video_start(dataTime[0][2], dataTime[65][3])
     delta9 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[67][3])
     delta10 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[69][3])
     delta11 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[71][3])
     delta12 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[73][3])
-
-
-
 
 
 
@@ -117,7 +108,7 @@ def numFissP(dataTime):
     delta18 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[22][3])
 
     # SSECONDA VOLTA
-    delta19 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[74][3])
+    delta19 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[74][2])
     delta20 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[76][3])
     delta21 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[78][3])
     delta22 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[80][3])
@@ -140,7 +131,7 @@ def numFissP(dataTime):
     delta30 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[29][3])
 
     # SECONDA VOLTA TASK3
-    delta31 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[84][3])
+    delta31 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[84][2])
     delta32 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[86][3])
     delta33 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[88][3])
     delta34 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[90][3])
@@ -162,7 +153,7 @@ def numFissP(dataTime):
     delta42 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[38][3])
 
     # SECONDA VOLTA
-    delta43 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[93][3])
+    delta43 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[93][2])
     delta44 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[95][3])
     delta45 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[97][3])
     delta46 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[99][3])
@@ -227,32 +218,32 @@ for i in range(n):
     csv_file= sg.popup_get_file(sg.FileBrowse(),title="RECUPERA FILE FIX.CSV del paziente")
     sum_array, sum_array2= numFissP(dataTime)
 
-for j in range(len(sum_array)):
-    if i==0:
-        count=i+1
-        sum_f1.append(sum_array[j])
-    elif i==1:
-     count=i+2
-     sum_f1.append(sum_array[j] + sum_array[j])
-    elif i==2:
-     sum_f1.append(sum_array[j] + sum_array[j]+sum_array[j])
-    elif i == 3:
-        sum_f1.append(sum_array[j] + sum_array[j] + sum_array[j]+sum_array[j])
-    elif i == 4:
-        sum_f1.append(sum_array[j] + sum_array[j] + sum_array[j] + sum_array[j] + sum_array[j])
+    for j in range(len(sum_array)):
+        if i==0:
+            count=i+1
+            sum_f1.append(sum_array[j])
+        elif i==1:
+         count=i+2
+         sum_f1.append(sum_array[j] + sum_array[j])
+        elif i==2:
+         sum_f1.append(sum_array[j] + sum_array[j]+sum_array[j])
+        elif i == 3:
+            sum_f1.append(sum_array[j] + sum_array[j] + sum_array[j]+sum_array[j])
+        elif i == 4:
+            sum_f1.append(sum_array[j] + sum_array[j] + sum_array[j] + sum_array[j] + sum_array[j])
 
 
-for j in range(len(sum_array2)):
-    if i == 0:
-        sum_f2.append(sum_array2[j])
-    elif i == 1:
-        sum_f2.append(sum_array2[j] + sum_array2[j])
-    elif i == 2:
-        sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j])
-    elif i == 3:
-        sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j] + sum_array2[j])
-    elif i == 4:
-        sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j] + sum_array2[j]+sum_array2[j])
+    for j in range(len(sum_array2)):
+        if i == 0:
+            sum_f2.append(sum_array2[j])
+        elif i == 1:
+            sum_f2.append(sum_array2[j] + sum_array2[j])
+        elif i == 2:
+            sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j])
+        elif i == 3:
+            sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j] + sum_array2[j])
+        elif i == 4:
+            sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j] + sum_array2[j]+sum_array2[j])
 
 
 
