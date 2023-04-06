@@ -78,6 +78,8 @@ def Fisstask(time1,time2,time3,time4,time5,time6,csv_filef):
 
 def numFissP(dataTime):
     # recupero tempi delle 1 immagini della prima parte TASK1
+
+
     delta1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[7][2])
     delta2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[7][3])
     delta3 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[9][3])
@@ -86,13 +88,19 @@ def numFissP(dataTime):
     delta6 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[13][3])
 
 
+
     # SECONDA IMMAGINE TASK 1 SECONDA VOLTA
+
+
     delta7 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[63][3])
     delta8= delta_unix_respect_to_video_start(dataTime[0][2], dataTime[65][3])
     delta9 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[67][3])
     delta10 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[69][3])
     delta11 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[71][3])
     delta12 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[73][3])
+
+
+
 
 
 
@@ -255,9 +263,9 @@ ImgTask3=[dataTime[23][1],dataTime[25][1],dataTime[27][1],dataTime[29][1]]
 ImgTask4=[dataTime[31][1],dataTime[33][1],dataTime[35][1],dataTime[37][1]]
 
 ImgTask1_2=[dataTime[63][1],dataTime[65][1],dataTime[67][1],dataTime[69][1]]
-ImgTask2_2=[dataTime[74][1],dataTime[76][1],dataTime[78][1],dataTime[80][1]]
-ImgTask3_2=[dataTime[82][1],dataTime[84][1],dataTime[86][1],dataTime[88][1]]
-ImgTask4_2=[dataTime[90][1],dataTime[92][1],dataTime[94][1],dataTime[96][1]]
+ImgTask2_2=[dataTime[71][1],dataTime[73][1],dataTime[75][1],dataTime[78][1]]
+ImgTask3_2=[dataTime[80][1],dataTime[82][1],dataTime[84][1],dataTime[86][1]]
+ImgTask4_2=[dataTime[88][1],dataTime[90][1],dataTime[92][1],dataTime[94][1]]
 
 
 print(ImgTask1)
