@@ -88,11 +88,11 @@ def numFissP(dataTime):
 
     # SECONDA IMMAGINE TASK 1 SECONDA VOLTA
     delta7 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[63][2])
-    delta8= delta_unix_respect_to_video_start(dataTime[0][2], dataTime[63][3])
-    delta9 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[66][3])
-    delta10 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[68][3])
-    delta11 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[69][3])
-    delta12 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[70][3])
+    delta8= delta_unix_respect_to_video_start(dataTime[0][2], dataTime[64][3])
+    delta9 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[65][3])
+    delta10 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[66][3])
+    delta11 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[67][3])
+    delta12 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[68][3])
 
 
 
@@ -109,12 +109,12 @@ def numFissP(dataTime):
     delta18 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[22][3])
 
     # SSECONDA VOLTA
-    delta19 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[72][2])
-    delta20 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[72][3])
-    delta21 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[74][3])
-    delta22 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[76][3])
-    delta23 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[77][3])
-    delta24 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[78][3])
+    delta19 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[74][2])
+    delta20 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[75][3])
+    delta21 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[76][3])
+    delta22 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[77][3])
+    delta23 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[78][3])
+    delta24 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[79][3])
 
 
 
@@ -132,12 +132,12 @@ def numFissP(dataTime):
     delta30 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[29][3])
 
     # SECONDA VOLTA TASK3
-    delta31 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[80][2])
-    delta32 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[80][3])
-    delta33 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[82][3])
+    delta31 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[82][2])
+    delta32 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[82][3])
+    delta33 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[83][3])
     delta34 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[84][3])
-    delta35 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[86][3])
-    delta36 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[87][3])
+    delta35 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[85][3])
+    delta36 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[88][3])
 
 
 
@@ -254,9 +254,9 @@ ImgTask2=[dataTime[15][1],dataTime[17][1],dataTime[19][1],dataTime[21][1]]
 ImgTask3=[dataTime[23][1],dataTime[25][1],dataTime[27][1],dataTime[29][1]]
 ImgTask4=[dataTime[31][1],dataTime[33][1],dataTime[35][1],dataTime[37][1]]
 
-ImgTask1_2=[dataTime[63][1],dataTime[66][1],dataTime[68][1],dataTime[70][1]]
-ImgTask2_2=[dataTime[72][1],dataTime[74][1],dataTime[76][1],dataTime[78][1]]
-ImgTask3_2=[dataTime[80][1],dataTime[82][1],dataTime[82][1],dataTime[84][1]]
+ImgTask1_2=[dataTime[63][1],dataTime[64][1],dataTime[65][1],dataTime[66][1]]
+ImgTask2_2=[dataTime[74][1],dataTime[75][1],dataTime[76][1],dataTime[77][1]]
+ImgTask3_2=[dataTime[80][1],dataTime[82][1],dataTime[83][1],dataTime[84][1]]
 ImgTask4_2=[dataTime[90][1],dataTime[92][1],dataTime[94][1],dataTime[96][1]]
 
 
