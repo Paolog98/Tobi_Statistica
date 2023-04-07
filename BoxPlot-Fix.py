@@ -205,152 +205,44 @@ fiss1,fiss2=numFissP(dataTime)
 #PRIMO TASK 1 E SECONDA PARTE
 
 # Creazione del box-plot
-fig, ax = plt.subplots()
+
+#primo task
 fix1=[fiss1[0],fiss1[1],fiss1[2],fiss1[3]]
-ax.boxplot(fix1)
-
-# Personalizzazione dell'asse y
-ax.set_ylabel('Tempo(sec)')
-plt.title('Durata delle fissazioni task 1 (7-13sec)')
-
-# Mostra il grafico
-fig.savefig('grafic/boxplotsk1_1.png')
-plt.show()
-
-
-
-
-
-fig, ax = plt.subplots()
 fix2=[fiss2[0],fiss2[1],fiss2[2],fiss2[3]]
-ax.boxplot(fix2)
+
+#secondo task
+fix3=[fiss1[4],fiss1[5],fiss1[6],fiss1[7]]
+fix4=[fiss2[4],fiss2[5],fiss2[6],fiss2[7]]
+
+#terzo task
+fix5=[fiss1[8],fiss1[9],fiss1[10],fiss1[11]]
+fix6=[fiss2[8],fiss2[9],fiss2[10],fiss2[11]]
+
+#quarto task
+fix7=[fiss1[12],fiss1[13],fiss1[14],fiss1[15]]
+fix8=[fiss2[12],fiss2[13],fiss2[14],fiss2[15]]
 
 
-# Personalizzazione dell'asse y
-ax.set_ylabel('Tempo(sec)')
-plt.title('Durata delle fissazioni task 1 (63-70sec)')
-fig.savefig('grafic/boxplotsk1_2.png')
-# Mostra il grafico
-plt.show()
-
-
-
-#SECONDO TASK
+data=[fix1,fix3,fix5,fix7,fix2,fix4,fix6,fix8]
 fig, ax = plt.subplots()
-fix1=[fiss1[4],fiss1[5],fiss1[6],fiss1[7]]
-ax.boxplot(fix1)
+bp = ax.boxplot(data,labels=["task1_1","Task2_1","task3_1","Task4_1","Task1_2","Task2_2","Task3_2","Task4_2"])
 
 # Personalizzazione dell'asse y
-ax.set_ylabel('Tempo(sec)')
-plt.title('Durata delle fissazioni task 2 (15-22sec)')
+
+plt.yticks(np.arange(0.43,6), fontsize=12)
+plt.ylabel('Tempo(min)', fontsize=14)
+plt.suptitle("Vengono indicate le fissazioni nella durata di ogni singolo task")
+plt.title('Boxplot per ogni singolo task')
+plt.legend(loc="best")
+
 
 # Mostra il grafico
-fig.savefig('grafic/boxplotsk2_1.png')
+fig.savefig('grafic/boxplotsk.png')
 plt.show()
 
 
 
 
 
-fig, ax = plt.subplots()
-fix2=[fiss2[4],fiss2[5],fiss2[6],fiss2[7]]
-ax.boxplot(fix2)
 
-
-# Personalizzazione dell'asse y
-ax.set_ylabel('Tempo(sec)')
-plt.title('Durata delle fissazioni task 2 (72-78sec)')
-fig.savefig('grafic/boxplotsk2_2.png')
-# Mostra il grafico
-plt.show()
-
-
-
-
-
-#TERZO TASK
-fig, ax = plt.subplots()
-fix1=[fiss1[8],fiss1[9],fiss1[10],fiss1[11]]
-ax.boxplot(fix1)
-
-# Personalizzazione dell'asse y
-ax.set_ylabel('Tempo(sec)')
-plt.title('Durata delle fissazioni task 3 (23-29sec)')
-
-# Mostra il grafico
-fig.savefig('grafic/boxplotsk3_1.png')
-plt.show()
-
-
-
-
-
-fig, ax = plt.subplots()
-fix2=[fiss2[8],fiss2[9],fiss2[10],fiss2[11]]
-ax.boxplot(fix2)
-
-
-# Personalizzazione dell'asse y
-ax.set_ylabel('Tempo(sec)')
-plt.title('Durata delle fissazioni task 3 (80-87sec)')
-fig.savefig('grafic/boxplotsk3_2.png')
-# Mostra il grafico
-plt.show()
-
-
-#QUARTO TASK
-fig, ax = plt.subplots()
-fix1=[fiss1[12],fiss1[13],fiss1[14],fiss1[15]]
-ax.boxplot(fix1)
-
-# Personalizzazione dell'asse y
-ax.set_ylabel('Tempo(sec)')
-plt.title('Durata delle fissazioni task 4 (31-38sec)')
-
-# Mostra il grafico
-fig.savefig('grafic/boxplotsk4_1.png')
-plt.show()
-
-
-
-
-
-fig, ax = plt.subplots()
-fix2=[fiss2[12],fiss2[13],fiss2[14],fiss2[15]]
-ax.boxplot(fix2)
-
-
-# Personalizzazione dell'asse y
-ax.set_ylabel('Tempo(sec)')
-plt.title('Durata delle fissazioni task 4 (90-97sec)')
-fig.savefig('grafic/boxplotsk4_2.png')
-# Mostra il grafico
-plt.show()
-
-
-
-# definisci la cartella contenente le immagini da unire
-folder_path = 'grafic'
-
-# lista tutte le immagini nella cartella
-images = [Image.open(os.path.join(folder_path, f)) for f in os.listdir(folder_path) if f.endswith('.png')]
-
-# ottieni le dimensioni delle immagini
-widths, heights = zip(*(i.size for i in images))
-
-# ottieni la larghezza totale dell'immagine risultante
-total_width = sum(widths)
-
-# crea un'immagine vuota con la larghezza totale e l'altezza massima delle immagini
-max_height = max(heights)
-result_image = Image.new('RGB', (total_width, max_height))
-
-# unisci le immagini orizzontalmente
-x_offset = 0
-for im in images:
-    result_image.paste(im, (x_offset,0))
-    x_offset += im.size[0]
-
-# salva l'immagine risultante
-result_image.save("grafic/output.jpg")
 
