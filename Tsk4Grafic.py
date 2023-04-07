@@ -139,7 +139,9 @@ def calcolofissdxsx(time1, time2, time3,riga, csv_file):
 
 #foto 1 sx dx
 Img1=calcolofissdxsx(delta37,delta37,delta38,37,csv_file)
-print(Img1)
+sx1=Img1[0]
+dx1=Img1[1]
+print(sx1,dx1)
 
 
 
