@@ -228,8 +228,6 @@ bp = ax.boxplot(data,labels=["task1_1","Task2_1","task3_1","Task4_1","Task1_2","
 
 # Personalizzazione dell'asse y
 
-plt.yticks(np.arange(0.43,6), fontsize=12)
-plt.ylabel('Tempo(min)', fontsize=14)
 plt.suptitle("Vengono indicate le fissazioni nella durata di ogni singolo task")
 plt.title('Boxplot per ogni singolo task')
 plt.legend(loc="best")
