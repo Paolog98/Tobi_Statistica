@@ -108,7 +108,7 @@ root = tk.Tk()  # Libreria tkinter
 
 
 
-def calcolofissdxsx(time1, time2, time3, csv_file):
+def calcolofissdxsx(time1, time2, time3,riga, csv_file):
 
 
     fix=Fisstask(time1, time2, time3,csv_file)
@@ -126,11 +126,11 @@ def calcolofissdxsx(time1, time2, time3, csv_file):
         posXPix.append(round(x * displayWidth))
         posYPix.append(round(y * displayHeight))
 
-    center=posXPix[37]+posYPix[37]
+    center=posXPix[riga]-posYPix[riga]
     fix.remove(fix[0])
     print(fix)
-    sx_fixations = [i for i  in fix if posX[37] <= center]
-    dx_fixations = [i for i  in fix if posX[37] > center]
+    sx_fixations = [i for i  in fix if posX[riga] <= center]
+    dx_fixations = [i for i  in fix if posX[riga] > center]
 
     print("Fissazioni a sinistra:", sx_fixations)
     print("Fissazioni a destra:", dx_fixations)
@@ -138,7 +138,7 @@ def calcolofissdxsx(time1, time2, time3, csv_file):
     return sx_fixations,dx_fixations
 
 #foto 1 sx dx
-Img1=calcolofissdxsx(delta37,delta37,delta38,csv_file)
+Img1=calcolofissdxsx(delta37,delta37,delta38,37,csv_file)
 print(Img1)
 
 
