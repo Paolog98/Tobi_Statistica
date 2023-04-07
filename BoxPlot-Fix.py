@@ -223,7 +223,7 @@ fix8=[fiss2[12],fiss2[13],fiss2[14],fiss2[15]]
 
 
 data=[fix1,fix3,fix5,fix7,fix2,fix4,fix6,fix8]
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(12,8))
 bp = ax.boxplot(data,labels=["task1_1","Task2_1","task3_1","Task4_1","Task1_2","Task2_2","Task3_2","Task4_2"])
 
 # Personalizzazione dell'asse y
