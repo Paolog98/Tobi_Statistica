@@ -50,6 +50,7 @@ def Fisstask(time1,time2,time3,csv_filef):
     time2 = []
     smin = 0
     numF1 = []
+    numFix1 = []
 
     # calco numFix delle foto
     for i in range(1, len(listTime)):

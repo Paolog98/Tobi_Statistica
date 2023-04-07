@@ -37,7 +37,7 @@ def Fisstask(time1,time2,time3,time4,time5,time6,csv_filef):
     listTime.append(time1)
     inter = []
     Timeimg = [time1,time2,time3,time4,time5]
-    print(Timeimg)
+    # print(Timeimg)
     num = 5
 
     for i in range(num):
@@ -58,6 +58,7 @@ def Fisstask(time1,time2,time3,time4,time5,time6,csv_filef):
     time2 = []
     smin = 0
     numF1 = []
+    numFix1 = []
 
     # calco numFix delle foto
     for i in range(1, len(listTime)):
@@ -69,13 +70,11 @@ def Fisstask(time1,time2,time3,time4,time5,time6,csv_filef):
         smin = smin + diff
         numF1.append(len(numFix1))
         numFix1.clear()
-        print("VALORIIIIIII")
-        print(numF1)
+        # print("VALORIIIIIII")
+        # print(numF1)
         time2.clear()
 
-
     return numF1
-
 
 def numFissP(dataTime):
     # recupero tempi delle 1 immagini della prima parte TASK1
