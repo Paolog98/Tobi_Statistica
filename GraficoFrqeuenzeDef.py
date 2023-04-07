@@ -237,7 +237,7 @@ for j in range(len(sum_array2)):
 
 
 
-#Recupero i nomi delle immagini dei vari task
+#Recupero le immagini dei vari task
 ImgTask1 = []
 ImgTask2 = []
 ImgTask3 = []
