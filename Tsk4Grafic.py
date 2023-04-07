@@ -90,7 +90,7 @@ for i in range(n):
 
 delta37 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[31][2])
 delta38 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[31][3])
-delta38_1=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[31][3])
+
 
 delta39 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[33][2])
 delta40 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[33][3])
