@@ -209,13 +209,14 @@ print(sx8,dx8)
 
 
 
+sum_array=[Img1[1],Img2[1],Img3[1],Img4[1]]
+sum_array2=[Img5[1],Img6[1],Img7[1],Img8[1]]
 
 
 
 
 
-
-'''for j in range(len(sum_array)):
+for j in range(len(sum_array)):
     if i==0:
         count=i+1
         sum_f1.append(sum_array[j])
@@ -252,91 +253,6 @@ for i in dataTime :
         ImgTask4.append(i[1])
 
 
-# ImgTask1=[dataTime[7][1],dataTime[9][1],dataTime[11][1],dataTime[13][1]]
-# ImgTask2=[dataTime[15][1],dataTime[17][1],dataTime[19][1],dataTime[21][1]]
-# ImgTask3=[dataTime[23][1],dataTime[25][1],dataTime[27][1],dataTime[29][1]]
-# ImgTask4=[dataTime[31][1],dataTime[33][1],dataTime[35][1],dataTime[37][1]]
-#
-# ImgTask1_2=[dataTime[63][1],dataTime[66][1],dataTime[68][1],dataTime[70][1]]
-# ImgTask2_2=[dataTime[72][1],dataTime[74][1],dataTime[76][1],dataTime[78][1]]
-# ImgTask3_2=[dataTime[80][1],dataTime[82][1],dataTime[82][1],dataTime[84][1]]
-# ImgTask4_2=[dataTime[90][1],dataTime[92][1],dataTime[94][1],dataTime[96][1]]
-#
-#
-# # print(ImgTask1)
-# # print(ImgTask1_2)
-# #
-# # print("...")
-# #
-# # print(ImgTask2)
-# # print(ImgTask2_2)
-# #
-# # print("...")
-# #
-# # print(ImgTask3)
-# # print(ImgTask3_2)
-# #
-# # print("...")
-# # print(ImgTask4)
-# # print(ImgTask4_2)
-#
-# # Rimuovi gli apici singoli e gli spazi vuoti
-# #LE IMMAGINI DEL TASK 1 PRIMA E SECONDA PARTE ORDINTE
-# ImgTask1 = [x.strip("' ").strip() for x in ImgTask1]
-# ImgTask1_2 = [x.strip("' ").strip() for x in ImgTask1_2]
-#
-# #SECONDO TASK
-# ImgTask2 = [x.strip("' ").strip() for x in ImgTask2]
-# ImgTask2_2 = [x.strip("' ").strip() for x in ImgTask2_2]
-#
-# #TERZO TASK
-# ImgTask3=[x.strip("' ").strip() for x in ImgTask3]
-# ImgTask3_2 = [x.strip("' ").strip() for x in ImgTask3_2]
-#
-# #QUARTO TASK
-# ImgTask4=[x.strip("' ").strip() for x in ImgTask4]
-# ImgTask4_2=[x.strip("' ").strip() for x in ImgTask4_2]
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-# # Ordina gli array
-# ImgTask1.sort()
-# ImgTask1_2.sort()
-#
-# ImgTask2.sort()
-# ImgTask2_2.sort()
-#
-# ImgTask3.sort()
-# ImgTask3_2.sort()
-#
-# ImgTask4.sort()
-# ImgTask4_2.sort()
-
-# print(ImgTask1)
-# print(ImgTask1_2)
-#
-# print("...")
-# print(ImgTask2)
-# print(ImgTask2_2)
-#
-# print("...")
-#
-# print(ImgTask3)
-# print(ImgTask3_2)
-#
-# print("...")
-# print(ImgTask4)
-# print(ImgTask4_2)
-
-
-
 
 
 
@@ -350,7 +266,7 @@ for i in dataTime :
 # Dettagli del grafico
 #Marcatori
 
-colors = ["blue","red","purple","yellow"]
+colors = ["blue","yellow"]
 
 
 
@@ -364,35 +280,41 @@ plt.xticks(rotation=20)
 
 
 
-plt.bar(ImgTask4[0], sum_f1[0], width=0.3,color=colors[0],label="Prima visione della foto dx")
-plt.bar(0.3, sum_f2[0], width=0.3,color=colors[1],label="Seconda visione della foto dx")
+plt.bar(ImgTask4[0], dx1, width=0.3,color=colors[0],label="Visione della foto dx")
+plt.bar("sx1", sx1, width=0.3,color=colors[1],label="Visione della foto sx")
+plt.bar("dx2", dx5, width=0.3,color=colors[0])
+plt.bar("sx2",sx5, width=0.3,color=colors[1])
 
-plt.bar(ImgTask4[1], sum_f1[1], width=0.3,color=colors[0])
-plt.bar(1.3, sum_f2[1], width=0.3,color=colors[1])
 
-plt.bar(ImgTask4[2], sum_f1[2], width=0.3,color=colors[0])
-plt.bar(2.3, sum_f2[2], width=0.3,color=colors[1])
-
-plt.bar(ImgTask4[3], sum_f1[3], width=0.3,color=colors[0])
-plt.bar(3.3, sum_f2[3], width=0.3,color=colors[1])
-
+'''plt.bar(ImgTask4[1], dx2, width=0.3,color=colors[0])
+plt.bar(2.0, dx6, width=0.3,color=colors[1])
+plt.bar(2.4, sx2, width=0.3,color=colors[0])
+plt.bar(2.8, sx6, width=0.3,color=colors[1])'''
 
 
 
+'''
+plt.bar(ImgTask4[2], dx3, width=0.3,color=colors[0])
+plt.bar(3.2, dx7, width=0.3,color=colors[1])
+plt.bar(3.4, sx3, width=0.3,color=colors[2])
+plt.bar(3.8, sx7, width=0.3,color=colors[3])
 
-# Annotazioni per ogni barra che restituisce il numero di fissazioni
-for i in range(len(sum_f1)):
-    plt.annotate(sum_f1[i], (-0.19 + i, sum_f1[i]))
-for j in range(len(sum_f2)):
-    plt.annotate(sum_f2[j], ( j+0.2, sum_f2[j]))
 
-ytemp=max(sum_f1)
-ytemp2=max(sum_f2)
-ytempf=[ytemp,ytemp2]
 
-plt.ylim([0, max(ytempf)+20])
+
+
+plt.bar(ImgTask4[3], dx4, width=0.3,color=colors[0])
+plt.bar(4.2, dx8, width=0.3,color=colors[1])
+plt.bar(4.4, sx4, width=0.3,color=colors[2])
+plt.bar(4.8, sx8, width=0.3,color=colors[3])'''
+
+
+
+
+
+#plt.ylim([0, max(ytempf)+20])
 plt.ylabel('Numero di fissazioni')
-plt.xlabel('Immagine')
+plt.xlabel('Immagine Task 4')
 plt.title('Grafico delle Frequenze assolute relativo al TASK  4',fontweight='bold', fontsize=15)
 plt.legend(loc="best")
 # print(count)
@@ -411,7 +333,7 @@ plt.show()
 #SECONDO GRAFICO VAL MAX MIN AVG
 #dati grafico linee multiple max,medio,min
 #Prima Parte
-
+''''
 valmax4=max(sum_f1[0],sum_f1[1],sum_f1[2],sum_f1[3])
 #Seconda Parte
 
@@ -484,8 +406,8 @@ plt.show()
 
 
 
-'''
-'''plt.plot(val[1], valmin1, width=0.3,color=colori[0])
+
+plt.plot(val[1], valmin1, width=0.3,color=colori[0])
 plt.plot(1.3, valmin2, width=0.3,color=colori[1])
 
 plt.plot(val[2], valavg1, width=0.3,color=colori[0])
