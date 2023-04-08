@@ -88,26 +88,43 @@ for i in range(n):
     # print(dataTime)
     csv_file= sg.popup_get_file(sg.FileBrowse(),title="RECUPERA FILE FIX.CSV del paziente")
 
+#recuper le immagini
 delta37 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[31][2])
 delta38 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[31][3])
 
+#prima parte
+delta39 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[33][3])
+delta40 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[35][3])
 
-delta39 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[33][2])
-delta40 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[33][3])
+delta41 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[35][3])
+delta42 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[37][3])
 
-delta41 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[34][2])
-delta42 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[34][3])
+delta43 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[37][2])
+delta44 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[38][3])
 
-delta43 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[35][2])
-delta44 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[35][3])
 
-delta45 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[36][2])
-delta46 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[36][3])
+
+
+
+#seconda parte
+delta45 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[90][2])
+delta46 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[90][3])
+
+delta47 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[92][3])
+delta48 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[94][3])
+
+delta49 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[94][3])
+delta50 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[96][3])
+
+delta51 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[96][2])
+delta52 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[97][3])
+
+
 
 root = tk.Tk()  # Libreria tkinter
 
 
-
+#calcolo la posizione e il numero di fissazioni
 def calcolofissdxsx(time1, time2, time3,riga, csv_file):
 
 
@@ -136,12 +153,63 @@ def calcolofissdxsx(time1, time2, time3,riga, csv_file):
     print("Fissazioni a destra:", dx_fixations)
 
     return sx_fixations,dx_fixations
-
+#PRIMA PARTE
 #foto 1 sx dx
-Img1=calcolofissdxsx(delta37,delta37,delta38,37,csv_file)
+Img1=calcolofissdxsx(delta37,delta37,delta38,31,csv_file)
 sx1=Img1[0]
 dx1=Img1[1]
 print(sx1,dx1)
+
+#foto 2 sx dx
+Img2=calcolofissdxsx(delta39,delta39,delta40,33,csv_file)
+sx2=Img2[0]
+dx2=Img2[1]
+print(sx2,dx2)
+
+#foto 3 sx dx
+Img3=calcolofissdxsx(delta41,delta41,delta42,35,csv_file)
+sx3=Img3[0]
+dx3=Img3[1]
+print(sx3,dx3)
+
+
+#foto 4 sx dx
+Img4=calcolofissdxsx(delta43,delta43,delta44,38,csv_file)
+sx4=Img4[0]
+dx4=Img4[1]
+print(sx4,dx4)
+
+
+
+#SECONDA PARTEEE
+#foto 1 sx dx
+Img5=calcolofissdxsx(delta45,delta46,delta46,90,csv_file)
+sx5=Img5[0]
+dx5=Img5[1]
+print(sx5,dx5)
+
+#foto 2 sx dx
+Img6=calcolofissdxsx(delta47,delta47,delta48,92,csv_file)
+sx6=Img6[0]
+dx6=Img6[1]
+print(sx6,dx6)
+
+#foto 3 sx dx
+Img7=calcolofissdxsx(delta49,delta49,delta50,94,csv_file)
+sx7=Img7[0]
+dx7=Img7[1]
+print(sx7,dx7)
+
+
+#foto 4 sx dx
+Img8=calcolofissdxsx(delta51,delta51,delta52,96,csv_file)
+sx8=Img8[0]
+dx8=Img8[1]
+print(sx8,dx8)
+
+
+
+
 
 
 
