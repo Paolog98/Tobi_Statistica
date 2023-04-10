@@ -156,27 +156,45 @@ def calcolofissdxsx(time1, time2, time3,riga, csv_file):
 #PRIMA PARTE
 #foto 1 sx dx
 Img1=calcolofissdxsx(delta37,delta37,delta38,31,csv_file)
+
 sx1=Img1[0]
+if(len(sx1)==0):sx1.append(0)
+
 dx1=Img1[1]
+if(len(dx1)==0):sx1.append(0)
 print(sx1,dx1)
+
+
 
 #foto 2 sx dx
 Img2=calcolofissdxsx(delta39,delta39,delta40,33,csv_file)
 sx2=Img2[0]
+if(len(sx2)==0):sx2.append(0)
+
 dx2=Img2[1]
+if(len(dx2)==0):dx2.append(0)
+
 print(sx2,dx2)
 
 #foto 3 sx dx
 Img3=calcolofissdxsx(delta41,delta41,delta42,35,csv_file)
+
 sx3=Img3[0]
+if(len(sx3)==0):sx3.append(0)
+
 dx3=Img3[1]
+if(len(dx3)==0):dx3.append(0)
 print(sx3,dx3)
 
 
 #foto 4 sx dx
 Img4=calcolofissdxsx(delta43,delta43,delta44,38,csv_file)
+
 sx4=Img4[0]
+if(len(sx4)==0):sx4.append(0)
+
 dx4=Img4[1]
+if(len(dx4)==0):dx4.append(0)
 print(sx4,dx4)
 
 
@@ -184,27 +202,43 @@ print(sx4,dx4)
 #SECONDA PARTEEE
 #foto 1 sx dx
 Img5=calcolofissdxsx(delta45,delta46,delta46,90,csv_file)
+
 sx5=Img5[0]
+if(len(sx5)==0):sx5.append(0)
+
 dx5=Img5[1]
+if(len(dx5)==0):dx5.append(0)
 print(sx5,dx5)
 
 #foto 2 sx dx
 Img6=calcolofissdxsx(delta47,delta47,delta48,92,csv_file)
+
 sx6=Img6[0]
+if(len(sx6)==0):sx6.append(0)
+
 dx6=Img6[1]
+if(len(dx6)==0):dx6.append(0)
 print(sx6,dx6)
 
 #foto 3 sx dx
 Img7=calcolofissdxsx(delta49,delta49,delta50,94,csv_file)
+
 sx7=Img7[0]
+if(len(sx7)==0):sx7.append(0)
+
 dx7=Img7[1]
+if(len(dx7)==0):dx7.append(0)
 print(sx7,dx7)
 
 
 #foto 4 sx dx
 Img8=calcolofissdxsx(delta51,delta51,delta52,96,csv_file)
+
 sx8=Img8[0]
+if(len(sx8)==0):sx8.append(0)
+
 dx8=Img8[1]
+if(len(dx8)==0):dx8.append(0)
 print(sx8,dx8)
 
 
@@ -266,47 +300,55 @@ for i in dataTime :
 # Dettagli del grafico
 #Marcatori
 
-colors = ["blue","yellow"]
+colors = ["blue","red"]
 
 
 
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12,8))
 ax.set_xticks(np.arange(-4, 16, 1))
-ax.tick_params(axis='x', which='major', labelsize=10, pad=4)
+ax.tick_params(axis='x', which='major', labelsize=6, pad=4)
 plt.xticks(rotation=20)
-
 
 #PRIM0 TASK
 
+etichette = [ImgTask4[0], "sx1", "dx2", "sx2",
+             ImgTask4[1],"sx1_2", "dx2_2", "sx2_2",
+             ImgTask4[2],"sx1_3", "dx2_3", "sx2_3",
+             ImgTask4[3],"sx1_4", "dx2_4", "sx2_4"]
+valori = [int(dx1[0]), int(sx1[0]), int(dx5[0]), int(sx5[0]),
+          int(dx2[0]), int(sx2[0]), int(dx6[0]), int(sx6[0]),
+          int(dx3[0]), int(sx3[0]), int(dx7[0]), int(sx7[0])
+         ,int(dx4[0]), int(sx4[0]), int(dx8[0]), int(sx8[0])]
+
+# Creazione dell'istogramma
+plt.bar(etichette[0], valori[0],label="Immagine dx ",color="blue",width=0.7)
+plt.bar(etichette[1], valori[1],label="Immagine sx",color="red",width=0.7)
+plt.bar(etichette[2], valori[2],color="blue",width=0.7)
+plt.bar(etichette[3], valori[3],color="red",width=0.7)
+
+plt.axvline(x=3.5, color='red', linestyle='--', label="Divosore Immagini")
+
+plt.bar(etichette[4], valori[4],color="blue",width=0.7)
+plt.bar(etichette[5], valori[5],color="red",width=0.7)
+plt.bar(etichette[6], valori[6],color="blue",width=0.7)
+plt.bar(etichette[7], valori[7],color="red",width=0.7)
+
+plt.axvline(x=7.5, color='red', linestyle='--')
+
+plt.bar(etichette[8], valori[8],color="blue",width=0.7)
+plt.bar(etichette[9], valori[9],color="red",width=0.7)
+plt.bar(etichette[10], valori[10],color="blue",width=0.7)
+plt.bar(etichette[11], valori[11],color="red",width=0.7)
+
+plt.axvline(x=11.5, color='red', linestyle='--')
+
+plt.bar(etichette[12], valori[12],color="blue",width=0.7)
+plt.bar(etichette[13], valori[13],color="red",width=0.7)
+plt.bar(etichette[14], valori[15],color="blue",width=0.7)
+plt.bar(etichette[15], valori[15],color="red",width=0.7)
 
 
-plt.bar(ImgTask4[0], dx1, width=0.3,color=colors[0],label="Visione della foto dx")
-plt.bar("sx1", sx1, width=0.3,color=colors[1],label="Visione della foto sx")
-plt.bar("dx2", dx5, width=0.3,color=colors[0])
-plt.bar("sx2",sx5, width=0.3,color=colors[1])
 
-
-'''plt.bar(ImgTask4[1], dx2, width=0.3,color=colors[0])
-plt.bar(2.0, dx6, width=0.3,color=colors[1])
-plt.bar(2.4, sx2, width=0.3,color=colors[0])
-plt.bar(2.8, sx6, width=0.3,color=colors[1])'''
-
-
-
-'''
-plt.bar(ImgTask4[2], dx3, width=0.3,color=colors[0])
-plt.bar(3.2, dx7, width=0.3,color=colors[1])
-plt.bar(3.4, sx3, width=0.3,color=colors[2])
-plt.bar(3.8, sx7, width=0.3,color=colors[3])
-
-
-
-
-
-plt.bar(ImgTask4[3], dx4, width=0.3,color=colors[0])
-plt.bar(4.2, dx8, width=0.3,color=colors[1])
-plt.bar(4.4, sx4, width=0.3,color=colors[2])
-plt.bar(4.8, sx8, width=0.3,color=colors[3])'''
 
 
 
@@ -314,7 +356,7 @@ plt.bar(4.8, sx8, width=0.3,color=colors[3])'''
 
 #plt.ylim([0, max(ytempf)+20])
 plt.ylabel('Numero di fissazioni')
-plt.xlabel('Immagine Task 4')
+plt.xlabel('Immagini Task 4')
 plt.title('Grafico delle Frequenze assolute relativo al TASK  4',fontweight='bold', fontsize=15)
 plt.legend(loc="best")
 # print(count)
