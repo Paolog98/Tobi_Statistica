@@ -321,12 +321,12 @@ valori = [int(dx1[0]), int(sx1[0]), int(dx5[0]), int(sx5[0]),
          ,int(dx4[0]), int(sx4[0]), int(dx8[0]), int(sx8[0])]
 
 # Creazione dell'istogramma
-plt.bar(etichette[0], valori[0],label="Immagine dx ",color="blue",width=0.7)
-plt.bar(etichette[1], valori[1],label="Immagine sx",color="red",width=0.7)
+plt.bar(etichette[0], valori[0],label="nameImg+ Fiss.Immagine dx ",color="blue",width=0.7)
+plt.bar(etichette[1], valori[1],label="Fiss.Immagine sx",color="red",width=0.7)
 plt.bar(etichette[2], valori[2],color="blue",width=0.7)
 plt.bar(etichette[3], valori[3],color="red",width=0.7)
 
-plt.axvline(x=3.5, color='red', linestyle='--', label="Divosore Immagini")
+plt.axvline(x=3.5, color='red', linestyle='--', label="Divosore Immagine")
 
 plt.bar(etichette[4], valori[4],color="blue",width=0.7)
 plt.bar(etichette[5], valori[5],color="red",width=0.7)
@@ -375,40 +375,40 @@ plt.show()
 #SECONDO GRAFICO VAL MAX MIN AVG
 #dati grafico linee multiple max,medio,min
 #Prima Parte
-''''
-valmax4=max(sum_f1[0],sum_f1[1],sum_f1[2],sum_f1[3])
+
+valmax4=max(valori[1],valori[2],valori[4],valori[5],valori[8],valori[9],valori[12],valori[13])
 #Seconda Parte
 
-valmax4_2=max(sum_f2[0],sum_f2[1],sum_f2[2],sum_f2[3])
+valmax4_2=max(valori[2],valori[3],valori[6],valori[7],valori[10],valori[11],valori[14],valori[15])
 
 
 #array prima e seconda parte
 
-array4=[sum_f1[0],sum_f1[1],sum_f1[2],sum_f1[3]]
+array4=[valori[1],valori[2],valori[4],valori[5],valori[8],valori[9],valori[12],valori[13]]
 
 
-array4_2=[sum_f2[0],sum_f2[1],sum_f2[2],sum_f2[3]]
+array4_2=[valori[2],valori[3],valori[6],valori[7],valori[10],valori[11],valori[14],valori[15]]
 
 
 
 #media prima parte
 
-valavg4=sum(array4)/4
+valavg4=sum(array4)/8
 
 #media seconda parte
 
-valavg4_2=sum(array4_2)/4
+valavg4_2=sum(array4_2)/8
 
 
 
 
 #valore minimo prima parte
 
-valmin4=min(sum_f1[0],sum_f1[1],sum_f1[2],sum_f1[3])
+valmin4=min(valori[1],valori[2],valori[4],valori[5],valori[8],valori[9],valori[12],valori[13])
 
 
 
-valmin4_2=min(sum_f2[0],sum_f2[1],sum_f2[2],sum_f2[4])
+valmin4_2=min(valori[2],valori[3],valori[6],valori[7],valori[10],valori[11],valori[14],valori[15])
 
 
 
@@ -417,20 +417,20 @@ valmin4_2=min(sum_f2[0],sum_f2[1],sum_f2[2],sum_f2[4])
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12, 8))
 
 # Dati per il grafico
-x = [26,60,90,133,206,236,266,319]  # Valori sull'asse x
+x = [206,319]  # Valori sull'asse x
 y1 = [valmax4,valmax4_2]  # Valori max
 y2 = [valmin4,valmin4_2]  # Valori min
 y3 = [valavg4,valavg4_2]  # Valori avg
 
 # Creazione del grafico
-plt.plot(x, y2,'-o', label='Valore min',colors="purple")
-plt.plot(x, y3,'-o', label='Valore avg',colors="green")
-plt.plot(x, y1,'-o',label='Valore max',colors="orange")
+plt.plot(x, y2,'-o', label='Valore min',color="purple")
+plt.plot(x, y3,'-o', label='Valore avg',color="green")
+plt.plot(x, y1,'-o',label='Valore max',color="orange")
 
 # Aggiunta di etichette e titolo
 plt.xlabel('Tempo(sec)')
 plt.ylabel('Valori Fissazioni')
-plt.title('Grafico a linee multiple(26-133sec/206-319sec)')
+plt.title('Grafico a linee multiple delle Immagini del task 4(dx,sx)')
 plt.legend(loc="best")
 
 # Aggiunta di una legenda
@@ -448,17 +448,3 @@ plt.show()
 
 
 
-
-plt.plot(val[1], valmin1, width=0.3,color=colori[0])
-plt.plot(1.3, valmin2, width=0.3,color=colori[1])
-
-plt.plot(val[2], valavg1, width=0.3,color=colori[0])
-plt.plot(2.3, valavg2, width=0.3,color=colori[1])'''
-
-'''
-ytemp2=[valmax1,valmax2]
-plt.ylim([0,max(ytemp2)+15])
-plt.title('Grafico a linee multiple(max,avg,min)',fontweight='bold', fontsize=15)
-plt.legend(loc="best")
-fig.savefig('grafic/graficMediaMinMax.png')
-plt.show()'''
