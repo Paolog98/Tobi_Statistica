@@ -299,13 +299,9 @@ for j in range(len(sum_array)):
         if i == 0:
             count = i + 1
             sum_f1.append(sum_array[j])
-
-
         elif i == 1:
             count = i + 2
             sum_f1.append(sum_array[j] + sum_array[j])
-
-
         elif i == 2:
             sum_f1.append(sum_array[j] + sum_array[j] + sum_array[j])
         elif i == 3:
