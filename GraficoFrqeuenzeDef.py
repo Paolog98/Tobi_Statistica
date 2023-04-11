@@ -199,47 +199,6 @@ n=int(sg.popup_get_text("Quanti pazienti vuoi analizzare(grafico immagini)?"))
 
 sum_f1=[]
 sum_f2=[]
-
-
-
-
-for i in range(n):
-        sg.popup("Inserire i file del paziente n:", i + 1)
-        pathTime = sg.popup_get_file(sg.FileBrowse(), title="RECUPERA TEMPI.TXT del paziente")
-        fileTime = pd.read_csv(pathTime, sep=',', engine='python', header=None)
-        dataTime = fileTime.values.tolist()
-        # print(dataTime)
-        csv_file = sg.popup_get_file(sg.FileBrowse(), title="RECUPERA FILE FIX.CSV del paziente")
-        sum_array, sum_array2 = numFissP(dataTime)
-
-for j in range(len(sum_array)):
-        if i == 0:
-            count = i + 1
-            sum_f1.append(sum_array[j])
-        elif i == 1:
-            count = i + 2
-            sum_f1.append(sum_array[j] + sum_array[j])
-        elif i == 2:
-            sum_f1.append(sum_array[j] + sum_array[j] + sum_array[j])
-        elif i == 3:
-            sum_f1.append(sum_array[j] + sum_array[j] + sum_array[j] + sum_array[j])
-        elif i == 4:
-            sum_f1.append(sum_array[j] + sum_array[j] + sum_array[j] + sum_array[j] + sum_array[j])
-
-for j in range(len(sum_array2)):
-        if i == 0:
-            sum_f2.append(sum_array2[j])
-        elif i == 1:
-            sum_f2.append(sum_array2[j] + sum_array2[j])
-        elif i == 2:
-            sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j])
-        elif i == 3:
-            sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j] + sum_array2[j])
-        elif i == 4:
-            sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j] + sum_array2[j] + sum_array2[j])
-
-
-
 ImgTask1 = []
 ImgTask2 = []
 ImgTask4 = []
@@ -263,41 +222,104 @@ count3_06 = 0
 ImgTask3_07 = []
 count3_07 = 0
 
+def RecupImg(dataTime):
+ for i in dataTime:
+     if i[0] == "['Image'" and i[1].startswith(" 'T1"):
+        ImgTask1.append(i[1])
+     if i[0] == "['Image'" and i[1].startswith(" 'T2"):
+        ImgTask2.append(i[1])
 
-for i in dataTime:
- if i[0] == "['Image'" and i[1].startswith(" 'T1"):
-    ImgTask1.append(i[1])
- elif i[0] == "['Image'" and i[1].startswith(" 'T2"):
-    ImgTask2.append(i[1])
+     if i[0] == "['Image'" and i[1].startswith(" 'T3_01"):
+        ImgTask3_01.append(i[1])
 
- elif i[0] == "['Image'" and i[1].startswith(" 'T3_01"):
-    ImgTask3_01.append(i[1])
-    count3_01 = count3_01 + 1
- elif i[0] == "['Image'" and i[1].startswith(" 'T3_02"):
-    ImgTask3_02.append(i[1])
-    count3_02 = count3_02 + 1
- elif i[0] == "['Image'" and i[1].startswith(" 'T3_03"):
-    ImgTask3_03.append(i[1])
-    count3_03 = count3_03 + 1
- elif i[0] == "['Image'" and i[1].startswith(" 'T3_04"):
-    ImgTask3_04.append(i[1])
-    count3_04 = count3_04 + 1
- elif i[0] == "['Image'" and i[1].startswith(" 'T3_05"):
-    ImgTask3_05.append(i[1])
-    count3_05 = count3_05 + 1
- elif i[0] == "['Image'" and i[1].startswith(" 'T3_06"):
-    ImgTask3_06.append(i[1])
-    count3_06 = count3_06 + 1
- elif i[0] == "['Image'" and i[1].startswith(" 'T3_07"):
-    ImgTask3_07.append(i[1])
-    count3_07 = count3_07 + 1
+     if i[0] == "['Image'" and i[1].startswith(" 'T3_02"):
+        ImgTask3_02.append(i[1])
 
- elif i[0] == "['Decision_making_image'" and i[1].startswith(" 'T4"):
-    ImgTask4.append(i[1])
+     if i[0] == "['Image'" and i[1].startswith(" 'T3_03"):
+        ImgTask3_03.append(i[1])
 
-    print(ImgTask3_01, ImgTask3_02, ImgTask3_03, ImgTask3_04, ImgTask3_05, ImgTask3_06, ImgTask3_07)
+     if i[0] == "['Image'" and i[1].startswith(" 'T3_04"):
+        ImgTask3_04.append(i[1])
 
-    print(count3_01, count3_02, count3_03, count3_04, count3_05, count3_06, count3_07)
+     if i[0] == "['Image'" and i[1].startswith(" 'T3_05"):
+        ImgTask3_05.append(i[1])
+
+     if i[0] == "['Image'" and i[1].startswith(" 'T3_06"):
+        ImgTask3_06.append(i[1])
+
+     if i[0] == "['Image'" and i[1].startswith(" 'T3_07"):
+        ImgTask3_07.append(i[1])
+
+     if i[0] == "['Decision_making_image'" and i[1].startswith(" 'T4"):
+        ImgTask4.append(i[1])
+
+ print(ImgTask1,ImgTask2,ImgTask4,ImgTask3_01, ImgTask3_02, ImgTask3_03, ImgTask3_04, ImgTask3_05, ImgTask3_06, ImgTask3_07)
+
+ return ImgTask1,ImgTask2,ImgTask4,ImgTask3_01, ImgTask3_02, ImgTask3_03, ImgTask3_04, ImgTask3_05, ImgTask3_06, ImgTask3_07
+
+
+
+
+
+
+
+for i in range(n):
+        sg.popup("Inserire i file del paziente n:", i + 1)
+        pathTime = sg.popup_get_file(sg.FileBrowse(), title="RECUPERA TEMPI.TXT del paziente")
+        fileTime = pd.read_csv(pathTime, sep=',', engine='python', header=None)
+        dataTime = fileTime.values.tolist()
+        # print(dataTime)
+        csv_file = sg.popup_get_file(sg.FileBrowse(), title="RECUPERA FILE FIX.CSV del paziente")
+        sum_array, sum_array2 = numFissP(dataTime)
+        ImgTask11,ImgTask22,ImgTask44,ImgTask33_01, ImgTask33_02, ImgTask33_03, ImgTask33_04, ImgTask33_05, ImgTask33_06, ImgTask33_07=RecupImg(dataTime)
+        print(ImgTask11,ImgTask22,ImgTask44,ImgTask33_01, ImgTask33_02, ImgTask33_03, ImgTask33_04, ImgTask33_05, ImgTask33_06, ImgTask33_07)
+        '''ImgTask1.append(ImgTask11)
+        ImgTask2.append(ImgTask22)
+        ImgTask4.append(ImgTask44)
+        ImgTask3_01.append(ImgTask33_01)
+        ImgTask3_02.append(ImgTask33_02)
+        ImgTask3_03.append(ImgTask33_03)
+        ImgTask3_04.append(ImgTask33_04)
+        ImgTask3_05.append(ImgTask33_05)
+        ImgTask3_06.append(ImgTask33_06)
+        ImgTask33_07.append(ImgTask33_07)'''
+        print(ImgTask1, ImgTask2, ImgTask4, ImgTask3_01, ImgTask3_02, ImgTask3_03, ImgTask3_04, ImgTask3_05,
+              ImgTask3_06, ImgTask3_07)
+for j in range(len(sum_array)):
+        if i == 0:
+            count = i + 1
+            sum_f1.append(sum_array[j])
+
+
+        elif i == 1:
+            count = i + 2
+            sum_f1.append(sum_array[j] + sum_array[j])
+
+
+        elif i == 2:
+            sum_f1.append(sum_array[j] + sum_array[j] + sum_array[j])
+        elif i == 3:
+            sum_f1.append(sum_array[j] + sum_array[j] + sum_array[j] + sum_array[j])
+        elif i == 4:
+            sum_f1.append(sum_array[j] + sum_array[j] + sum_array[j] + sum_array[j] + sum_array[j])
+
+for j in range(len(sum_array2)):
+        if i == 0:
+            sum_f2.append(sum_array2[j])
+        elif i == 1:
+            sum_f2.append(sum_array2[j] + sum_array2[j])
+        elif i == 2:
+            sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j])
+        elif i == 3:
+            sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j] + sum_array2[j])
+        elif i == 4:
+            sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j] + sum_array2[j] + sum_array2[j])
+
+
+
+
+
+
 
 
 
@@ -319,7 +341,7 @@ colors = ["blue","red"]
 
 
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12,8))
-ax.set_xticks(np.arange(-4, 24, 1))
+ax.set_xticks(np.arange(-4, 28, 1))
 ax.tick_params(axis='x', which='major', labelsize=6, pad=4)
 plt.xticks(rotation=20)
 
@@ -371,32 +393,33 @@ plt.bar(11.3, sum_f2[15], width=0.3,color=colors[1])
 plt.axvline(x=11.5, color='red', linestyle='--', label="FOTO TASK 3")
 
 if (len(ImgTask3_01) != 0):
-     plt.bar(ImgTask3_01, sum_f1[8], width=0.3,color=colors[0])
+     plt.bar(ImgTask3_01[0], sum_f1[8], width=0.3,color=colors[0])
      plt.bar(ImgTask3_01[0]+"_2", sum_f2[8], width=0.3,color=colors[1],label=ImgTask3_01[1]+str(count3_01))
 
 if (len(ImgTask3_02) != 0):
-     plt.bar(ImgTask3_02, sum_f1[9], width=0.3,color=colors[0])
+     plt.bar(ImgTask3_02[0], sum_f1[9], width=0.3,color=colors[0])
      plt.bar(ImgTask3_02[0]+"_2", sum_f2[9], width=0.3,color=colors[1],label=ImgTask3_02[1]+str(count3_02))
 
 if (len(ImgTask3_03) != 0):
-     plt.bar(ImgTask3_03, sum_f1[10], width=0.3,color=colors[0])
+     plt.bar(ImgTask3_03[0], sum_f1[10], width=0.3,color=colors[0])
      plt.bar(ImgTask3_03[0]+"_2", sum_f2[10], width=0.3,color=colors[1],label=ImgTask3_03[1]+str(count3_03))
 
 if (len(ImgTask3_04) != 0):
-      plt.bar(ImgTask3_04, sum_f1[11], width=0.3,color=colors[0])
+      plt.bar(ImgTask3_04[0], sum_f1[11], width=0.3,color=colors[0])
       plt.bar(ImgTask3_04[0]+"_2", sum_f2[11], width=0.3,color=colors[1],label=ImgTask3_04[1]+str(count3_04))
 
 if (len(ImgTask3_05) != 0):
-    plt.bar(ImgTask3_05, sum_f1[8], width=0.3,color=colors[0])
+    plt.bar(ImgTask3_05[0], sum_f1[8], width=0.3,color=colors[0])
     plt.bar(ImgTask3_05[0]+"_2", sum_f2[8], width=0.3,color=colors[1],label=ImgTask3_05[1]+str(count3_05))
 
 if (len(ImgTask3_06) != 0):
-    plt.bar(ImgTask3_06, sum_f1[9], width=0.3,color=colors[0])
+    plt.bar(ImgTask3_06[0], sum_f1[9], width=0.3,color=colors[0])
     plt.bar(ImgTask3_06[0]+"_2", sum_f2[9], width=0.3,color=colors[1],label=ImgTask3_06[1]+str(count3_06))
 
 if (len(ImgTask3_07) !=0):
-    plt.bar(ImgTask3_07, sum_f1[10], width=0.3,color=colors[0])
+    plt.bar(ImgTask3_07[0], sum_f1[10], width=0.3,color=colors[0])
     plt.bar(ImgTask3_07[0]+"_2", sum_f2[10], width=0.3,color=colors[1],label=ImgTask3_07[1]+str(count3_07))
+
 
 
 
