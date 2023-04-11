@@ -203,52 +203,62 @@ ImgTask1 = []
 ImgTask2 = []
 ImgTask4 = []
 ImgTask3_01 = []
-count3_01 = 0
+
 
 ImgTask3_02 = []
-count3_02 = 0
+
 
 ImgTask3_03 = []
-count3_03 = 0
+
 
 ImgTask3_04 = []
-count3_04 = 0
+
 
 ImgTask3_05 = []
-count3_05 = 0
+
 
 ImgTask3_06 = []
-count3_06 = 0
+
 ImgTask3_07 = []
-count3_07 = 0
+
 
 def RecupImg(dataTime):
  for i in dataTime:
      if i[0] == "['Image'" and i[1].startswith(" 'T1"):
         ImgTask1.append(i[1])
+
      if i[0] == "['Image'" and i[1].startswith(" 'T2"):
         ImgTask2.append(i[1])
+
 
      if i[0] == "['Image'" and i[1].startswith(" 'T3_01"):
         ImgTask3_01.append(i[1])
 
+
+
      if i[0] == "['Image'" and i[1].startswith(" 'T3_02"):
         ImgTask3_02.append(i[1])
+
 
      if i[0] == "['Image'" and i[1].startswith(" 'T3_03"):
         ImgTask3_03.append(i[1])
 
+
      if i[0] == "['Image'" and i[1].startswith(" 'T3_04"):
         ImgTask3_04.append(i[1])
+
 
      if i[0] == "['Image'" and i[1].startswith(" 'T3_05"):
         ImgTask3_05.append(i[1])
 
+
      if i[0] == "['Image'" and i[1].startswith(" 'T3_06"):
         ImgTask3_06.append(i[1])
 
+
      if i[0] == "['Image'" and i[1].startswith(" 'T3_07"):
         ImgTask3_07.append(i[1])
+
 
      if i[0] == "['Decision_making_image'" and i[1].startswith(" 'T4"):
         ImgTask4.append(i[1])
@@ -341,7 +351,7 @@ colors = ["blue","red"]
 
 
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12,8))
-ax.set_xticks(np.arange(-4, 28, 1))
+ax.set_xticks(np.arange(-4, 27, 1))
 ax.tick_params(axis='x', which='major', labelsize=6, pad=4)
 plt.xticks(rotation=20)
 
@@ -393,32 +403,39 @@ plt.bar(11.3, sum_f2[15], width=0.3,color=colors[1])
 plt.axvline(x=11.5, color='red', linestyle='--', label="FOTO TASK 3")
 
 if (len(ImgTask3_01) != 0):
+     count1=len(ImgTask3_01)
      plt.bar(ImgTask3_01[0], sum_f1[8], width=0.3,color=colors[0])
-     plt.bar(ImgTask3_01[0]+"_2", sum_f2[8], width=0.3,color=colors[1],label=ImgTask3_01[1]+str(count3_01))
+     plt.bar(ImgTask3_01[0]+"_2", sum_f2[8], width=0.3,color=colors[1],label=ImgTask3_01[1]+str(count1))
 
 if (len(ImgTask3_02) != 0):
+     count2=len(ImgTask3_02)
      plt.bar(ImgTask3_02[0], sum_f1[9], width=0.3,color=colors[0])
-     plt.bar(ImgTask3_02[0]+"_2", sum_f2[9], width=0.3,color=colors[1],label=ImgTask3_02[1]+str(count3_02))
+     plt.bar(ImgTask3_02[0]+"_2", sum_f2[9], width=0.3,color=colors[1],label=ImgTask3_02[1]+str(count2))
 
 if (len(ImgTask3_03) != 0):
+     count3=len(ImgTask3_03)
      plt.bar(ImgTask3_03[0], sum_f1[10], width=0.3,color=colors[0])
-     plt.bar(ImgTask3_03[0]+"_2", sum_f2[10], width=0.3,color=colors[1],label=ImgTask3_03[1]+str(count3_03))
+     plt.bar(ImgTask3_03[0]+"_2", sum_f2[10], width=0.3,color=colors[1],label=ImgTask3_03[1]+str(count3))
 
 if (len(ImgTask3_04) != 0):
-      plt.bar(ImgTask3_04[0], sum_f1[11], width=0.3,color=colors[0])
-      plt.bar(ImgTask3_04[0]+"_2", sum_f2[11], width=0.3,color=colors[1],label=ImgTask3_04[1]+str(count3_04))
+     count4=len(ImgTask3_04)
+     plt.bar(ImgTask3_04[0], sum_f1[11], width=0.3,color=colors[0])
+     plt.bar(ImgTask3_04[0]+"_2", sum_f2[11], width=0.3,color=colors[1],label=ImgTask3_04[1]+str(count4))
 
 if (len(ImgTask3_05) != 0):
-    plt.bar(ImgTask3_05[0], sum_f1[8], width=0.3,color=colors[0])
-    plt.bar(ImgTask3_05[0]+"_2", sum_f2[8], width=0.3,color=colors[1],label=ImgTask3_05[1]+str(count3_05))
+     count5=len(ImgTask3_05)
+     plt.bar(ImgTask3_05[0], sum_f1[10], width=0.3,color=colors[0])
+     plt.bar(ImgTask3_05[0]+"_2", sum_f2[10], width=0.3,color=colors[1],label=ImgTask3_05[1]+str(count5))
 
 if (len(ImgTask3_06) != 0):
-    plt.bar(ImgTask3_06[0], sum_f1[9], width=0.3,color=colors[0])
-    plt.bar(ImgTask3_06[0]+"_2", sum_f2[9], width=0.3,color=colors[1],label=ImgTask3_06[1]+str(count3_06))
+     count6=len(ImgTask3_06)
+     plt.bar(ImgTask3_06[0], sum_f1[8], width=0.3,color=colors[0])
+     plt.bar(ImgTask3_06[0]+"_2", sum_f2[8], width=0.3,color=colors[1],label=ImgTask3_06[1]+str(count6))
 
 if (len(ImgTask3_07) !=0):
-    plt.bar(ImgTask3_07[0], sum_f1[10], width=0.3,color=colors[0])
-    plt.bar(ImgTask3_07[0]+"_2", sum_f2[10], width=0.3,color=colors[1],label=ImgTask3_07[1]+str(count3_07))
+     count7=len(ImgTask3_07)
+     plt.bar(ImgTask3_07[0], sum_f1[9], width=0.3,color=colors[0])
+     plt.bar(ImgTask3_07[0]+"_2", sum_f2[9], width=0.3,color=colors[1],label=ImgTask3_07[1]+str(count7))
 
 
 
