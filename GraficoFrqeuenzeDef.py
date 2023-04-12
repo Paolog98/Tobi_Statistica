@@ -348,7 +348,7 @@ colors = ["blue","red","green"]
 
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12,8))
 ax.set_xticks(np.arange(-4, 27, 1))
-ax.tick_params(axis='x', which='major', labelsize=6, pad=4)
+ax.tick_params(axis='x', which='major', labelsize=5, pad=4)
 plt.xticks(rotation=20)
 
 
@@ -406,7 +406,7 @@ if (len(ImgTask3_01) != 0):
 if (len(ImgTask3_02) != 0):
      count2=len(ImgTask3_02)
      plt.bar(ImgTask3_02[0], sum_f1[9], width=0.3,color=colors[0])
-     plt.bar(ImgTask3_02[0]+"_2", sum_f2[9], width=0.3,color=colors[1],label=ImgTask3_02[1]+str(count2))
+     plt.bar(ImgTask3_02[0]+"_2", sum_f2[9], width=0.3,color=colors[2],label=ImgTask3_02[1]+str(count2))
 
 if (len(ImgTask3_03) != 0):
      count3=len(ImgTask3_03)
