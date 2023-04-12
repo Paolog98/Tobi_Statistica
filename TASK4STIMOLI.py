@@ -112,7 +112,7 @@ def Fisstask(time1, time2, time3, csv_filef):
 
 
 
-
+root = tk.Tk()  # Libreria tkinter
 
 
 def calcolofissdxsx(time1, time2, time3, riga, csv_file):
@@ -213,10 +213,82 @@ for s in dataTime :
       print('La riga  è:', j+1)
       riga4=j+1
 
-
-
-
 print(riga1)
 print(ImgTask4)
 print(Time1)
 print(Time1_2)
+
+#hpesex time
+delta1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga1][2])
+delta2=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga1][3])
+Hypersex=calcolofissdxsx(delta1,delta1,delta2,riga1,csv_file)
+sx2=Hypersex[0]
+if(len(sx2)==0):sx2.append(0)
+
+dx2=Hypersex[1]
+if(len(dx2)==0):dx2.append(0)
+print(Hypersex)
+
+
+#gambling
+delta2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga2][2])
+delta3=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga2][3])
+Gamb=calcolofissdxsx(delta2,delta2,delta3,riga2,csv_file)
+sx3=Gamb[0]
+if(len(sx3)==0):sx3.append(0)
+
+dx3=Gamb[1]
+if(len(dx3)==0):dx3.append(0)
+print(Gamb)
+
+
+
+#EATING
+delta3 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga3][2])
+delta4=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga3][3])
+eat=calcolofissdxsx(delta3,delta3,delta4,riga3,csv_file)
+sx4=eat[0]
+if(len(sx4)==0):sx4.append(0)
+
+dx4=eat[1]
+if(len(dx4)==0):dx4.append(0)
+print(eat)
+
+
+#SHOPPING
+delta4 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga4][2])
+delta5=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga4][3])
+shop=calcolofissdxsx(delta4,delta4,delta5,riga4,csv_file)
+sx5=shop[0]
+if(len(sx5)==0):sx5.append(0)
+
+dx5=shop[1]
+if(len(dx5)==0):dx5.append(0)
+print(shop)
+
+
+valorii = [
+          int(dx2[0]), int(sx2[0]),
+          int(dx3[0]), int(sx3[0]),
+          int(dx4[0]), int(sx4[0]),
+          int(dx5[0]),int(sx5[0])]
+
+valneutro=[int(sx2[0]),int(sx3[0]),int(sx4[0]),int(sx5[0])]
+valoreneu=sum(valneutro)
+
+fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12,8))
+ax.set_xticks(np.arange(-4, 16, 1))
+ax.tick_params(axis='x', which='major', labelsize=10, pad=4)
+plt.xticks(rotation=20)
+plt.ylim([0,20])
+
+plt.bar("Hypersexuality", valorii[0],label=ImgTask4,color="red")
+plt.bar("Gambling", valorii[2],label=ImgTask42,color="blue")
+plt.bar("Eating", valorii[4],label=ImgTask43,color="green")
+plt.bar("Shopping", valorii[6],label=ImgTask44,color="pink")
+plt.bar("Neutra",valoreneu,label="Immagine neutra",color="yellow")
+plt.legend(loc="best")
+
+plt.show()
+
+
