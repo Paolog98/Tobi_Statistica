@@ -77,8 +77,8 @@ def Fisstask(time1,time2,time3,csv_filef):
 
 n=int(sg.popup_get_text("Quanti pazienti vuoi analizzare(grafico immagini)?"))
 
-sum_f1=[]
-sum_f2=[]
+
+valori=[]
 
 for i in range(n):
     sg.popup("Inserire i file del paziente n:",i+1)
@@ -243,39 +243,31 @@ print(sx8,dx8)
 
 
 
-sum_array=[Img1[1],Img2[1],Img3[1],Img4[1]]
-sum_array2=[Img5[1],Img6[1],Img7[1],Img8[1]]
+'''sum_array=[Img1[1],Img2[1],Img3[1],Img4[1]]
+sum_array2=[Img5[1],Img6[1],Img7[1],Img8[1]]'''
+
+valorii = [int(dx1[0]), int(sx1[0]), int(dx5[0]), int(sx5[0]),
+          int(dx2[0]), int(sx2[0]), int(dx6[0]), int(sx6[0]),
+          int(dx3[0]), int(sx3[0]), int(dx7[0]), int(sx7[0])
+         ,int(dx4[0]), int(sx4[0]), int(dx8[0]), int(sx8[0])]
 
 
 
-
-
-for j in range(len(sum_array)):
+for j in range(len(valorii)):
     if i==0:
         count=i+1
-        sum_f1.append(sum_array[j])
+        valori.append(valorii[j])
     elif i==1:
      count=i+2
-     sum_f1.append(sum_array[j] + sum_array[j])
+     valori.append(valorii[j] + valorii[j])
     elif i==2:
-     sum_f1.append(sum_array[j] + sum_array[j]+sum_array[j])
+     valori.append(valorii[j] + valorii[j]+valorii[j])
     elif i == 3:
-        sum_f1.append(sum_array[j] + sum_array[j] + sum_array[j]+sum_array[j])
+        valori.append(valorii[j] + valorii[j] + valorii[j]+valorii[j])
     elif i == 4:
-        sum_f1.append(sum_array[j] + sum_array[j] + sum_array[j] + sum_array[j] + sum_array[j])
+        valori.append(valorii[j] + valorii[j] + valorii[j] + valorii[j]+valorii[j])
 
 
-for j in range(len(sum_array2)):
-    if i == 0:
-        sum_f2.append(sum_array2[j])
-    elif i == 1:
-        sum_f2.append(sum_array2[j] + sum_array2[j])
-    elif i == 2:
-        sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j])
-    elif i == 3:
-        sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j] + sum_array2[j])
-    elif i == 4:
-        sum_f2.append(sum_array2[j] + sum_array2[j] + sum_array2[j] + sum_array2[j]+sum_array2[j])
 
 
 
@@ -308,6 +300,7 @@ fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12,8))
 ax.set_xticks(np.arange(-4, 16, 1))
 ax.tick_params(axis='x', which='major', labelsize=6, pad=4)
 plt.xticks(rotation=20)
+plt.ylim([0,30])
 
 #PRIM0 TASK
 

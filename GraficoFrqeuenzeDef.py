@@ -343,7 +343,7 @@ for j in range(len(sum_array2)):
 # Dettagli del grafico
 #Marcatori
 
-colors = ["blue","red"]
+colors = ["blue","red","green"]
 
 
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12,8))
@@ -396,12 +396,12 @@ plt.bar(ImgTask4[3], sum_f1[15], width=0.3,color=colors[0])
 plt.bar(11.3, sum_f2[15], width=0.3,color=colors[1])
 
 
-plt.axvline(x=11.5, color='red', linestyle='--', label="FOTO TASK 3")
+plt.axvline(x=11.5, color='red', linestyle='--', label="INIZIO FOTO TASK 3")
 
 if (len(ImgTask3_01) != 0):
      count1=len(ImgTask3_01)
      plt.bar(ImgTask3_01[0], sum_f1[8], width=0.3,color=colors[0])
-     plt.bar(ImgTask3_01[0]+"_2", sum_f2[8], width=0.3,color=colors[1],label=ImgTask3_01[1]+str(count1))
+     plt.bar(ImgTask3_01[0]+"_2", sum_f2[8], width=0.3,color=colors[2],label=ImgTask3_01[1]+str(count1))
 
 if (len(ImgTask3_02) != 0):
      count2=len(ImgTask3_02)
@@ -411,27 +411,27 @@ if (len(ImgTask3_02) != 0):
 if (len(ImgTask3_03) != 0):
      count3=len(ImgTask3_03)
      plt.bar(ImgTask3_03[0], sum_f1[10], width=0.3,color=colors[0])
-     plt.bar(ImgTask3_03[0]+"_2", sum_f2[10], width=0.3,color=colors[1],label=ImgTask3_03[1]+str(count3))
+     plt.bar(ImgTask3_03[0]+"_2", sum_f2[10], width=0.3,color=colors[2],label=ImgTask3_03[1]+str(count3))
 
 if (len(ImgTask3_04) != 0):
      count4=len(ImgTask3_04)
      plt.bar(ImgTask3_04[0], sum_f1[11], width=0.3,color=colors[0])
-     plt.bar(ImgTask3_04[0]+"_2", sum_f2[11], width=0.3,color=colors[1],label=ImgTask3_04[1]+str(count4))
+     plt.bar(ImgTask3_04[0]+"_2", sum_f2[11], width=0.3,color=colors[2],label=ImgTask3_04[1]+str(count4))
 
 if (len(ImgTask3_05) != 0):
      count5=len(ImgTask3_05)
      plt.bar(ImgTask3_05[0], sum_f1[10], width=0.3,color=colors[0])
-     plt.bar(ImgTask3_05[0]+"_2", sum_f2[10], width=0.3,color=colors[1],label=ImgTask3_05[1]+str(count5))
+     plt.bar(ImgTask3_05[0]+"_2", sum_f2[10], width=0.3,color=colors[2],label=ImgTask3_05[1]+str(count5))
 
 if (len(ImgTask3_06) != 0):
      count6=len(ImgTask3_06)
      plt.bar(ImgTask3_06[0], sum_f1[8], width=0.3,color=colors[0])
-     plt.bar(ImgTask3_06[0]+"_2", sum_f2[8], width=0.3,color=colors[1],label=ImgTask3_06[1]+str(count6))
+     plt.bar(ImgTask3_06[0]+"_2", sum_f2[8], width=0.3,color=colors[2],label=ImgTask3_06[1]+str(count6))
 
 if (len(ImgTask3_07) !=0):
      count7=len(ImgTask3_07)
      plt.bar(ImgTask3_07[0], sum_f1[9], width=0.3,color=colors[0])
-     plt.bar(ImgTask3_07[0]+"_2", sum_f2[9], width=0.3,color=colors[1],label=ImgTask3_07[1]+str(count7))
+     plt.bar(ImgTask3_07[0]+"_2", sum_f2[9], width=0.3,color=colors[2],label=ImgTask3_07[1]+str(count7))
 
 
 

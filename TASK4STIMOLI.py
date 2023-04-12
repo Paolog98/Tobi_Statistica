@@ -1,0 +1,222 @@
+import gzip
+import math
+
+import cv2
+import matplotlib.pyplot as plt
+import csv
+import numpy as np
+import PySimpleGUI as sg
+import pandas as pd
+import os
+import matplotlib.image as mpimg
+import json
+import datetime
+import tkinter as tk
+
+
+def convert_unix_to_seconds(unix_timestamp):
+ return datetime.datetime.fromtimestamp(unix_timestamp)
+
+def delta_unix_respect_to_video_start(video_start_unix, actual_unix):
+ d1 = convert_unix_to_seconds(video_start_unix)
+ d2 = convert_unix_to_seconds(actual_unix)
+ delta_seconds = round((d2 - d1).total_seconds(), 0)
+ return delta_seconds
+
+
+
+pathTime = sg.popup_get_file(sg.FileBrowse(), title="RECUPERA TEMPI.TXT del paziente")
+fileTime = pd.read_csv(pathTime, sep=',', engine='python', header=None)
+dataTime = fileTime.values.tolist()
+# print(dataTime)
+csv_file = sg.popup_get_file(sg.FileBrowse(), title="RECUPERA FILE FIX.CSV del paziente")
+
+#hypersex
+ImgTask4 = []
+Time1=[]
+Time1_2=[]
+riga1=0
+
+#gambling
+ImgTask42 = []
+Time2=[]
+Time2_2=[]
+riga2=0
+
+#eating
+ImgTask43 = []
+Time3=[]
+Time3_2=[]
+riga3=0
+
+
+#shopping
+ImgTask44 = []
+Time4=[]
+Time4_2=[]
+riga4=0
+
+
+
+
+def Fisstask(time1, time2, time3, csv_filef):
+ listTime = []
+ listTime.append(time1)
+ inter = []
+ Timeimg = [time1, time2, time3]
+ # print(Timeimg)
+ num = 2
+
+ for i in range(num):
+
+  if i == num - 1:
+   helpTime = time3
+  else:
+   helpTime = Timeimg[i]
+  numTime = (str(listTime[i]) + '-' + str(helpTime))
+  listTime.append(helpTime)
+  inter.append(numTime)
+
+ # dati del grafico fixation
+ csv_filee = csv_filef
+ dataFrame = pd.read_csv(csv_filee)
+ data = dataFrame.iloc[:, [0, 1, 3, 4]].values  # Prendo i valori che mi serviranno
+ times = [element for element in data[:, 1]]
+ time2 = []
+ smin = 0
+ numF1 = []
+ numFix1 = []
+
+ # calco numFix delle foto
+ for i in range(1, len(listTime)):
+  for x in times:
+   if x <= listTime[i]:
+    time2.append(x)
+    numFix1 = [int(element) for element in data[smin:len(time2), 1]]
+  diff = len(time2) - smin
+  smin = smin + diff
+  numF1.append(len(numFix1))
+  numFix1.clear()
+  # print("VALORIIIIIII")
+  # print(numF1)
+  time2.clear()
+
+ return numF1
+
+
+
+
+
+
+
+
+
+
+
+
+
+def calcolofissdxsx(time1, time2, time3, riga, csv_file):
+ fix = Fisstask(time1, time2, time3, csv_file)
+ dataFrame = pd.read_csv(csv_file)
+ data = dataFrame.iloc[:, [0, 1, 2, 3, 4]].values
+ posX = [element for element in data[:, 3]]
+ posY = [element for element in data[:, 4]]
+ displayWidth = root.winfo_screenwidth()
+ displayHeight = root.winfo_screenheight()
+ print(displayHeight, displayHeight)
+
+ posXPix = []
+ posYPix = []
+ for x, y in zip(posX, posY):
+  posXPix.append(round(x * displayWidth))
+  posYPix.append(round(y * displayHeight))
+
+ center = posXPix[riga] - posYPix[riga]
+ fix.remove(fix[0])
+ print(fix)
+ sx_fixations = [i for i in fix if posX[riga] <= center]
+ dx_fixations = [i for i in fix if posX[riga] > center]
+
+ print("Fissazioni a sinistra:", sx_fixations)
+ print("Fissazioni a destra:", dx_fixations)
+
+ return sx_fixations, dx_fixations
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#hypersex
+for i in dataTime :
+
+    if i[0] == "['Decision_making_image'" and i[1].startswith(" 'T4_09/T4_09_BA.jpg") and i[4].endswith("]"):
+     ImgTask4.append(i[1])
+     Time1.append(i[2])
+     Time1_2.append(i[3])
+    for j, row in enumerate(dataTime):
+     if " 'T4_09/T4_09_BA.jpg'" in row:
+      print(f'Riga {j + 1}: {row}')
+      print('La riga  è:', j+1)
+      riga1=j+1
+
+#gambling
+for k in dataTime :
+
+    if k[0] == "['Decision_making_image'" and k[1].startswith(" 'T4_05/T4_05_BA.jpg") and k[4].endswith("]"):
+     ImgTask42.append(k[1])
+     Time1.append(k[2])
+     Time1_2.append(k[3])
+    for j, row in enumerate(dataTime):
+     if " 'T4_05/T4_05_BA.jpg'" in row:
+      print(f'Riga {j + 1}: {row}')
+      print('La riga  è:', j+1)
+      riga2=j+1
+
+
+#eating
+for t in dataTime :
+
+    if t[0] == "['Decision_making_image'" and t[1].startswith(" 'T4_03/T4_03_BA.jpg") and t[4].endswith("]"):
+     ImgTask43.append(t[1])
+     Time3.append(t[2])
+     Time3_2.append(t[3])
+    for j, row in enumerate(dataTime):
+     if " 'T4_03/T4_03_BA.jpg'" in row:
+      print(f'Riga {j + 1}: {row}')
+      print('La riga  è:', j+1)
+      riga3=j+1
+
+
+
+#shopping
+for s in dataTime :
+
+    if s[0] == "['Decision_making_image'" and s[1].startswith(" 'T4_13/T4_13_BA.jpg") and s[4].endswith("]"):
+     ImgTask44.append(s[1])
+     Time4.append(s[2])
+     Time4_2.append(s[3])
+    for j, row in enumerate(dataTime):
+     if " 'T4_13/T4_03_13.jpg'" in row:
+      print(f'Riga {j + 1}: {row}')
+      print('La riga  è:', j+1)
+      riga4=j+1
+
+
+
+
+print(riga1)
+print(ImgTask4)
+print(Time1)
+print(Time1_2)
