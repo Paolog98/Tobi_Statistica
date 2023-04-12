@@ -274,6 +274,7 @@ valorii = [
           int(dx5[0]),int(sx5[0])]
 
 valneutro=[int(sx2[0]),int(sx3[0]),int(sx4[0]),int(sx5[0])]
+stimolo=[int(dx2[0]),int(dx3[0]),int(dx4[0]),int(dx5[0])]
 valoreneu=sum(valneutro)
 
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12,8))
@@ -291,7 +292,31 @@ plt.xlabel('Tipologia immagine')
 plt.ylabel('Valori Fissazioni')
 plt.title('Grafico delle frequenze assolute rispetto al task 4 dicotomico')
 plt.legend(loc="best")
+fig.savefig('grafic/STIMOLONEU.png')
 
 plt.show()
+
+
+
+#BOXPLOT
+
+data=[stimolo,valneutro]
+fig, ax = plt.subplots(figsize=(12,8))
+bp = ax.boxplot(data,labels=["Immagine con stimolo","Neutro"])
+
+# Personalizzazione dell'asse y
+
+plt.suptitle("Vengono indicate le fissazioni di ogni immagine dicotomica")
+plt.ylabel("Tempo(sec)")
+plt.xlabel("Immagine")
+plt.title("Boxplot task4 dicotomico")
+plt.legend(loc="best")
+
+
+# Mostra il grafico
+fig.savefig('grafic/boxplotsk4IMG.png')
+plt.show()
+
+
 
 
