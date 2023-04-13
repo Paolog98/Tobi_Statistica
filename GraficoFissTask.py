@@ -2,6 +2,8 @@ import gzip
 
 import matplotlib.pyplot as plt
 import csv
+
+import np as np
 import numpy as np
 import PySimpleGUI as sg
 import pandas as pd
@@ -10,6 +12,7 @@ import matplotlib.image as mpimg
 import json
 import datetime
 from scipy import stats
+from scipy.stats import norm
 
 
 
@@ -205,19 +208,19 @@ for j in range(len(sum_array2)):
 data1 = sum_f1
 print(sum_f1)
 data2 = sum_f2
+data_merge=np.concatenate((data1,data2))
 
 # Calcoliamo il p-value del test di Shapiro-Wilk
-stat, p = stats.shapiro(data1)
-stat2, p2 = stats.shapiro(data2)
+stat, p = stats.shapiro(data_merge)
+
 
 # Stampa il p-value
+print("I dati in ciasun gruppo task")
 print("p-value:", p)
 
 # Valuta l'ipotesi nulla
 alpha = 0.05
 if p > alpha:
-    print("Non possiamo rifiutare l'ipotesi nulla: i dati seguono una distribuzione normale")
-if p2 > alpha:
     print("Non possiamo rifiutare l'ipotesi nulla: i dati seguono una distribuzione normale")
 else:
     print("Rifiutiamo l'ipotesi nulla: i dati non seguono una distribuzione normale")
@@ -251,25 +254,97 @@ plt.bar(2.3, sum_f2[2], width=0.3,color=colors[1])
 #QUARTO TASK
 plt.bar(Idimg[3], sum_f1[3], width=0.3,color=colors[0])
 plt.bar(3.3, sum_f2[3], width=0.3,color=colors[1])
+
+ytemp=max(sum_f1)
+ytemp2=max(sum_f2)
+ytempf=[ytemp,ytemp2]
+
+xtemp=min(sum_f1)
+xtemp2=min(sum_f2)
+xtempf=[xtemp,xtemp2]
+
+
+# Dati per la distribuzione normale
+mu = np.mean(sum_f1)
+sigma = np.std(sum_f1)
+# Calcolo la distribuzione normale
+x = np.linspace(min(sum_f1), max(sum_f1),10)
+y = norm.pdf(x, mu, sigma)
+# Aggiungo la distribuzione normale al grafico
+plt.plot(x*(max(xtempf)/max(x)), y*(max(ytempf)/max(y)), 'r--', label='Distribuzione normale')
+
+
 # Annotazioni per ogni barra che restituisce il numero di fissazioni
 for i in range(len(sum_f1)):
     plt.annotate(sum_f1[i], (-0.05 + i, sum_f1[i]))
 for j in range(len(sum_f2)):
     plt.annotate(sum_f2[j], ( j+0.2, sum_f2[j]))
 
-ytemp=max(sum_f1)
-ytemp2=max(sum_f2)
-ytempf=[ytemp,ytemp2]
+
 
 plt.ylim([0, max(ytempf)+80])
 plt.ylabel('Numero di fissazioni')
 plt.xlabel('Task eseguito ')
 plt.title('Grafico delle Frequenze assolute relativo a un singolo task',fontweight='bold', fontsize=15)
 plt.legend(loc="best")
+
+
+
 if count==1:
  name=str(os.path.dirname(pathTime))
  fig.savefig(name+"SingoloPazienteImg"+".png")
 elif count>2:
     name = str(os.path.dirname(pathTime))
     fig.savefig(name +"PiùPazientiImg" + ".png")
+
+
+
 plt.show()
+
+
+
+
+
+
+
+
+# generiamo dei dati casuali da una distribuzione normale
+
+#  Q-Q plot per ciasun gruppo di task
+merge_array=np.concatenate((data1,data2))
+
+# Normalizziamo i dati
+sorted_data = np.sort(merge_array)
+n = sorted_data.size
+norm_data = norm.ppf((np.arange(1, n+1) - 0.5)/n)
+
+# Creiamo il grafico Q-Q plot
+plt.scatter(norm_data, sorted_data)
+plt.title('Q-Q plot')
+plt.xlabel('Quantili teorici')
+plt.ylabel('Quantili empirici')
+
+mu = np.mean(merge_array)
+sigma = np.std(merge_array)
+x = np.linspace(norm.ppf(0.01), norm.ppf(0.99), 100)
+y = mu + sigma*x
+plt.plot(x, y, color='red')
+
+
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

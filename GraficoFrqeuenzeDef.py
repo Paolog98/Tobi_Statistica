@@ -439,20 +439,21 @@ if (len(ImgTask3_07) !=0):
 data1 = sum_f1
 print(sum_f1)
 data2 = sum_f2
+data_merge=np.concatenate((data1,data2))
 
 # Calcoliamo il p-value del test di Shapiro-Wilk
-stat, p = stats.shapiro(data1)
-stat2, p2 = stats.shapiro(data2)
+stat, p = stats.shapiro(data_merge)
+
 
 # Stampa il p-value
+print("shapiro_Wilk sulla durata delle fissazioni per ciasun soggetto per ciasun immagine")
 print("p-value:", p)
 
 # Valuta l'ipotesi nulla
 alpha = 0.05
 if p > alpha:
     print("Non possiamo rifiutare l'ipotesi nulla: i dati seguono una distribuzione normale")
-if p2 > alpha:
-    print("Non possiamo rifiutare l'ipotesi nulla: i dati seguono una distribuzione normale")
+
 else:
     print("Rifiutiamo l'ipotesi nulla: i dati non seguono una distribuzione normale")
 
