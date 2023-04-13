@@ -9,6 +9,7 @@ import os
 import matplotlib.image as mpimg
 import json
 import datetime
+from scipy import stats
 
 def convert_unix_to_seconds(unix_timestamp):
  return datetime.datetime.fromtimestamp(unix_timestamp)
@@ -434,7 +435,26 @@ if (len(ImgTask3_07) !=0):
      plt.bar(ImgTask3_07[0]+"_2", sum_f2[9], width=0.3,color=colors[2],label=ImgTask3_07[1]+str(count7))
 
 
+    # Generiamo un campione di dati casuali
+data1 = sum_f1
+print(sum_f1)
+data2 = sum_f2
 
+# Calcoliamo il p-value del test di Shapiro-Wilk
+stat, p = stats.shapiro(data1)
+stat2, p2 = stats.shapiro(data2)
+
+# Stampa il p-value
+print("p-value:", p)
+
+# Valuta l'ipotesi nulla
+alpha = 0.05
+if p > alpha:
+    print("Non possiamo rifiutare l'ipotesi nulla: i dati seguono una distribuzione normale")
+if p2 > alpha:
+    print("Non possiamo rifiutare l'ipotesi nulla: i dati seguono una distribuzione normale")
+else:
+    print("Rifiutiamo l'ipotesi nulla: i dati non seguono una distribuzione normale")
 
 
 
@@ -558,6 +578,7 @@ if count==1:
 elif count>2:
     name = str(os.path.dirname(pathTime))
     fig.savefig(name +"PiùPazientiMAX" + ".png")
+
 # Mostra il grafico
 plt.show()
 
@@ -578,3 +599,6 @@ plt.title('Grafico a linee multiple(max,avg,min)',fontweight='bold', fontsize=15
 plt.legend(loc="best")
 fig.savefig('grafic/graficMediaMinMax.png')
 plt.show()'''
+
+
+
