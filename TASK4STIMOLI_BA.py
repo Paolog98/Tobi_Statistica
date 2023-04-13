@@ -208,7 +208,7 @@ for s in dataTime :
      Time4.append(s[2])
      Time4_2.append(s[3])
     for j, row in enumerate(dataTime):
-     if " 'T4_13/T4_03_13.jpg'" in row:
+     if " 'T4_13/T4_03_13_BA.jpg'" in row:
       print(f'Riga {j + 1}: {row}')
       print('La riga  è:', j+1)
       riga4=j+1

@@ -166,7 +166,7 @@ for i in dataTime :
      Time1.append(i[2])
      Time1_2.append(i[3])
     for j, row in enumerate(dataTime):
-     if " 'T4_09/T4_09_BA.jpg'" in row:
+     if " 'T4_09/T4_09_AB.jpg'" in row:
       print(f'Riga {j + 1}: {row}')
       print('La riga  è:', j+1)
       riga1=j+1
@@ -179,7 +179,7 @@ for k in dataTime :
      Time1.append(k[2])
      Time1_2.append(k[3])
     for j, row in enumerate(dataTime):
-     if " 'T4_05/T4_05_BA.jpg'" in row:
+     if " 'T4_05/T4_05_AB.jpg'" in row:
       print(f'Riga {j + 1}: {row}')
       print('La riga  è:', j+1)
       riga2=j+1
@@ -193,7 +193,7 @@ for t in dataTime :
      Time3.append(t[2])
      Time3_2.append(t[3])
     for j, row in enumerate(dataTime):
-     if " 'T4_03/T4_03_BA.jpg'" in row:
+     if " 'T4_03/T4_03_AB.jpg'" in row:
       print(f'Riga {j + 1}: {row}')
       print('La riga  è:', j+1)
       riga3=j+1
@@ -208,7 +208,7 @@ for s in dataTime :
      Time4.append(s[2])
      Time4_2.append(s[3])
     for j, row in enumerate(dataTime):
-     if " 'T4_13/T4_03_13.jpg'" in row:
+     if " 'T4_13/T4_03_13_AB.jpg'" in row:
       print(f'Riga {j + 1}: {row}')
       print('La riga  è:', j+1)
       riga4=j+1
