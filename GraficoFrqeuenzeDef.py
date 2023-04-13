@@ -10,6 +10,7 @@ import matplotlib.image as mpimg
 import json
 import datetime
 from scipy import stats
+from scipy.stats import norm
 
 def convert_unix_to_seconds(unix_timestamp):
  return datetime.datetime.fromtimestamp(unix_timestamp)
@@ -601,5 +602,28 @@ plt.legend(loc="best")
 fig.savefig('grafic/graficMediaMinMax.png')
 plt.show()'''
 
+# generiamo dei dati casuali da una distribuzione normale
 
+#  Q-Q plot per ciasun immagine del paziente
+merge_array=np.concatenate((data1,data2))
+
+# Normalizziamo i dati
+sorted_data = np.sort(merge_array)
+n = sorted_data.size
+norm_data = norm.ppf((np.arange(1, n+1) - 0.5)/n)
+
+# Creiamo il grafico Q-Q plot
+plt.scatter(norm_data, sorted_data)
+plt.title('Q-Q plot')
+plt.xlabel('Quantili teorici')
+plt.ylabel('Quantili empirici')
+
+mu = np.mean(merge_array)
+sigma = np.std(merge_array)
+x = np.linspace(norm.ppf(0.01), norm.ppf(0.99), 100)
+y = mu + sigma*x
+plt.plot(x, y, color='red')
+
+
+plt.show()
 
