@@ -435,7 +435,7 @@ if (len(ImgTask3_07) !=0):
      plt.bar(ImgTask3_07[0]+"_2", sum_f2[9], width=0.3,color=colors[2],label=ImgTask3_07[1]+str(count7))
 
 
-    # Generiamo un campione di dati casuali
+    # shapiro_Wilk sulla durata delle fissazioni per ciasun soggetto per ciasun immagine
 data1 = sum_f1
 print(sum_f1)
 data2 = sum_f2
