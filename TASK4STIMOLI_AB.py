@@ -308,7 +308,7 @@ bp = ax.boxplot(data,labels=["Immagine con stimolo","Neutro"])
 
 plt.suptitle("Vengono indicate le fissazioni di ogni immagine dicotomica")
 plt.ylabel("Tempo(sec)")
-plt.xlabel("Immagine")
+plt.xlabel("Immagini")
 plt.title("Boxplot task4 dicotomico")
 plt.legend(loc="best")
 
