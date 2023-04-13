@@ -131,7 +131,7 @@ def calcolofissdxsx(time1, time2, time3, riga, csv_file):
   posXPix.append(round(x * displayWidth))
   posYPix.append(round(y * displayHeight))
 
- center = posXPix[riga] - posYPix[riga]
+ center = (displayHeight * posXPix[riga]) - (displayWidth * posYPix[riga])
  fix.remove(fix[0])
  print(fix)
  sx_fixations = [i for i in fix if posX[riga] <= center]
