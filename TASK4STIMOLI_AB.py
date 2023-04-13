@@ -273,8 +273,8 @@ valorii = [
           int(dx4[0]), int(sx4[0]),
           int(dx5[0]),int(sx5[0])]
 
-valneutro=[int(sx2[0]),int(sx3[0]),int(sx4[0]),int(sx5[0])]
-stimolo=[int(dx2[0]),int(dx3[0]),int(dx4[0]),int(dx5[0])]
+valneutro=[int(dx2[0]),int(dx3[0]),int(dx4[0]),int(dx5[0])]
+stimolo=[int(sx2[0]),int(sx3[0]),int(sx4[0]),int(sx5[0])]
 valoreneu=sum(valneutro)
 
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12,8))
@@ -283,10 +283,10 @@ ax.tick_params(axis='x', which='major', labelsize=10, pad=4)
 plt.xticks(rotation=20)
 plt.ylim([0,20])
 
-plt.bar("Hypersexuality", valorii[0],label=ImgTask4,color="red")
-plt.bar("Gambling", valorii[2],label=ImgTask42,color="blue")
-plt.bar("Eating", valorii[4],label=ImgTask43,color="green")
-plt.bar("Shopping", valorii[6],label=ImgTask44,color="pink")
+plt.bar("Hypersexuality", stimolo[0],label=ImgTask4,color="red")
+plt.bar("Gambling", stimolo[1],label=ImgTask42,color="blue")
+plt.bar("Eating", stimolo[2],label=ImgTask43,color="green")
+plt.bar("Shopping", stimolo[3],label=ImgTask44,color="pink")
 plt.bar("Neutra",valoreneu,label="Immagine neutra",color="yellow")
 plt.xlabel('Tipologia immagine')
 plt.ylabel('Valori Fissazioni')
