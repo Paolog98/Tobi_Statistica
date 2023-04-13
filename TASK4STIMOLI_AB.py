@@ -220,7 +220,7 @@ print(Time1_2)
 
 #hpesex time
 delta1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga1][2])
-delta2=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga1][3])
+delta2=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga1+1][3])
 Hypersex=calcolofissdxsx(delta1,delta1,delta2,riga1,csv_file)
 sx2=Hypersex[0]
 if(len(sx2)==0):sx2.append(0)
@@ -232,7 +232,7 @@ print(Hypersex)
 
 #gambling
 delta2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga2][2])
-delta3=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga2][3])
+delta3=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga2+1][3])
 Gamb=calcolofissdxsx(delta2,delta2,delta3,riga2,csv_file)
 sx3=Gamb[0]
 if(len(sx3)==0):sx3.append(0)
@@ -245,7 +245,7 @@ print(Gamb)
 
 #EATING
 delta3 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga3][2])
-delta4=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga3][3])
+delta4=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga3+1][3])
 eat=calcolofissdxsx(delta3,delta3,delta4,riga3,csv_file)
 sx4=eat[0]
 if(len(sx4)==0):sx4.append(0)
@@ -257,7 +257,7 @@ print(eat)
 
 #SHOPPING
 delta4 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga4][2])
-delta5=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga4][3])
+delta5=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga4+1][3])
 shop=calcolofissdxsx(delta4,delta4,delta5,riga4,csv_file)
 sx5=shop[0]
 if(len(sx5)==0):sx5.append(0)
