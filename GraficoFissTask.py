@@ -285,7 +285,7 @@ for j in range(len(sum_f2)):
 plt.ylim([0, max(ytempf)+80])
 plt.ylabel('Numero di fissazioni')
 plt.xlabel('Task eseguito ')
-plt.title('Grafico delle Frequenze assolute relativo a un singolo task',fontweight='bold', fontsize=15)
+plt.title('Grafico delle frequenze assolute relativo a un singolo task',fontweight='bold', fontsize=15)
 plt.legend(loc="best")
 
 
