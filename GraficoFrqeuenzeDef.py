@@ -567,7 +567,7 @@ plt.plot(x, y1,'-o',label='Valore max')
 
 # Aggiunta di etichette e titolo
 plt.xlabel('Tempo(sec)')
-plt.ylabel('Valori Fissazioni')
+plt.ylabel('Valori fissazioni')
 plt.title('Grafico a linee multiple(26-133sec/206-319sec)')
 plt.legend(loc="best")
 

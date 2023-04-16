@@ -302,15 +302,15 @@ plt.show()
 
 data=[stimolo,valneutro]
 fig, ax = plt.subplots(figsize=(12,8))
-bp = ax.boxplot(data,labels=["Immagine con stimolo","Neutro"])
+bp = ax.boxplot(data,labels=["Immagini con stimolo","Neutre"])
 
 # Personalizzazione dell'asse y
 
-plt.title("Vengono indicate le durate delle fissazioni di ogni immagine dicotomica",size=10)
+plt.title("Vengono indicate le durate delle fissazioni di ogni immagine dicotomica",size=12)
 plt.ylabel("Tempo(sec)")
-plt.xlabel("Immagini")
-plt.suptitle("Boxplot task4 dicotomico",size=14)
-plt.legend(loc="best")
+plt.xlabel("Immagini dicotomiche")
+plt.suptitle("Boxplot task4 dicotomico",size=16,fontweight='bold')
+
 
 
 # Mostra il grafico
