@@ -423,7 +423,7 @@ plt.plot(x, y1,'-o',label='Valore max',color="orange")
 
 # Aggiunta di etichette e titolo
 plt.xlabel('Tempo(sec)')
-plt.ylabel('Valori Fissazioni')
+plt.ylabel('Valori fissazioni')
 plt.title('Grafico a linee multiple delle Immagini del task 4(dx,sx)')
 plt.legend(loc="best")
 
