@@ -289,7 +289,7 @@ plt.bar("Eating", valorii[4],label=ImgTask43,color="green")
 plt.bar("Shopping", valorii[6],label=ImgTask44,color="pink")
 plt.bar("Neutra",valoreneu,label="Immagine neutra",color="yellow")
 plt.xlabel('Tipologia immagine')
-plt.ylabel('Valori Fissazioni')
+plt.ylabel('Valori fissazioni')
 plt.title('Grafico delle frequenze assolute rispetto al task 4 dicotomico')
 plt.legend(loc="best")
 fig.savefig('grafic/STIMOLONEU.png')
@@ -306,11 +306,10 @@ bp = ax.boxplot(data,labels=["Immagine con stimolo","Neutro"])
 
 # Personalizzazione dell'asse y
 
-plt.suptitle("Vengono indicate le fissazioni di ogni immagine dicotomica")
+plt.title("Vengono indicate le durate delle fissazioni di ogni immagine dicotomica",size=12)
 plt.ylabel("Tempo(sec)")
-plt.xlabel("Immagini")
-plt.title("Boxplot task4 dicotomico")
-plt.legend(loc="best")
+plt.xlabel("Immagini dicotomiche")
+plt.suptitle("Boxplot task4 dicotomico",size=16,fontweight='bold')
 
 
 # Mostra il grafico
