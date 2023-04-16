@@ -398,7 +398,7 @@ plt.bar(ImgTask4[3], sum_f1[15], width=0.3,color=colors[0])
 plt.bar(11.3, sum_f2[15], width=0.3,color=colors[1])
 
 
-plt.axvline(x=11.5, color='red', linestyle='--', label="DATI DEL TASK 3")
+plt.axvline(x=11.5, color='red', linestyle='--', label="TASK 3->(ogni foto presenta il num. di quante volte è stata vista)")
 
 if (len(ImgTask3_01) != 0):
      count1=len(ImgTask3_01)
