@@ -298,24 +298,24 @@ colors = ["blue","red"]
 
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12,8))
 ax.set_xticks(np.arange(-4, 16, 1))
-ax.tick_params(axis='x', which='major', labelsize=6, pad=4)
+ax.tick_params(axis='x', which='major', labelsize=5, pad=4)
 plt.xticks(rotation=20)
 plt.ylim([0,30])
 
 #PRIM0 TASK
 
-etichette = [ImgTask4[0], "sx1", "dx2", "sx2",
-             ImgTask4[1],"sx1_2", "dx2_2", "sx2_2",
-             ImgTask4[2],"sx1_3", "dx2_3", "sx2_3",
-             ImgTask4[3],"sx1_4", "dx2_4", "sx2_4"]
+etichette = [ImgTask4[0], ImgTask4[0]+"sx1_1",ImgTask4[0]+"dx2_1",ImgTask4[0]+"sx2_1",
+             ImgTask4[1],ImgTask4[1]+"sx1_2", ImgTask4[1]+"dx2_2", ImgTask4[1]+"sx2_2",
+             ImgTask4[2],ImgTask4[2]+"sx1_3", ImgTask4[2]+"dx2_3", ImgTask4[2]+"sx2_3",
+             ImgTask4[3],ImgTask4[3]+"sx1_4",ImgTask4[3]+"dx2_4",ImgTask4[3]+"sx2_4"]
 valori = [int(dx1[0]), int(sx1[0]), int(dx5[0]), int(sx5[0]),
           int(dx2[0]), int(sx2[0]), int(dx6[0]), int(sx6[0]),
           int(dx3[0]), int(sx3[0]), int(dx7[0]), int(sx7[0])
          ,int(dx4[0]), int(sx4[0]), int(dx8[0]), int(sx8[0])]
 
 # Creazione dell'istogramma
-plt.bar(etichette[0], valori[0],label="nameImg+ Fiss.Immagine dx ",color="blue",width=0.7)
-plt.bar(etichette[1], valori[1],label="Fiss.Immagine sx",color="red",width=0.7)
+plt.bar(etichette[0], valori[0],label="Fiss.Immagine dx prima e seconda parte",color="blue",width=0.7)
+plt.bar(etichette[1], valori[1],label="Fiss.Immagine sx prima e seconda parte",color="red",width=0.7)
 plt.bar(etichette[2], valori[2],color="blue",width=0.7)
 plt.bar(etichette[3], valori[3],color="red",width=0.7)
 
@@ -349,9 +349,10 @@ plt.bar(etichette[15], valori[15],color="red",width=0.7)
 
 #plt.ylim([0, max(ytempf)+20])
 plt.ylabel('Numero di fissazioni')
-plt.xlabel('Immagini Task 4')
+plt.xlabel('Immagini del task 4')
 plt.title('Grafico delle Frequenze assolute relativo al TASK  4',fontweight='bold', fontsize=15)
 plt.legend(loc="best")
+
 # print(count)
 if count==1:
  name=str(os.path.dirname(pathTime))
