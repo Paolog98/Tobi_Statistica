@@ -350,7 +350,7 @@ colors = ["blue","red","green"]
 
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12,8))
 ax.set_xticks(np.arange(-4, 27, 1))
-ax.tick_params(axis='x', which='major', labelsize=5, pad=4)
+ax.tick_params(axis='x', which='major', labelsize=5.7, pad=6)
 plt.xticks(rotation=20)
 
 
@@ -398,42 +398,42 @@ plt.bar(ImgTask4[3], sum_f1[15], width=0.3,color=colors[0])
 plt.bar(11.3, sum_f2[15], width=0.3,color=colors[1])
 
 
-plt.axvline(x=11.5, color='red', linestyle='--', label="INIZIO FOTO TASK 3")
+plt.axvline(x=11.5, color='red', linestyle='--', label="DATI DEL TASK 3")
 
 if (len(ImgTask3_01) != 0):
      count1=len(ImgTask3_01)
-     plt.bar(ImgTask3_01[0], sum_f1[8], width=0.3,color=colors[0])
-     plt.bar(ImgTask3_01[0]+"_2", sum_f2[8], width=0.3,color=colors[2],label=ImgTask3_01[1]+str(count1))
+     plt.bar(ImgTask3_01[0]+str(count1), sum_f1[8], width=0.3,color=colors[0])
+     plt.bar(ImgTask3_01[0], sum_f2[8], width=0.3,color=colors[1])
 
 if (len(ImgTask3_02) != 0):
      count2=len(ImgTask3_02)
-     plt.bar(ImgTask3_02[0], sum_f1[9], width=0.3,color=colors[0])
-     plt.bar(ImgTask3_02[0]+"_2", sum_f2[9], width=0.3,color=colors[2],label=ImgTask3_02[1]+str(count2))
+     plt.bar(ImgTask3_02[0]+str(count2), sum_f1[9], width=0.3,color=colors[0])
+     plt.bar(ImgTask3_02[0], sum_f2[9], width=0.3,color=colors[1])
 
 if (len(ImgTask3_03) != 0):
      count3=len(ImgTask3_03)
-     plt.bar(ImgTask3_03[0], sum_f1[10], width=0.3,color=colors[0])
-     plt.bar(ImgTask3_03[0]+"_2", sum_f2[10], width=0.3,color=colors[2],label=ImgTask3_03[1]+str(count3))
+     plt.bar(ImgTask3_03[0]+str(count3), sum_f1[10], width=0.3,color=colors[0])
+     plt.bar(ImgTask3_03[0], sum_f2[10], width=0.3,color=colors[1])
 
 if (len(ImgTask3_04) != 0):
      count4=len(ImgTask3_04)
-     plt.bar(ImgTask3_04[0], sum_f1[11], width=0.3,color=colors[0])
-     plt.bar(ImgTask3_04[0]+"_2", sum_f2[11], width=0.3,color=colors[2],label=ImgTask3_04[1]+str(count4))
+     plt.bar(ImgTask3_04[0]+str(count4), sum_f1[11], width=0.3,color=colors[0])
+     plt.bar(ImgTask3_04[0], sum_f2[11], width=0.3,color=colors[1])
 
 if (len(ImgTask3_05) != 0):
      count5=len(ImgTask3_05)
-     plt.bar(ImgTask3_05[0], sum_f1[10], width=0.3,color=colors[0])
-     plt.bar(ImgTask3_05[0]+"_2", sum_f2[10], width=0.3,color=colors[2],label=ImgTask3_05[1]+str(count5))
+     plt.bar(ImgTask3_05[0]+str(count5), sum_f1[10], width=0.3,color=colors[0])
+     plt.bar(ImgTask3_05[0], sum_f2[10], width=0.3,color=colors[1])
 
 if (len(ImgTask3_06) != 0):
      count6=len(ImgTask3_06)
-     plt.bar(ImgTask3_06[0], sum_f1[8], width=0.3,color=colors[0])
-     plt.bar(ImgTask3_06[0]+"_2", sum_f2[8], width=0.3,color=colors[2],label=ImgTask3_06[1]+str(count6))
+     plt.bar(ImgTask3_06[0]+str(count6), sum_f1[8], width=0.3,color=colors[0])
+     plt.bar(ImgTask3_06[0], sum_f2[8], width=0.3,color=colors[1])
 
 if (len(ImgTask3_07) !=0):
      count7=len(ImgTask3_07)
-     plt.bar(ImgTask3_07[0], sum_f1[9], width=0.3,color=colors[0])
-     plt.bar(ImgTask3_07[0]+"_2", sum_f2[9], width=0.3,color=colors[2],label=ImgTask3_07[1]+str(count7))
+     plt.bar(ImgTask3_07[0]+str(count7), sum_f1[9], width=0.3,color=colors[0])
+     plt.bar(ImgTask3_07[0], sum_f2[9], width=0.3,color=colors[1])
 
 
     # shapiro_Wilk sulla durata delle fissazioni per ciasun soggetto per ciasun immagine
@@ -476,8 +476,8 @@ ytempf=[ytemp,ytemp2]
 
 plt.ylim([0, max(ytempf)+20])
 plt.ylabel('Numero di fissazioni')
-plt.xlabel('Immagine ')
-plt.title('Grafico delle Frequenze assolute relativo a una singola immagine',fontweight='bold', fontsize=15)
+plt.xlabel('Immagine')
+plt.title('Grafico delle Frequenze assolute relativo a una singola immagine',fontweight='bold', fontsize=16)
 plt.legend(loc="best")
 # print(count)
 count=0
