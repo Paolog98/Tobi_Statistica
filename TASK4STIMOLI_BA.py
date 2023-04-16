@@ -291,7 +291,7 @@ plt.bar("Neutra",valoreneu,label="Immagine neutra",color="yellow")
 plt.xlabel('Tipologia immagine')
 plt.ylabel('Valori fissazioni')
 plt.suptitle('Grafico delle frequenze assolute rispetto al task 4 dicotomico',fontweight='bold',size=16)
-plt.title(' _BA===>(Foto neutra a sx ||  Foto con stimolo a dx)',size=10)
+plt.title(' _BA===>(Foto neutra a sx || Foto con stimolo a dx)',size=10)
 plt.legend(loc="best")
 fig.savefig('grafic/STIMOLONEU_BA.png')
 
