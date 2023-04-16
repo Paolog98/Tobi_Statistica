@@ -292,7 +292,7 @@ plt.xlabel('Tipologia immagine')
 plt.ylabel('Valori fissazioni')
 plt.title('Grafico delle frequenze assolute rispetto al task 4 dicotomico')
 plt.legend(loc="best")
-fig.savefig('grafic/STIMOLONEU.png')
+fig.savefig('grafic/STIMOLONEU_BA.png')
 
 plt.show()
 
