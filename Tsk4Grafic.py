@@ -109,6 +109,7 @@ def calcolofissdxsx(time1, time2, time3,riga, csv_file):
 n=int(sg.popup_get_text("Quanti pazienti vuoi analizzare(grafico immagini)?"))
 
 val=[]
+count=0
 
 
 
@@ -354,18 +355,18 @@ plt.show()
 #dati grafico linee multiple max,medio,min
 #Prima Parte
 
-valmax4=max(valori[1],valori[2],valori[4],valori[5],valori[8],valori[9],valori[12],valori[13])
+valmax4=max(val[1],val[2],val[4],val[5],val[8],val[9],val[12],val[13])
 #Seconda Parte
 
-valmax4_2=max(valori[2],valori[3],valori[6],valori[7],valori[10],valori[11],valori[14],valori[15])
+valmax4_2=max(val[2],val[3],val[6],val[7],val[10],val[11],val[14],val[15])
 
 
 #array prima e seconda parte
 
-array4=[valori[1],valori[2],valori[4],valori[5],valori[8],valori[9],valori[12],valori[13]]
+array4=[val[1],val[2],val[4],val[5],val[8],val[9],val[12],val[13]]
 
 
-array4_2=[valori[2],valori[3],valori[6],valori[7],valori[10],valori[11],valori[14],valori[15]]
+array4_2=[val[2],val[3],val[6],val[7],val[10],val[11],val[14],val[15]]
 
 
 
@@ -382,11 +383,11 @@ valavg4_2=sum(array4_2)/8
 
 #valore minimo prima parte
 
-valmin4=min(valori[1],valori[2],valori[4],valori[5],valori[8],valori[9],valori[12],valori[13])
+valmin4=min(val[1],val[2],val[4],val[5],val[8],val[9],val[12],val[13])
 
 
 
-valmin4_2=min(valori[2],valori[3],valori[6],valori[7],valori[10],valori[11],valori[14],valori[15])
+valmin4_2=min(val[2],val[3],val[6],val[7],val[10],val[11],val[14],val[15])
 
 
 
