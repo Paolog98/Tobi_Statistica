@@ -80,17 +80,19 @@ def Fisstask(time1, time2, time3, csv_filef):
  # dati del grafico fixation
  csv_filee = csv_filef
  dataFrame = pd.read_csv(csv_filee)
- data = dataFrame.iloc[:, [0, 1, 3, 4]].values  # Prendo i valori che mi serviranno
- times = [element for element in data[:, 1]]
+ data = dataFrame.iloc[:, [0, 1, 2, 3, 4]].values  # Prendo i valori che mi serviranno
+ times = [element for element in data[:, 1]] # 4
  time2 = []
  smin = 0
  numF1 = []
  numFix1 = []
 
+
  # calco numFix delle foto
  for i in range(1, len(listTime)):
   for x in times:
    if x <= listTime[i]:
+
     time2.append(x)
     numFix1 = [int(element) for element in data[smin:len(time2), 1]]
   diff = len(time2) - smin
@@ -102,10 +104,6 @@ def Fisstask(time1, time2, time3, csv_filef):
   time2.clear()
 
  return numF1
-
-
-
-
 
 
 
@@ -218,6 +216,43 @@ print(ImgTask4)
 print(Time1)
 print(Time1_2)
 
+def durataFiss(csv_file,riga1,riga4):
+ fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
+ dataFix = fileFix.values.tolist()
+ print(dataFix[1][0])
+ duration=[]
+
+
+
+ start_row = riga1  # Riga di partenza (inclusa)
+ end_row = riga4  # Riga di arrivo (inclusa)
+
+ for j,row in enumerate(dataFix):
+   if int(dataFix[j+1][0]) < start_row:
+    continue  # Salta le righe precedenti alla riga di partenza
+   if int(dataFix[j+1][0]) > end_row:
+    duration.append(dataFix[j+1][2])
+    duration.append(dataFix[j+2][2])
+    duration.append(dataFix[j+3][2])
+    duration.append(dataFix[j+4][2])
+    duration.append(dataFix[j+5][2])
+    duration.append(dataFix[j+6][2])
+    duration.append(dataFix[j+7][2])
+    duration.append(dataFix[j+8][2])
+
+
+    duration.sort()# Prende il valore della colonna "duration"
+    print(duration)
+
+   return duration
+
+#durate delle fissazioni in ms
+arraydur=durataFiss(csv_file,riga1,riga4)
+print("durateeeeeeeee")
+print(arraydur)
+
+
+
 #hpesex time
 delta1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga1][2])
 delta2=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga1][3])
@@ -277,6 +312,18 @@ valneutro=[int(sx2[0]),int(sx3[0]),int(sx4[0]),int(sx5[0])]
 stimolo=[int(dx2[0]),int(dx3[0]),int(dx4[0]),int(dx5[0])]
 valoreneu=sum(valneutro)
 
+
+float_dur=[]
+
+for element in arraydur:
+    float_dur.append(float(element))
+
+print(float_dur)
+
+
+
+
+
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12,8))
 ax.set_xticks(np.arange(-4, 16, 1))
 ax.tick_params(axis='x', which='major', labelsize=10, pad=4)
@@ -305,11 +352,15 @@ data=[stimolo,valneutro]
 fig, ax = plt.subplots(figsize=(12,8))
 bp = ax.boxplot(data,labels=["Immagine con stimolo","Neutro"])
 
+ax.set_yticklabels([float_dur[0], float_dur[1], float_dur[2],float_dur[3],float_dur[4],float_dur[5],float_dur[7]])
+ax.tick_params(axis='y', labelsize=6)
+
+
+
 # Personalizzazione dell'asse y
 
 plt.title("Vengono indicate le durate delle fissazioni di ogni immagine dicotomica",size=12)
-plt.ylabel("Tempo(sec)")
-plt.xlabel("Immagini dicotomiche")
+plt.ylabel("Tempo(ms)",size=9)
 plt.suptitle("Boxplot task4 dicotomico(_BA)",size=16,fontweight='bold')
 
 
