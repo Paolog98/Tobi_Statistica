@@ -218,6 +218,31 @@ print(ImgTask4)
 print(Time1)
 print(Time1_2)
 
+
+def durataFiss(csv_file,time1,time4,numF):
+ fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
+ dataFix = fileFix.values.tolist()
+ print(dataFix[1][0])
+ duration=[]
+
+
+#recupero le durate nei tempi del task 4
+#con numf recupero il numero di fissazioni presenti e la loro relativa durata
+
+ for j,row in enumerate(dataFix):
+   if float(dataFix[j+1][1]) < time1:
+    continue  # Salta le righe precedenti alla riga di partenza
+   if float(dataFix[j+1][1]) > time4:
+    for l in range(sum(numF)):
+     duration.append(dataFix[j+l][2]) # Prende il valore della colonna "duration"
+    print(duration)
+
+   return duration
+
+
+
+
+
 #hpesex time
 delta1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga1][2])
 delta2=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga1][3])
@@ -277,6 +302,62 @@ valneutro=[int(dx2[0]),int(dx3[0]),int(dx4[0]),int(dx5[0])]
 stimolo=[int(sx2[0]),int(sx3[0]),int(sx4[0]),int(sx5[0])]
 valoreneu=sum(valneutro)
 
+
+float_dur=[]
+
+
+#durate delle fissazioni in ms
+arraydur=durataFiss(csv_file,delta1,delta5,valorii)
+print("durateeeeeeeee")
+print(arraydur)
+
+
+
+
+
+
+for element in arraydur:
+    float_dur.append(float(element))
+
+print(float_dur)
+
+
+dur_stimolo=[]
+dur_neutro=[]
+
+#recupero la durate delle fissazioni con stimolo
+for i in range(sum(stimolo)):
+    dur_stimolo.append(float_dur[i])
+    print("DURATE STIMOLO")
+    print(dur_stimolo)
+
+
+#recupero la durata delle fissazioni neutre
+for k in range(sum(valneutro)):
+    dur_neutro.append(float_dur[k])
+    print("DURATE NEUTRE")
+    print(dur_neutro)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12,8))
 ax.set_xticks(np.arange(-4, 16, 1))
 ax.tick_params(axis='x', which='major', labelsize=10, pad=4)
@@ -301,7 +382,7 @@ plt.show()
 
 #BOXPLOT
 
-data=[stimolo,valneutro]
+data=[dur_stimolo,dur_neutro]
 fig, ax = plt.subplots(figsize=(12,8))
 bp = ax.boxplot(data,labels=["Immagini con stimolo","Neutre"])
 
@@ -309,7 +390,6 @@ bp = ax.boxplot(data,labels=["Immagini con stimolo","Neutre"])
 
 plt.title("Vengono indicate le durate delle fissazioni di ogni immagine dicotomica",size=12)
 plt.ylabel("Tempo(sec)")
-plt.xlabel("Immagini dicotomiche")
 plt.suptitle("Boxplot task4 dicotomico(_AB)",size=16,fontweight='bold')
 
 
