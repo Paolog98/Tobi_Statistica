@@ -144,18 +144,6 @@ def calcolofissdxsx(time1, time2, time3, riga, csv_file):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 #hypersex
 for i in dataTime :
 
@@ -309,10 +297,6 @@ print("durateeeeeeeee")
 print(arraydur)
 
 
-
-
-
-
 for element in arraydur:
     float_dur.append(float(element))
 
@@ -376,9 +360,12 @@ bp = ax.boxplot(data,labels=["Immagine con stimolo","Neutro"])
 
 # Personalizzazione dell'asse y
 
-plt.title("Vengono indicate le durate delle fissazioni di ogni immagine dicotomica",size=12)
 plt.ylabel("Tempo(ms)",size=9)
-plt.suptitle("Boxplot task4 dicotomico(_BA)",size=16,fontweight='bold')
+plt.suptitle("Boxplot task 4 dicotomico:\nRappresentazione visuale della durate delle fissazioni",size=11,fontweight='bold')
+plt.title("Le durate delle fissazioni fanno riferimento alle foto con BA,dove:la foto neutra è a sx, e la foto con stimolo è a dx)", transform=ax.transAxes,
+        fontsize=9, va='top', ha='center')
+
+
 
 
 # Mostra il grafico
