@@ -381,7 +381,7 @@ bp = ax.boxplot(data,labels=["Immagini con stimolo","Neutre"])
 # Personalizzazione dell'asse y
 
 plt.ylabel("Tempo(ms)",size=9)
-plt.suptitle("Boxplot task 4 dicotomico:\nRappresentazione visuale della durate delle fissazioni",size=11,fontweight='bold')
+plt.suptitle("Boxplot task 4 dicotomico:\nRappresentazione visuale della durata delle fissazioni",size=11,fontweight='bold')
 plt.title("Le durate delle fissazioni fanno riferimento alle foto con AB,dove:la foto neutra è a dx, e la foto con stimolo è a sx)", transform=ax.transAxes,
         fontsize=10, va='top', ha='center')
 
