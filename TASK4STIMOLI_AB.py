@@ -365,7 +365,7 @@ plt.bar("Neutra",valoreneu,label="Immagine neutra",color="yellow")
 plt.xlabel('Tipologia immagine')
 plt.ylabel('Valori fissazioni')
 plt.suptitle('Grafico delle frequenze assolute rispetto al task 4 dicotomico',fontweight='bold',fontsize=16)
-plt.title(' _AB===>(Foto neutra a dx || Foto con stimolo a sx)',fontsize=10)
+plt.title('Il numero di fissazioni fanno riferimento alle foto con AB,dove:la foto neutra è a dx, e la foto con stimolo è a sx',fontsize=10)
 plt.legend(loc="best")
 fig.savefig('grafic/STIMOLONEU_AB.png')
 
@@ -384,7 +384,7 @@ bp = ax.boxplot(data,labels=["Immagini con stimolo","Neutre"])
 plt.ylabel("Tempo(ms)",size=9)
 plt.suptitle("Boxplot task 4 dicotomico:\nRappresentazione visuale della durate delle fissazioni",size=11,fontweight='bold')
 plt.title("Le durate delle fissazioni fanno riferimento alle foto con AB,dove:la foto neutra è a dx, e la foto con stimolo è a sx)", transform=ax.transAxes,
-        fontsize=9, va='top', ha='center')
+        fontsize=10, va='top', ha='center')
 
 
 
