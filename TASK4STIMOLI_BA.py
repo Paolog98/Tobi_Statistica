@@ -216,40 +216,27 @@ print(ImgTask4)
 print(Time1)
 print(Time1_2)
 
-def durataFiss(csv_file,riga1,riga4):
+def durataFiss(csv_file,time1,time4,numF):
  fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
  dataFix = fileFix.values.tolist()
  print(dataFix[1][0])
  duration=[]
 
 
-
- start_row = riga1  # Riga di partenza (inclusa)
- end_row = riga4  # Riga di arrivo (inclusa)
+#recupero le durate nei tempi del task 4
+#con numf recupero il numero di fissazioni presenti e la loro relativa durata
 
  for j,row in enumerate(dataFix):
-   if int(dataFix[j+1][0]) < start_row:
+   if float(dataFix[j+1][1]) < time1:
     continue  # Salta le righe precedenti alla riga di partenza
-   if int(dataFix[j+1][0]) > end_row:
-    duration.append(dataFix[j+1][2])
-    duration.append(dataFix[j+2][2])
-    duration.append(dataFix[j+3][2])
-    duration.append(dataFix[j+4][2])
-    duration.append(dataFix[j+5][2])
-    duration.append(dataFix[j+6][2])
-    duration.append(dataFix[j+7][2])
-    duration.append(dataFix[j+8][2])
-
-
-    duration.sort()# Prende il valore della colonna "duration"
+   if float(dataFix[j+1][1]) > time4:
+    for l in range(sum(numF)):
+     duration.append(dataFix[j+l][2]) # Prende il valore della colonna "duration"
     print(duration)
 
    return duration
 
-#durate delle fissazioni in ms
-arraydur=durataFiss(csv_file,riga1,riga4)
-print("durateeeeeeeee")
-print(arraydur)
+
 
 
 
@@ -315,10 +302,39 @@ valoreneu=sum(valneutro)
 
 float_dur=[]
 
+
+#durate delle fissazioni in ms
+arraydur=durataFiss(csv_file,delta1,delta5,valorii)
+print("durateeeeeeeee")
+print(arraydur)
+
+
+
+
+
+
 for element in arraydur:
     float_dur.append(float(element))
 
 print(float_dur)
+
+
+dur_stimolo=[]
+dur_neutro=[]
+
+#recupero la durate delle fissazioni con stimolo
+for i in range(sum(stimolo)):
+    dur_stimolo.append(float_dur[i])
+    print("DURATE STIMOLO")
+    print(dur_stimolo)
+
+
+#recupero la durata delle fissazioni neutre
+for k in range(sum(valneutro)):
+    dur_neutro.append(float_dur[k])
+    print("DURATE NEUTRE")
+    print(dur_neutro)
+
 
 
 
@@ -348,12 +364,13 @@ plt.show()
 
 #BOXPLOT
 
-data=[stimolo,valneutro]
+#passo le durate delle fissazioni con stimolo e neutre
+data=[dur_stimolo,dur_neutro]
 fig, ax = plt.subplots(figsize=(12,8))
 bp = ax.boxplot(data,labels=["Immagine con stimolo","Neutro"])
 
-ax.set_yticklabels([float_dur[0], float_dur[1], float_dur[2],float_dur[3],float_dur[4],float_dur[5],float_dur[7]])
-ax.tick_params(axis='y', labelsize=6)
+
+
 
 
 
