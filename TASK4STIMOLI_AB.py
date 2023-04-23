@@ -351,13 +351,6 @@ for k in range(sum(valneutro)):
 
 
 
-
-
-
-
-
-
-
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12,8))
 ax.set_xticks(np.arange(-4, 16, 1))
 ax.tick_params(axis='x', which='major', labelsize=10, pad=4)
@@ -388,9 +381,10 @@ bp = ax.boxplot(data,labels=["Immagini con stimolo","Neutre"])
 
 # Personalizzazione dell'asse y
 
-plt.title("Rappresentazione visuale della durate delle fissazioni del task 4",size=12)
-plt.ylabel("Tempo(sec)")
-plt.suptitle("Boxplot task4 dicotomico(_AB)",size=16,fontweight='bold')
+plt.ylabel("Tempo(ms)",size=9)
+plt.suptitle("Boxplot task 4 dicotomico:\nRappresentazione visuale della durate delle fissazioni",size=11,fontweight='bold')
+plt.title("Le durate delle fissazioni fanno riferimento alle foto con AB,dove:la foto neutra è a dx, e la foto con stimolo è a sx)", transform=ax.transAxes,
+        fontsize=9, va='top', ha='center')
 
 
 
