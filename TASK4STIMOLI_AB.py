@@ -208,7 +208,7 @@ for s in dataTime :
      Time4.append(s[2])
      Time4_2.append(s[3])
     for j, row in enumerate(dataTime):
-     if " 'T4_13/T4_03_13_AB.jpg'" in row:
+     if " 'T4_13/T4_13_AB.jpg'" in row:
       print(f'Riga {j + 1}: {row}')
       print('La riga  è:', j+1)
       riga4=j+1
@@ -219,25 +219,37 @@ print(Time1)
 print(Time1_2)
 
 
-def durataFiss(csv_file,time1,time4,numF):
+def durataFiss(csv_file,time1,time2,time3,time4,time5,numF):
  fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
  dataFix = fileFix.values.tolist()
  print(dataFix[1][0])
  duration=[]
 
 
-#recupero le durate nei tempi del task 4
+#recupero le durate delle fissazioni che sono presenti nell'intorno di tempo che appare la foto presa in esame
 #con numf recupero il numero di fissazioni presenti e la loro relativa durata
 
- for z,row in enumerate(dataFix):
-   if float(dataFix[z+1][1]) < time1:  #tolgo le durate delle fissazioni dei task precedenti
-    continue  # Salta le righe precedenti alla riga di partenza
-   if float(dataFix[z+1][1]) > time4:  #mi posiziono fino a dove inizia il task e prendo le durate delle fissazioni
-    for l in range(sum(numF)):
-     fix=dataFix[l+1][2]
-     duration.append(fix) # Prende il valore della colonna "duration"
-    print(duration)
+ for j,row in enumerate(dataFix):
+   for l in range(sum(numF)):
+    if float(dataFix[j+1][1]) <= round(time1):
+     fix = dataFix[l+1][2]
+     duration.append(fix)
+    if float(dataFix[j+1][1]) <= round(time2):
+     fix2 = dataFix[l+2][2]
+     duration.append(fix2)
+    if float(dataFix[j + 1][1]) <= round(time3):
+     fix3 = dataFix[l+3][2]
+     duration.append(fix3)
+    if float(dataFix[j + 1][1]) <= round(time4):
+     fix4 = dataFix[l + 4][2]
+     duration.append(fix4)
+    if float(dataFix[j + 1][1]) <= round(time5):
+     fix5 = dataFix[l + 5][2]
+     duration.append(fix5)
 
+
+
+   print(duration)
    return duration
 
 
@@ -308,7 +320,10 @@ float_dur=[]
 
 
 #durate delle fissazioni in ms
-arraydur=durataFiss(csv_file,delta1,delta5,valorii)
+valtime=[delta1,delta2,delta3,delta4,delta5]
+valtime.sort()
+print(valtime)
+arraydur=durataFiss(csv_file,valtime[0],valtime[1],valtime[2],valtime[3],valtime[4],valorii)
 print("durateeeeeeeee")
 print(arraydur)
 

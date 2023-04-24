@@ -151,11 +151,11 @@ for i in dataTime :
      ImgTask4.append(i[1])
      Time1.append(i[2])
      Time1_2.append(i[3])
-    for j, row in enumerate(dataTime):
+    for x, row in enumerate(dataTime):
      if " 'T4_09/T4_09_BA.jpg'" in row:
-      print(f'Riga {j + 1}: {row}')
-      print('La riga  è:', j+1)
-      riga1=j+1
+      print(f'Riga {x + 1}: {row}')
+      print('La riga  è:', x+1)
+      riga1=x+1
 
 #gambling
 for k in dataTime :
@@ -164,11 +164,11 @@ for k in dataTime :
      ImgTask42.append(k[1])
      Time1.append(k[2])
      Time1_2.append(k[3])
-    for j, row in enumerate(dataTime):
+    for q, row in enumerate(dataTime):
      if " 'T4_05/T4_05_BA.jpg'" in row:
-      print(f'Riga {j + 1}: {row}')
-      print('La riga  è:', j+1)
-      riga2=j+1
+      print(f'Riga {q + 1}: {row}')
+      print('La riga  è:', q+1)
+      riga2=q+1
 
 
 #eating
@@ -178,11 +178,11 @@ for t in dataTime :
      ImgTask43.append(t[1])
      Time3.append(t[2])
      Time3_2.append(t[3])
-    for j, row in enumerate(dataTime):
+    for y, row in enumerate(dataTime):
      if " 'T4_03/T4_03_BA.jpg'" in row:
-      print(f'Riga {j + 1}: {row}')
-      print('La riga  è:', j+1)
-      riga3=j+1
+      print(f'Riga {y + 1}: {row}')
+      print('La riga  è:', y+1)
+      riga3=y+1
 
 
 
@@ -193,18 +193,19 @@ for s in dataTime :
      ImgTask44.append(s[1])
      Time4.append(s[2])
      Time4_2.append(s[3])
-    for j, row in enumerate(dataTime):
-     if " 'T4_13/T4_03_13_BA.jpg'" in row:
-      print(f'Riga {j + 1}: {row}')
-      print('La riga  è:', j+1)
-      riga4=j+1
+    for v, row in enumerate(dataTime):
+     if " 'T4_13/T4_13_BA.jpg'" in row:
+      print(f'Riga {v + 1}: {row}')
+      print('La riga  è:', v+1)
+      riga4=v+1
 
 print(riga1)
 print(ImgTask4)
 print(Time1)
 print(Time1_2)
 
-def durataFiss(csv_file,time1,time4,numF):
+
+def durataFiss(csv_file,time1,time2,numF):
  fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
  dataFix = fileFix.values.tolist()
  print(dataFix[1][0])
@@ -214,14 +215,15 @@ def durataFiss(csv_file,time1,time4,numF):
 #recupero le durate nei tempi del task 4
 #con numf recupero il numero di fissazioni presenti e la loro relativa durata
 
- for z,row in enumerate(dataFix):
-   if float(dataFix[z+1][1]) < time1:  #tolgo le durate delle fissazioni dei task precedenti
+ for j,row in enumerate(dataFix):
+   if float(dataFix[j+1][1]) <= time2:  #prendo il tempo dove finiscono le foto
     continue  # Salta le righe precedenti alla riga di partenza
-   if float(dataFix[z+1][1]) > time4:  #mi posiziono fino a dove inizia il task e prendo le durate delle fissazioni
+   if float(dataFix[j+1][1]) >= time1:  #mi posiziono fino a dove inizia il task e prendo le durate delle fissazioni
     for l in range(sum(numF)):
      fix=dataFix[l+1][2]
      duration.append(fix) # Prende il valore della colonna "duration"
     print(duration)
+
 
    return duration
 
@@ -293,8 +295,12 @@ valoreneu=sum(valneutro)
 
 
 #durate delle fissazioni in ms
-arraydur=durataFiss(csv_file,delta1,delta5,valorii)
+valtime=[delta1,delta2,delta3,delta4,delta5]
+valtime.sort()
+print(valtime)
+arraydur=durataFiss(csv_file,valtime[0],valtime[4],valorii)
 print("durateeeeeeeee")
+print(arraydur)
 
 
 
