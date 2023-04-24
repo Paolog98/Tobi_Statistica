@@ -294,7 +294,7 @@ valoreneu=sum(valneutro)
 #durate delle fissazioni in ms
 arraydur=durataFiss(csv_file,delta1,delta5,valorii)
 print("durateeeeeeeee")
-print(arraydur)
+
 
 
 float_dur=[]
@@ -308,19 +308,22 @@ dur_stimolo=[]
 dur_neutro=[]
 
 
-
 #recupero la durate delle fissazioni con stimolo
-for t in range(sum(stimolo)):#controllo se la durata è una fissazioni stimolo
-   dur_stimolo.append(float_dur[t])#prendiamo le durate delle fissazioni con stimolo
-print("DURATE STIMOLO")
-print(dur_stimolo)
+for t in range(sum(stimolo)):
+    dur_stimolo.append(float_dur[t])
+    print("DURATE STIMOLO")
+    print(dur_stimolo)
 
 
 #recupero la durata delle fissazioni neutre
 for k in range(sum(valneutro)):
-  dur_neutro.append(float_dur[t+k+1]) #prendiamo le durate delle fissazioni neutre
-print("DURATE NEUTRE")
-print(dur_neutro)
+    dur_neutro.append(float_dur[t+k+1])
+    print("DURATE NEUTRE")
+    print(dur_neutro)
+
+
+
+
 
 
 
