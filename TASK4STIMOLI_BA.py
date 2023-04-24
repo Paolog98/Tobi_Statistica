@@ -215,9 +215,9 @@ def durataFiss(csv_file,time1,time4,numF):
 #con numf recupero il numero di fissazioni presenti e la loro relativa durata
 
  for j,row in enumerate(dataFix):
-   if float(dataFix[j+1][1]) < time1:
+   if float(dataFix[j+1][1]) < time1:  #tolgo le durate delle fissazioni dei task precedenti
     continue  # Salta le righe precedenti alla riga di partenza
-   if float(dataFix[j+1][1]) > time4:
+   if float(dataFix[j+1][1]) > time4:  #mi posiziono fino a dove inizia il task e prendo le durate delle fissazioni
     for l in range(sum(numF)):
      duration.append(dataFix[j+l][2]) # Prende il valore della colonna "duration"
     print(duration)
@@ -231,7 +231,7 @@ def durataFiss(csv_file,time1,time4,numF):
 #hpesex time
 delta1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga1][2])
 delta2=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[riga1][3])
-Hypersex=calcolofissdxsx(delta1,delta1,delta2,riga1,csv_file)
+Hypersex=calcolofissdxsx(delta1,delta1,delta2,riga1,csv_file)#calcolo il num di fissazioni dove è presente la foto hpsex(riga)
 sx2=Hypersex[0]
 if(len(sx2)==0):sx2.append(0)
 
@@ -288,7 +288,7 @@ stimolo=[int(dx2[0]),int(dx3[0]),int(dx4[0]),int(dx5[0])]
 valoreneu=sum(valneutro)
 
 
-float_dur=[]
+
 
 
 #durate delle fissazioni in ms
@@ -297,6 +297,7 @@ print("durateeeeeeeee")
 print(arraydur)
 
 
+float_dur=[]
 for element in arraydur:
     float_dur.append(float(element))
 
@@ -306,18 +307,20 @@ print(float_dur)
 dur_stimolo=[]
 dur_neutro=[]
 
+
+
 #recupero la durate delle fissazioni con stimolo
-for i in range(sum(stimolo)):
-    dur_stimolo.append(float_dur[i])
-    print("DURATE STIMOLO")
-    print(dur_stimolo)
+for t in range(sum(stimolo)):#controllo se la durata è una fissazioni stimolo
+   dur_stimolo.append(float_dur[t])#prendiamo le durate delle fissazioni con stimolo
+print("DURATE STIMOLO")
+print(dur_stimolo)
 
 
 #recupero la durata delle fissazioni neutre
 for k in range(sum(valneutro)):
-    dur_neutro.append(float_dur[k])
-    print("DURATE NEUTRE")
-    print(dur_neutro)
+  dur_neutro.append(float_dur[t+k+1]) #prendiamo le durate delle fissazioni neutre
+print("DURATE NEUTRE")
+print(dur_neutro)
 
 
 
@@ -361,7 +364,7 @@ bp = ax.boxplot(data,labels=["Immagine con stimolo","Neutro"])
 
 plt.ylabel("Tempo(ms)",size=9)
 plt.suptitle("Boxplot task 4 dicotomico:\nRappresentazione visuale della durata delle fissazioni",size=11,fontweight='bold')
-plt.title("Le durate delle fissazioni fanno riferimento alle foto con BA,dove:la foto neutra è a sx, e la foto con stimolo è a dx", transform=ax.transAxes,
+plt.title("Le durate delle fissazioni fanno riferimento alle foto che hanno sigla BA,dove:la foto neutra è a sx, e la foto con stimolo è a dx", transform=ax.transAxes,
         fontsize=10, va='top', ha='center')
 
 

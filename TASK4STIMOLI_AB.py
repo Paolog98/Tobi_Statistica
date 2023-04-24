@@ -326,15 +326,15 @@ dur_stimolo=[]
 dur_neutro=[]
 
 #recupero la durate delle fissazioni con stimolo
-for i in range(sum(stimolo)):
-    dur_stimolo.append(float_dur[i])
+for t in range(sum(stimolo)):
+    dur_stimolo.append(float_dur[t])
     print("DURATE STIMOLO")
     print(dur_stimolo)
 
 
 #recupero la durata delle fissazioni neutre
 for k in range(sum(valneutro)):
-    dur_neutro.append(float_dur[k])
+    dur_neutro.append(float_dur[t+k+1])
     print("DURATE NEUTRE")
     print(dur_neutro)
 
@@ -382,7 +382,7 @@ bp = ax.boxplot(data,labels=["Immagini con stimolo","Neutre"])
 
 plt.ylabel("Tempo(ms)",size=9)
 plt.suptitle("Boxplot task 4 dicotomico:\nRappresentazione visuale della durata delle fissazioni",size=11,fontweight='bold')
-plt.title("Le durate delle fissazioni fanno riferimento alle foto con AB,dove:la foto neutra è a dx, e la foto con stimolo è a sx)", transform=ax.transAxes,
+plt.title("Le durate delle fissazioni fanno riferimento alle foto che hanno la sigla AB,dove:la foto neutra è a dx, e la foto con stimolo è a sx", transform=ax.transAxes,
         fontsize=10, va='top', ha='center')
 
 
