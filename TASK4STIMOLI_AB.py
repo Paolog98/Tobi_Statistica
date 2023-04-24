@@ -229,12 +229,13 @@ def durataFiss(csv_file,time1,time4,numF):
 #recupero le durate nei tempi del task 4
 #con numf recupero il numero di fissazioni presenti e la loro relativa durata
 
- for j,row in enumerate(dataFix):
-   if float(dataFix[j+1][1]) < time1:
+ for z,row in enumerate(dataFix):
+   if float(dataFix[z+1][1]) < time1:  #tolgo le durate delle fissazioni dei task precedenti
     continue  # Salta le righe precedenti alla riga di partenza
-   if float(dataFix[j+1][1]) > time4:
+   if float(dataFix[z+1][1]) > time4:  #mi posiziono fino a dove inizia il task e prendo le durate delle fissazioni
     for l in range(sum(numF)):
-     duration.append(dataFix[j+l][2]) # Prende il valore della colonna "duration"
+     fix=dataFix[l+1][2]
+     duration.append(fix) # Prende il valore della colonna "duration"
     print(duration)
 
    return duration
@@ -324,17 +325,19 @@ print(float_dur)
 
 dur_stimolo=[]
 dur_neutro=[]
+q=0
+w=0
 
 #recupero la durate delle fissazioni con stimolo
-for t in range(sum(stimolo)):
-    dur_stimolo.append(float_dur[t])
+for q in range(sum(stimolo)):
+    dur_stimolo.append(float_dur[q])
     print("DURATE STIMOLO")
     print(dur_stimolo)
 
 
 #recupero la durata delle fissazioni neutre
-for k in range(sum(valneutro)):
-    dur_neutro.append(float_dur[t+k+1])
+for w in range(sum(valneutro)):
+    dur_neutro.append(float_dur[q+w])
     print("DURATE NEUTRE")
     print(dur_neutro)
 
