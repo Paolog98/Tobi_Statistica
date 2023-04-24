@@ -320,7 +320,10 @@ for q in range(sum(stimolo)):
 
 #recupero la durata delle fissazioni neutre
 for w in range(sum(valneutro)):
-    dur_neutro.append(float_dur[q+w+1])
+    if(sum(valneutro)==len(float_dur)):
+     dur_neutro.append(float_dur[q+w])
+    else:dur_neutro.append(float_dur[q+w+1])
+
     print("DURATE NEUTRE")
     print(dur_neutro)
 
