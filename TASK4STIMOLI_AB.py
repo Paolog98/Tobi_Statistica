@@ -219,31 +219,113 @@ print(Time1)
 print(Time1_2)
 
 
-def durataFiss(csv_file,time1,time2,time3,time4,time5,numF):
+#FUNZIONI PER RECUPERARE LE DURATE NETURE E CON STIMOLO DI OGNI IMMAGINE DICOTOMICA
+def durataFiss(csv_file,time1,riga1):
  fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
  dataFix = fileFix.values.tolist()
- print(dataFix[1][0])
- duration=[]
+ print(dataFix[1][1])
+ duration_stim=[]
+ duration_neu=[]
 
 
 #recupero le durate delle fissazioni che sono presenti nell'intorno di tempo che appare la foto presa in esame
 #con numf recupero il numero di fissazioni presenti e la loro relativa durata
 
- for j,row in enumerate(dataFix):
-   for l in range(sum(numF)):
-
-    if float(dataFix[j+1][1]) > time2:
-     fix = dataFix[l+1][2]
-     duration.append(fix)
-
-    if float(dataFix[j + 1][1]) < time4:
-     fix5 = dataFix[l + 2][2]
-     duration.append(fix5)
+ for j, row in enumerate(dataFix):
+  for l in range(sum(dx2+sx2)):
+   if float(dataFix[riga1+l][1])<=round(time1) and (sum(sx2) == 0) :#se non ci sono valori neutri
+    duration_neu.append(dataFix[riga1+l][2])
+   else:duration_stim.append(dataFix[riga1+l][2])
+   print(time1)
+   print(riga1)
+   print(sx2,dx2)
 
 
+  print(duration_stim,duration_neu)
+  return duration_stim,duration_neu
 
-   print(duration)
-   return duration
+
+
+
+
+def durataFiss2(csv_file, time2, riga2):
+ fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
+ dataFix = fileFix.values.tolist()
+ print(dataFix[1][1])
+ duration_stim = []
+ duration_neu = []
+
+ # recupero le durate delle fissazioni che sono presenti nell'intorno di tempo che appare la foto presa in esame
+ # con numf recupero il numero di fissazioni presenti e la loro relativa durata
+
+ for j, row in enumerate(dataFix):
+  for l in range(sum(dx3 + sx3)):
+   if float(dataFix[riga2 + l][1]) <= round(time2) and (sum(sx3) == 0):
+    duration_neu.append(dataFix[riga2 + l][2])
+   else:
+    duration_stim.append(dataFix[riga2 + l][2])
+   print(time2)
+   print(riga2)
+   print(sx3, dx3)
+
+  print(duration_stim, duration_neu)
+  return duration_stim, duration_neu
+
+
+
+
+
+
+def durataFiss3(csv_file, time3, riga3):
+ fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
+ dataFix = fileFix.values.tolist()
+ print(dataFix[1][1])
+ duration_stim = []
+ duration_neu = []
+
+ # recupero le durate delle fissazioni che sono presenti nell'intorno di tempo che appare la foto presa in esame
+ # con numf recupero il numero di fissazioni presenti e la loro relativa durata
+
+ for j, row in enumerate(dataFix):
+  for l in range(sum(dx4 + sx4)):
+   if float(dataFix[riga3 + l][1]) <= round(time3) and (sum(sx4) == 0):
+    duration_neu.append(dataFix[riga3 + l][2])
+   else:
+    duration_stim.append(dataFix[riga3 + l][2])
+   print(time3)
+   print(riga3)
+   print(sx4, dx4)
+
+  print(duration_stim, duration_neu)
+  return duration_stim, duration_neu
+
+
+
+
+def durataFiss4(csv_file, time4, riga4):
+ fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
+ dataFix = fileFix.values.tolist()
+ print(dataFix[1][1])
+ duration_stim = []
+ duration_neu = []
+
+ # recupero le durate delle fissazioni che sono presenti nell'intorno di tempo che appare la foto presa in esame
+ # con numf recupero il numero di fissazioni presenti e la loro relativa durata
+
+ for j, row in enumerate(dataFix):
+  for l in range(sum(dx5 + sx5)):
+   if (float(dataFix[riga4 + l][1]) <= round(time4)):
+    if(sum(sx5) == 0):
+     duration_neu.append(dataFix[riga4 + l][2])
+    else:duration_stim.append(dataFix[riga4 + l][2])
+   print(sx5+dx5)
+   print(time4)
+   print(riga4)
+   print(sx5, dx5)
+
+  print(duration_stim, duration_neu)
+  return duration_stim, duration_neu
+
 
 
 
@@ -309,55 +391,37 @@ stimolo=[int(sx2[0]),int(sx3[0]),int(sx4[0]),int(sx5[0])]
 valoreneu=sum(valneutro)
 
 
-float_dur=[]
-
 
 #durate delle fissazioni in ms
-valtime=[delta1,delta2,delta3,delta4,delta5]
+valtime=[delta1,delta2,delta3,delta4]
 valtime.sort()
 print(valtime)
-arraydur=durataFiss(csv_file,valtime[0],valtime[1],valtime[2],valtime[3],valtime[4],valorii)
+array_stim1,array_neu1=durataFiss(csv_file,valtime[0],riga1)
+array_stim2,array_neu2=durataFiss2(csv_file,valtime[1],riga2)
+array_stim3,array_neu3=durataFiss3(csv_file,valtime[2],riga3)
+array_stim4,array_neu4=durataFiss4(csv_file,valtime[3],riga4)
 print("durateeeeeeeee")
-print(arraydur)
+print(array_stim1,array_neu1)
+print(array_stim2,array_neu2)
+print(array_stim3,array_neu3)
+print(array_stim4,array_neu4)
 
 
+dur_stimolo=array_stim1 + array_stim2+ array_stim3+ array_stim4
+dur_neutro=array_neu1+ array_neu2+ array_neu3 + array_neu4
+print(dur_stimolo,dur_neutro)
 
 
+dur_def_stim=[]
+dur_def_neu=[]
 
 
-for element in arraydur:
-    float_dur.append(float(element))
-
-print(float_dur)
+for element in dur_stimolo:
+    dur_def_stim.append(float(element))
 
 
-dur_stimolo=[]
-dur_neutro=[]
-q=0
-w=0
-
-#recupero la durate delle fissazioni con stimolo
-for q in range(sum(stimolo)):
-    dur_stimolo.append(float_dur[q])
-    print("DURATE STIMOLO")
-    print(dur_stimolo)
-
-
-#recupero la durata delle fissazioni neutre
-for w in range(sum(valneutro)):
-    if(sum(valneutro)==len(float_dur)):
-     dur_neutro.append(float_dur[q+w])
-    else:dur_neutro.append(float_dur[q+w+1])
-
-    print("DURATE NEUTRE")
-    print(dur_neutro)
-
-
-
-
-
-
-
+for element in dur_neutro:
+    dur_def_neu.append(float(element))
 
 
 
@@ -388,7 +452,7 @@ plt.show()
 
 #BOXPLOT
 
-data=[dur_stimolo,dur_neutro]
+data=[dur_def_stim,dur_def_neu]
 fig, ax = plt.subplots(figsize=(12,8))
 bp = ax.boxplot(data,labels=["Immagini con stimolo","Neutre"])
 
