@@ -233,9 +233,10 @@ def durataFiss(csv_file,time1,riga1):
 
  for j, row in enumerate(dataFix):
   for l in range(sum(dx2+sx2)):
-   if float(dataFix[riga1+l][1])<=round(time1) and (sum(sx2) == 0) :#se non ci sono valori neutri
+   if float(dataFix[riga1+l][1])<=round(time1) and (sum(sx2) == 0) :#se non ci sono valori stimoli
     duration_neu.append(dataFix[riga1+l][2])
-   else:duration_stim.append(dataFix[riga1+l][2])
+   else:
+    duration_stim.append(dataFix[riga1+l][2])
    print(time1)
    print(riga1)
    print(sx2,dx2)
@@ -262,8 +263,7 @@ def durataFiss2(csv_file, time2, riga2):
   for l in range(sum(dx3 + sx3)):
    if float(dataFix[riga2 + l][1]) <= round(time2) and (sum(sx3) == 0):
     duration_neu.append(dataFix[riga2 + l][2])
-   else:
-    duration_stim.append(dataFix[riga2 + l][2])
+   else:duration_stim.append(dataFix[riga2 + l][2])
    print(time2)
    print(riga2)
    print(sx3, dx3)
