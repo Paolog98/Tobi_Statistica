@@ -204,8 +204,8 @@ print(ImgTask4)
 print(Time1)
 print(Time1_2)
 
-
-def durataFiss(csv_file,time1,riga1,time2,riga2,time3,riga3,time4,riga4):
+#FUNZIONI PER RECUPERARE LE DURATE NETURE E CON STIMOLO DI OGNI IMMAGINE DICOTOMICA
+def durataFiss(csv_file,time1,riga1):
  fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
  dataFix = fileFix.values.tolist()
  print(dataFix[1][1])
@@ -218,15 +218,102 @@ def durataFiss(csv_file,time1,riga1,time2,riga2,time3,riga3,time4,riga4):
 
  for j, row in enumerate(dataFix):
   for l in range(sum(dx2+sx2)):
-   if float(dataFix[riga1+l][1])<=round(time1) and (len(sx2) == 0) :
-    dur_stimolo.append(dataFix[riga1+l][2])
+   if float(dataFix[riga1+l][1])<=round(time1) and (sum(sx2) == 0) :#se non ci sono valori neutri
+    duration_stim.append(dataFix[riga1+l][2])
    else:duration_neu.append(dataFix[riga1+l][2])
    print(time1)
    print(riga1)
    print(sx2,dx2)
 
+
   print(duration_stim,duration_neu)
   return duration_stim,duration_neu
+
+
+
+
+
+def durataFiss2(csv_file, time2, riga2):
+ fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
+ dataFix = fileFix.values.tolist()
+ print(dataFix[1][1])
+ duration_stim = []
+ duration_neu = []
+
+ # recupero le durate delle fissazioni che sono presenti nell'intorno di tempo che appare la foto presa in esame
+ # con numf recupero il numero di fissazioni presenti e la loro relativa durata
+
+ for j, row in enumerate(dataFix):
+  for l in range(sum(dx3 + sx3)):
+   if float(dataFix[riga2 + l][1]) <= round(time2) and (sum(sx3) == 0):
+    duration_stim.append(dataFix[riga2 + l][2])
+   else:
+    duration_neu.append(dataFix[riga2 + l][2])
+   print(time2)
+   print(riga2)
+   print(sx3, dx3)
+
+  print(duration_stim, duration_neu)
+  return duration_stim, duration_neu
+
+
+
+
+
+
+def durataFiss3(csv_file, time3, riga3):
+ fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
+ dataFix = fileFix.values.tolist()
+ print(dataFix[1][1])
+ duration_stim = []
+ duration_neu = []
+
+ # recupero le durate delle fissazioni che sono presenti nell'intorno di tempo che appare la foto presa in esame
+ # con numf recupero il numero di fissazioni presenti e la loro relativa durata
+
+ for j, row in enumerate(dataFix):
+  for l in range(sum(dx4 + sx4)):
+   if float(dataFix[riga3 + l][1]) <= round(time3) and (sum(sx4) == 0):
+    duration_stim.append(dataFix[riga3 + l][2])
+   else:
+    duration_neu.append(dataFix[riga3 + l][2])
+   print(time3)
+   print(riga3)
+   print(sx4, dx4)
+
+  print(duration_stim, duration_neu)
+  return duration_stim, duration_neu
+
+
+
+
+def durataFiss4(csv_file, time4, riga4):
+ fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
+ dataFix = fileFix.values.tolist()
+ print(dataFix[1][1])
+ duration_stim = []
+ duration_neu = []
+
+ # recupero le durate delle fissazioni che sono presenti nell'intorno di tempo che appare la foto presa in esame
+ # con numf recupero il numero di fissazioni presenti e la loro relativa durata
+
+ for j, row in enumerate(dataFix):
+  for l in range(sum(dx5 + sx5)):
+   if (float(dataFix[riga4 + l][1]) <= round(time4)):
+    if(sum(sx5) == 0):
+     duration_stim.append(dataFix[riga4 + l][2])
+    else:duration_neu.append(dataFix[riga4 + l][2])
+   print(sx5+dx5)
+   print(time4)
+   print(riga4)
+   print(sx5, dx5)
+
+  print(duration_stim, duration_neu)
+  return duration_stim, duration_neu
+
+
+
+
 
 
 
@@ -300,9 +387,15 @@ float_dur=[]
 valtime=[delta1,delta2,delta3,delta4]
 valtime.sort()
 print(valtime)
-array_stim,array_neu=durataFiss(csv_file,valtime[0],riga1,valtime[1],riga2,valtime[2],riga3,valtime[3],riga4)
+array_stim1,array_neu1=durataFiss(csv_file,valtime[0],riga1)
+array_stim2,array_neu2=durataFiss2(csv_file,valtime[1],riga2)
+array_stim3,array_neu3=durataFiss3(csv_file,valtime[2],riga3)
+array_stim4,array_neu4=durataFiss4(csv_file,valtime[3],riga4)
 print("durateeeeeeeee")
-print(array_stim,array_neu)
+print(array_stim1,array_neu1)
+print(array_stim2,array_neu2)
+print(array_stim3,array_neu3)
+print(array_stim4,array_neu4)
 
 
 
