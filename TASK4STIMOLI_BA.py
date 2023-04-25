@@ -401,31 +401,21 @@ print(array_stim4,array_neu4)
 
 
 
+dur_stimolo=array_stim1 + array_stim2+ array_stim3+ array_stim4
+dur_neutro=array_neu1+ array_neu2+ array_neu3 + array_neu4
+print(dur_stimolo,dur_neutro)
 
 
+dur_def_stim=[]
+dur_def_neu=[]
 
 
-dur_stimolo=[]
-dur_neutro=[]
-q=0
-w=0
-
-'''
-#recupero la durate delle fissazioni con stimolo
-for q in range(sum(stimolo)):
-    dur_stimolo.append(float_dur[q])
-    print("DURATE STIMOLO")
-    print(dur_stimolo)
+for element in dur_stimolo:
+    dur_def_stim.append(float(element))
 
 
-#recupero la durata delle fissazioni neutre
-for w in range(sum(valneutro)):
-    if(sum(valneutro)==len(float_dur)):
-     dur_neutro.append(float_dur[q+w])
-    else:dur_neutro.append(float_dur[q+w+1])
-
-    print("DURATE NEUTRE")
-    print(dur_neutro)'''
+for element in dur_neutro:
+    dur_def_neu.append(float(element))
 
 
 
@@ -460,7 +450,7 @@ plt.show()
 #BOXPLOT
 
 #passo le durate delle fissazioni con stimolo e neutre
-data=[dur_stimolo,dur_neutro]
+data=[dur_def_stim,dur_def_neu]
 fig, ax = plt.subplots(figsize=(12,8))
 bp = ax.boxplot(data,labels=["Immagine con stimolo","Neutro"])
 
