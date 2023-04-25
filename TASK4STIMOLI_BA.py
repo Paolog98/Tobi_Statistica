@@ -243,7 +243,7 @@ def durataFiss2(csv_file, time2, riga2):
 
  # recupero le durate delle fissazioni che sono presenti nell'intorno di tempo che appare la foto presa in esame
  # con numf recupero il numero di fissazioni presenti e la loro relativa durata
-#devo verificare se lo starttime delle fissazioni sono nell'intorno di quando appare la foto, se si prendo le durate delle fix
+#devo verificare se lo starttime delle fissazioni sono nell'intorno di quando appare la foto, se si prendo le durate delle fix.
  for j, row in enumerate(dataFix):
   for l in range(sum(dx3 + sx3)):
    if float(dataFix[riga2 + l][1]) <= round(time2) and (sum(sx3) == 0):
