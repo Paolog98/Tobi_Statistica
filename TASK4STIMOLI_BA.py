@@ -205,6 +205,7 @@ print(Time1)
 print(Time1_2)
 
 #FUNZIONI PER RECUPERARE LE DURATE NETURE E CON STIMOLO DI OGNI IMMAGINE DICOTOMICA
+#prendiamo la riga e il tempo, per prendere la durate delle fix che si sono verifcate quando c'è stata la foto
 def durataFiss(csv_file,time1,riga1):
  fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
  dataFix = fileFix.values.tolist()
@@ -214,7 +215,7 @@ def durataFiss(csv_file,time1,riga1):
 
 
 #recupero le durate delle fissazioni che sono presenti nell'intorno di tempo che appare la foto presa in esame
-#con numf recupero il numero di fissazioni presenti e la loro relativa durata
+
 
  for j, row in enumerate(dataFix):
   for l in range(sum(dx2+sx2)):
@@ -242,7 +243,7 @@ def durataFiss2(csv_file, time2, riga2):
 
  # recupero le durate delle fissazioni che sono presenti nell'intorno di tempo che appare la foto presa in esame
  # con numf recupero il numero di fissazioni presenti e la loro relativa durata
-
+#devo verificare se lo starttime delle fissazioni sono nell'intorno di quando appare la foto, se si prendo le durate delle fix
  for j, row in enumerate(dataFix):
   for l in range(sum(dx3 + sx3)):
    if float(dataFix[riga2 + l][1]) <= round(time2) and (sum(sx3) == 0):

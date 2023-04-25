@@ -229,7 +229,7 @@ def durataFiss(csv_file,time1,riga1):
 
 
 #recupero le durate delle fissazioni che sono presenti nell'intorno di tempo che appare la foto presa in esame
-#con numf recupero il numero di fissazioni presenti e la loro relativa durata
+
 
  for j, row in enumerate(dataFix):
   for l in range(sum(dx2+sx2)):
