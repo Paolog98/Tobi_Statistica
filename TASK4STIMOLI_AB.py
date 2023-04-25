@@ -231,20 +231,13 @@ def durataFiss(csv_file,time1,time2,time3,time4,time5,numF):
 
  for j,row in enumerate(dataFix):
    for l in range(sum(numF)):
-    if float(dataFix[j+1][1]) <= round(time1):
+
+    if float(dataFix[j+1][1]) > time2:
      fix = dataFix[l+1][2]
      duration.append(fix)
-    if float(dataFix[j+1][1]) <= round(time2):
-     fix2 = dataFix[l+2][2]
-     duration.append(fix2)
-    if float(dataFix[j + 1][1]) <= round(time3):
-     fix3 = dataFix[l+3][2]
-     duration.append(fix3)
-    if float(dataFix[j + 1][1]) <= round(time4):
-     fix4 = dataFix[l + 4][2]
-     duration.append(fix4)
-    if float(dataFix[j + 1][1]) <= round(time5):
-     fix5 = dataFix[l + 5][2]
+
+    if float(dataFix[j + 1][1]) < time4:
+     fix5 = dataFix[l + 2][2]
      duration.append(fix5)
 
 

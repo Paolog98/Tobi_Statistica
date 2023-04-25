@@ -205,27 +205,29 @@ print(Time1)
 print(Time1_2)
 
 
-def durataFiss(csv_file,time1,time2,numF):
+def durataFiss(csv_file,time1,riga1,time2,riga2,time3,riga3,time4,riga4):
  fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
  dataFix = fileFix.values.tolist()
- print(dataFix[1][0])
- duration=[]
+ print(dataFix[1][1])
+ duration_stim=[]
+ duration_neu=[]
 
 
-#recupero le durate nei tempi del task 4
+#recupero le durate delle fissazioni che sono presenti nell'intorno di tempo che appare la foto presa in esame
 #con numf recupero il numero di fissazioni presenti e la loro relativa durata
 
- for j,row in enumerate(dataFix):
-   if float(dataFix[j+1][1]) <= time2:  #prendo il tempo dove finiscono le foto
-    continue  # Salta le righe precedenti alla riga di partenza
-   if float(dataFix[j+1][1]) >= time1:  #mi posiziono fino a dove inizia il task e prendo le durate delle fissazioni
-    for l in range(sum(numF)):
-     fix=dataFix[l+1][2]
-     duration.append(fix) # Prende il valore della colonna "duration"
-    print(duration)
+ for j, row in enumerate(dataFix):
+  for l in range(sum(dx2+sx2)):
+   if float(dataFix[riga1+l][1])<=round(time1) and (len(sx2) == 0) :
+    dur_stimolo.append(dataFix[riga1+l][2])
+   else:duration_neu.append(dataFix[riga1+l][2])
+   print(time1)
+   print(riga1)
+   print(sx2,dx2)
 
+  print(duration_stim,duration_neu)
+  return duration_stim,duration_neu
 
-   return duration
 
 
 
@@ -291,24 +293,23 @@ stimolo=[int(dx2[0]),int(dx3[0]),int(dx4[0]),int(dx5[0])]
 valoreneu=sum(valneutro)
 
 
-
+float_dur=[]
 
 
 #durate delle fissazioni in ms
-valtime=[delta1,delta2,delta3,delta4,delta5]
+valtime=[delta1,delta2,delta3,delta4]
 valtime.sort()
 print(valtime)
-arraydur=durataFiss(csv_file,valtime[0],valtime[4],valorii)
+array_stim,array_neu=durataFiss(csv_file,valtime[0],riga1,valtime[1],riga2,valtime[2],riga3,valtime[3],riga4)
 print("durateeeeeeeee")
-print(arraydur)
+print(array_stim,array_neu)
 
 
 
-float_dur=[]
-for element in arraydur:
-    float_dur.append(float(element))
 
-print(float_dur)
+
+
+
 
 
 dur_stimolo=[]
@@ -316,7 +317,7 @@ dur_neutro=[]
 q=0
 w=0
 
-
+'''
 #recupero la durate delle fissazioni con stimolo
 for q in range(sum(stimolo)):
     dur_stimolo.append(float_dur[q])
@@ -331,7 +332,7 @@ for w in range(sum(valneutro)):
     else:dur_neutro.append(float_dur[q+w+1])
 
     print("DURATE NEUTRE")
-    print(dur_neutro)
+    print(dur_neutro)'''
 
 
 
