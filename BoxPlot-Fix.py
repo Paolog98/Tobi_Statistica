@@ -344,7 +344,7 @@ for element in dur_task4:
 
 data=[durdeftsk1,durdeftsk2,durdeftsk3,durdeftsk4]
 fig, ax = plt.subplots(figsize=(12,8))
-bp = ax.boxplot(data,labels=["task1_1","Task2_1","task3_1","Task4_1"])
+bp = ax.boxplot(data,labels=["Task1","Task2","Task3","Task4"])
 
 # Personalizzazione dell'asse y
 
