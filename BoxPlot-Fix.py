@@ -201,9 +201,31 @@ def numFissP(dataTime):
 
 fiss1,fiss2=numFissP(dataTime)
 
+
+
+
+
+
+
+
 #PRIMO TASK 1 E SECONDA PARTE
 
 # Creazione del box-plot
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #primo task
 fix1=[fiss1[0],fiss1[1],fiss1[2],fiss1[3]]
@@ -221,10 +243,108 @@ fix6=[fiss2[8],fiss2[9],fiss2[10],fiss2[11]]
 fix7=[fiss1[12],fiss1[13],fiss1[14],fiss1[15]]
 fix8=[fiss2[12],fiss2[13],fiss2[14],fiss2[15]]
 
+fixx1 = []
+fixx2 = []
+fixx3 = []
+fixx4 = []
 
-data=[fix1,fix3,fix5,fix7,fix2,fix4,fix6,fix8]
+for element in fix1:
+
+    fixx1.append(int(element))
+
+for element in fix3:
+
+    fixx2.append(int(element))
+
+for element in fix5:
+
+    fixx3.append(int(element))
+
+
+for element in fix7:
+
+    fixx4.append(int(element))
+
+
+
+
+
+
+
+def durataFissTsk(csv_file,time1,riga1,fix1):
+ fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
+ dataFix = fileFix.values.tolist()
+ print(dataFix[1][1])
+ duration_tsk1=[]
+
+
+
+#recupero le durate delle fissazioni che sono presenti nell'intorno di tempo che appare la foto presa in esame
+
+
+ for j, row in enumerate(dataFix):
+  for l in range(sum(fix1)):
+   if float(dataFix[riga1+l][1])<=round(time1):#se non ci sono valori neutri
+    duration_tsk1.append(dataFix[riga1+l][2])
+   print(time1)
+   print(riga1)
+
+
+
+  print(duration_tsk1)
+  return duration_tsk1
+
+
+
+
+
+
+
+
+
+
+
+
+
+deltaTSK1= delta_unix_respect_to_video_start(dataTime[0][2], dataTime[7][2])
+deltaTSK2=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[15][2])
+deltaTSK3=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[23][2])
+deltaTSK4=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[31][2])
+
+
+
+dur_task1=durataFissTsk(csv_file,deltaTSK1,7,fixx1)
+dur_task2=durataFissTsk(csv_file,deltaTSK2,15,fixx2)
+dur_task3=durataFissTsk(csv_file,deltaTSK3,23,fixx3)
+dur_task4=durataFissTsk(csv_file,deltaTSK4,31,fixx4)
+
+durdeftsk1=[]
+durdeftsk2=[]
+durdeftsk3=[]
+durdeftsk4=[]
+
+
+
+for element in dur_task1:
+    durdeftsk1.append(float(element))
+
+
+for element in dur_task2:
+    durdeftsk2.append(float(element))
+
+for element in dur_task3:
+    durdeftsk3.append(float(element))
+
+for element in dur_task4:
+    durdeftsk4.append(float(element))
+
+
+
+
+
+data=[durdeftsk1,durdeftsk2,durdeftsk3,durdeftsk4]
 fig, ax = plt.subplots(figsize=(12,8))
-bp = ax.boxplot(data,labels=["task1_1","Task2_1","task3_1","Task4_1","Task1_2","Task2_2","Task3_2","Task4_2"])
+bp = ax.boxplot(data,labels=["task1_1","Task2_1","task3_1","Task4_1"])
 
 # Personalizzazione dell'asse y
 
