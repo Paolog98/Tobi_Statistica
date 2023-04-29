@@ -311,8 +311,6 @@ def durataFissTsk(csv_file,time1,line,fix1):
 
 
 
-
-
 deltaTSK1= delta_unix_respect_to_video_start(dataTime[0][2], dataTime[7][2])
 deltaTSK2=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[15][2])
 deltaTSK3=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[23][2])
