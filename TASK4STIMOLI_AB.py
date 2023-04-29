@@ -219,116 +219,6 @@ print(Time1)
 print(Time1_2)
 
 
-#FUNZIONI PER RECUPERARE LE DURATE NETURE E CON STIMOLO DI OGNI IMMAGINE DICOTOMICA
-def durataFiss(csv_file,time1,riga1):
- fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
- dataFix = fileFix.values.tolist()
- print(dataFix[1][1])
- duration_stim=[]
- duration_neu=[]
-
-
-#recupero le durate delle fissazioni che sono presenti nell'intorno di tempo che appare la foto presa in esame
-
-
- for j, row in enumerate(dataFix):
-  for l in range(sum(dx2+sx2)):
-   if float(dataFix[riga1+l][1])<=round(time1) and (sum(sx2) == 0) :#se non ci sono valori stimoli
-    duration_neu.append(dataFix[riga1+l][2])
-   else:
-    duration_stim.append(dataFix[riga1+l][2])
-   print(time1)
-   print(riga1)
-   print(sx2,dx2)
-
-
-  print(duration_stim,duration_neu)
-  return duration_stim,duration_neu
-
-
-
-
-
-def durataFiss2(csv_file, time2, riga2):
- fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
- dataFix = fileFix.values.tolist()
- print(dataFix[1][1])
- duration_stim = []
- duration_neu = []
-
- # recupero le durate delle fissazioni che sono presenti nell'intorno di tempo che appare la foto presa in esame
- # con numf recupero il numero di fissazioni presenti e la loro relativa durata
-
- for j, row in enumerate(dataFix):
-  for l in range(sum(dx3 + sx3)):
-   if float(dataFix[riga2 + l][1]) <= round(time2) and (sum(sx3) == 0):
-    duration_neu.append(dataFix[riga2 + l][2])
-   else:duration_stim.append(dataFix[riga2 + l][2])
-   print(time2)
-   print(riga2)
-   print(sx3, dx3)
-
-  print(duration_stim, duration_neu)
-  return duration_stim, duration_neu
-
-
-
-
-
-
-def durataFiss3(csv_file, time3, riga3):
- fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
- dataFix = fileFix.values.tolist()
- print(dataFix[1][1])
- duration_stim = []
- duration_neu = []
-
- # recupero le durate delle fissazioni che sono presenti nell'intorno di tempo che appare la foto presa in esame
- # con numf recupero il numero di fissazioni presenti e la loro relativa durata
-
- for j, row in enumerate(dataFix):
-  for l in range(sum(dx4 + sx4)):
-   if float(dataFix[riga3 + l][1]) <= round(time3) and (sum(sx4) == 0):
-    duration_neu.append(dataFix[riga3 + l][2])
-   else:
-    duration_stim.append(dataFix[riga3 + l][2])
-   print(time3)
-   print(riga3)
-   print(sx4, dx4)
-
-  print(duration_stim, duration_neu)
-  return duration_stim, duration_neu
-
-
-
-
-def durataFiss4(csv_file, time4, riga4):
- fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
- dataFix = fileFix.values.tolist()
- print(dataFix[1][1])
- duration_stim = []
- duration_neu = []
-
- # recupero le durate delle fissazioni che sono presenti nell'intorno di tempo che appare la foto presa in esame
- # con numf recupero il numero di fissazioni presenti e la loro relativa durata
-
- for j, row in enumerate(dataFix):
-  for l in range(sum(dx5 + sx5)):
-   if (float(dataFix[riga4 + l][1]) <= round(time4)):
-    if(sum(sx5) == 0):
-     duration_neu.append(dataFix[riga4 + l][2])
-    else:duration_stim.append(dataFix[riga4 + l][2])
-   print(sx5+dx5)
-   print(time4)
-   print(riga4)
-   print(sx5, dx5)
-
-  print(duration_stim, duration_neu)
-  return duration_stim, duration_neu
-
-
-
-
 
 
 #hpesex time
@@ -378,6 +268,65 @@ if(len(sx5)==0):sx5.append(0)
 dx5=shop[1]
 if(len(dx5)==0):dx5.append(0)
 print(shop)
+
+
+
+
+
+
+#FUNZIONI PER RECUPERARE LE DURATE NETURE E CON STIMOLO DI OGNI IMMAGINE DICOTOMICA
+#prendiamo la riga e il tempo, per prendere la durate delle fix che si sono verifcate quando c'è stata la foto
+
+def durataFiss(csv_file, time1, line,dx,sx):
+ fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
+ dataFix = fileFix.values.tolist()
+ duration_stim = []
+ duration_neu = []
+ parameter_to_find = int(time1)
+ print(time1)
+
+
+ with open(csv_file, 'r') as file:
+  csv_reader = csv.reader(file)
+  next(csv_reader)
+  line_count = 0
+  for row in csv_reader:
+   line_count += 1
+   float_row = [float(value) for value in row]
+   print(float_row)
+   if (float_row[1]) >= round(parameter_to_find):
+    print("TROVATOO")
+    print(f"La riga {line_count} contiene il parametro {parameter_to_find}.")
+    line=line_count
+    print(line)
+    break
+
+
+
+  for l in range(sum(dx + sx)):
+    if (sum(sx) == 0):
+     duration_neu.append(dataFix[line + l][2])
+    else:
+     duration_stim.append(dataFix[line + l][2])
+  print(time1)
+  print(line)
+  print(sx, dx)
+  print("VALORIIIIII")
+  print(duration_stim, duration_neu)
+  return duration_stim, duration_neu
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 valorii = [
