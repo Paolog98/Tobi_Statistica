@@ -302,10 +302,6 @@ def durataFiss(csv_file, time1, line,dx,sx):
 
 
 
-
-
-
-
 valorii = [
           int(dx2[0]), int(sx2[0]),
           int(dx3[0]), int(sx3[0]),

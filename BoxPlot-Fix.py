@@ -271,23 +271,36 @@ for element in fix7:
 
 
 
-def durataFissTsk(csv_file,time1,riga1,fix1):
+def durataFissTsk(csv_file,time1,line,fix1):
  fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
  dataFix = fileFix.values.tolist()
  print(dataFix[1][1])
  duration_tsk1=[]
+ parameter_to_find = int(time1)
 
-
+ with open(csv_file, 'r') as file:
+  csv_reader = csv.reader(file)
+  next(csv_reader)
+  line_count = 0
+  for row in csv_reader:
+   line_count += 1
+   float_row = [float(value) for value in row]
+   print(float_row)
+   if (float_row[1]) >= round(parameter_to_find):
+    print("TROVATOO")
+    print(f"La riga {line_count} contiene il parametro {parameter_to_find}.")
+    line=line_count
+    print(line)
+    break
 
 #recupero le durate delle fissazioni che sono presenti nell'intorno di tempo che appare la foto presa in esame
 
 
- for j, row in enumerate(dataFix):
-  for l in range(sum(fix1)):
-   if float(dataFix[riga1+l][1])<=round(time1):#se non ci sono valori neutri
-    duration_tsk1.append(dataFix[riga1+l][2])
+
+  for l in range(sum(fix1)):#se non ci sono valori neutri
+   duration_tsk1.append(dataFix[line+l][2])
    print(time1)
-   print(riga1)
+   print(line)
 
 
 
@@ -300,23 +313,20 @@ def durataFissTsk(csv_file,time1,riga1,fix1):
 
 
 
-
-
-
-
-
-
 deltaTSK1= delta_unix_respect_to_video_start(dataTime[0][2], dataTime[7][2])
 deltaTSK2=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[15][2])
 deltaTSK3=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[23][2])
 deltaTSK4=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[31][2])
 
+line1=""
+line2=""
+line3=""
+line4=""
 
-
-dur_task1=durataFissTsk(csv_file,deltaTSK1,7,fixx1)
-dur_task2=durataFissTsk(csv_file,deltaTSK2,15,fixx2)
-dur_task3=durataFissTsk(csv_file,deltaTSK3,23,fixx3)
-dur_task4=durataFissTsk(csv_file,deltaTSK4,31,fixx4)
+dur_task1=durataFissTsk(csv_file,deltaTSK1,line1,fixx1)
+dur_task2=durataFissTsk(csv_file,deltaTSK2,line2,fixx2)
+dur_task3=durataFissTsk(csv_file,deltaTSK3,line3,fixx3)
+dur_task4=durataFissTsk(csv_file,deltaTSK4,line4,fixx4)
 
 durdeftsk1=[]
 durdeftsk2=[]
