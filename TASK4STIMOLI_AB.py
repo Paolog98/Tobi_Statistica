@@ -322,13 +322,6 @@ def durataFiss(csv_file, time1, line,dx,sx):
 
 
 
-
-
-
-
-
-
-
 valorii = [
           int(dx2[0]), int(sx2[0]),
           int(dx3[0]), int(sx3[0]),
@@ -339,16 +332,19 @@ valneutro=[int(dx2[0]),int(dx3[0]),int(dx4[0]),int(dx5[0])]
 stimolo=[int(sx2[0]),int(sx3[0]),int(sx4[0]),int(sx5[0])]
 valoreneu=sum(valneutro)
 
-
+line1=""
+line2=""
+line3=""
+line4=""
 
 #durate delle fissazioni in ms
 valtime=[delta1,delta2,delta3,delta4]
-valtime.sort()
+
 print(valtime)
-array_stim1,array_neu1=durataFiss(csv_file,valtime[0],riga1)
-array_stim2,array_neu2=durataFiss2(csv_file,valtime[1],riga2)
-array_stim3,array_neu3=durataFiss3(csv_file,valtime[2],riga3)
-array_stim4,array_neu4=durataFiss4(csv_file,valtime[3],riga4)
+array_stim1,array_neu1=durataFiss(csv_file,valtime[0],line1,dx2,sx2)
+array_stim2,array_neu2=durataFiss(csv_file,valtime[1],line2,dx3,sx3)
+array_stim3,array_neu3=durataFiss(csv_file,valtime[2],line3,dx4,sx4)
+array_stim4,array_neu4=durataFiss(csv_file,valtime[3],line4,dx5,sx5)
 print("durateeeeeeeee")
 print(array_stim1,array_neu1)
 print(array_stim2,array_neu2)
