@@ -150,14 +150,6 @@ def calcolofissdxsx(time1, time2, time3, riga, csv_file):
 
 
 
-
-
-
-
-
-
-
-
 #hypersex
 for i in dataTime :
 
