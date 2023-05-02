@@ -381,26 +381,27 @@ def RecupImg(dataTime):
 
 
 
+
     #SECONDA VOLTA 4 TASK
-  Img44=Fisstask(delta35,delta35,delta36,delta37,delta38,delta38,csv_file)
+ Img44=Fisstask(delta35,delta35,delta36,delta37,delta38,delta38,csv_file)
 
 
-  Task1=Img1+Img11
-  Task2=Img2+Img22
-  Task3_01=Img3_01+Img3_011
-  Task3_02 = Img3_02 + Img3_022
-  Task3_03 = Img3_03 + Img3_033
-  Task3_04 = Img3_04 + Img3_044
-  Task3_05 = Img3_05 + Img3_055
-  Task3_06 = Img3_06 + Img3_066
-  Task3_07 = Img3_07 + Img3_077
-  Task4=Img4+Img44
-  print(Task1,Task2,Task3_01,Task3_02 ,Task3_03 ,Task3_04 ,Task3_05 ,Task3_06 ,Task3_07 ,Task4)
+ Task1=Img1+Img11
+ Task2=Img2+Img22
+ Task3_01=Img3_01+Img3_011
+ Task3_02 = Img3_02 + Img3_022
+ Task3_03 = Img3_03 + Img3_033
+ Task3_04 = Img3_04 + Img3_044
+ Task3_05 = Img3_05 + Img3_055
+ Task3_06 = Img3_06 + Img3_066
+ Task3_07 = Img3_07 + Img3_077
+ Task4=Img4+Img44
+ print(Task1,Task2,Task3_01,Task3_02 ,Task3_03 ,Task3_04 ,Task3_05 ,Task3_06 ,Task3_07 ,Task4)
 
 
 
 
-  return  Task1,Task2,Task3_01,Task3_02 ,Task3_03 ,Task3_04 ,Task3_05 ,Task3_06 ,Task3_07 ,Task4
+ return  Task1,Task2,Task3_01,Task3_02 ,Task3_03 ,Task3_04 ,Task3_05 ,Task3_06 ,Task3_07 ,Task4
 
 
 
@@ -545,7 +546,7 @@ plt.bar(ImgTask4[3], Taskp4[4], width=0.3,color=colors[0])
 plt.bar(11.3, Taskp4[9], width=0.3,color=colors[1])
 
 
-plt.axvline(x=11.5, color='red', linestyle='--', label="TASK 3->(ogni foto presenta il num. di quante volte è stata vista)")
+plt.axvline(x=11.5, color='red', linestyle='--', label="TASK 3(ogni foto presenta il num. di quante volte è stata vista)")
 
 if (len(ImgTask3_01) != 0):
      count1=len(ImgTask3_01)-2
