@@ -548,37 +548,37 @@ plt.bar(11.3, Taskp4[9], width=0.3,color=colors[1])
 plt.axvline(x=11.5, color='red', linestyle='--', label="TASK 3->(ogni foto presenta il num. di quante volte è stata vista)")
 
 if (len(ImgTask3_01) != 0):
-     count1=len(ImgTask3_01)
+     count1=len(ImgTask3_01)-2
      plt.bar(ImgTask3_01[0]+str(count1),Taskp3_01[3] , width=0.3,color=colors[0])
      plt.bar(ImgTask3_01[0], Taskp3_01[8], width=0.3,color=colors[1])
 
 if (len(ImgTask3_02) != 0):
-     count2=len(ImgTask3_02)
+     count2=len(ImgTask3_02)-2
      plt.bar(ImgTask3_02[0]+str(count2), Taskp3_02[3], width=0.3,color=colors[0])
      plt.bar(ImgTask3_02[0], Taskp3_02[8], width=0.3,color=colors[1])
 
 if (len(ImgTask3_03) != 0):
-     count3=len(ImgTask3_03)
+     count3=len(ImgTask3_03)-2
      plt.bar(ImgTask3_03[0]+str(count3), Taskp3_03[3], width=0.3,color=colors[0])
      plt.bar(ImgTask3_03[0], Taskp3_03[8], width=0.3,color=colors[1])
 
 if (len(ImgTask3_04) != 0):
-     count4=len(ImgTask3_04)
+     count4=len(ImgTask3_04)-2
      plt.bar(ImgTask3_04[0]+str(count4), Taskp3_04[3], width=0.3,color=colors[0])
      plt.bar(ImgTask3_04[0], Taskp3_04[8], width=0.3,color=colors[1])
 
 if (len(ImgTask3_05) != 0):
-     count5=len(ImgTask3_05)
+     count5=len(ImgTask3_05)-2
      plt.bar(ImgTask3_05[0]+str(count5),Taskp3_05[3], width=0.3,color=colors[0])
      plt.bar(ImgTask3_05[0], Taskp3_05[8], width=0.3,color=colors[1])
 
 if (len(ImgTask3_06) != 0):
-     count6=len(ImgTask3_06)
+     count6=len(ImgTask3_06)-2
      plt.bar(ImgTask3_06[0]+str(count6), Taskp3_06[3], width=0.3,color=colors[0])
      plt.bar(ImgTask3_06[0], Taskp3_06[8], width=0.3,color=colors[1])
 
 if (len(ImgTask3_07) !=0):
-     count7=len(ImgTask3_07)
+     count7=len(ImgTask3_07)-2
      plt.bar(ImgTask3_07[0]+str(count7), Taskp3_07[3], width=0.3,color=colors[0])
      plt.bar(ImgTask3_07[0], Taskp3_07[8], width=0.3,color=colors[1])
 
