@@ -827,7 +827,7 @@ plt.show()'''
 
 # GRAFICO DELLE FREQUENZE ASSOLUTE RELATIVO A UN SINGOLO TASK
 #Marcatori
-Idimg=["Tsk1","Tsk2","Tsk3","Tsk4"]
+Idimg=["Task1","Task2","Task3","Task4"]
 colors = ["green","purple"]
 
 fix1_1=sum(Taskp1[1:5])

@@ -306,19 +306,37 @@ def RecupImg(dataTime):
  Img33.remove(Img33[0])
  Img44.remove(Img44[0])
 
+ Taskp1=PiuPazienti(Img1,n)
+ Taskp2 = PiuPazienti(Img2, n)
+ Taskp3= PiuPazienti(Img3, n)
+ Taskp4 = PiuPazienti(Img4, n)
+ Taskp11 = PiuPazienti(Img11, n)
+ Taskp22 = PiuPazienti(Img22, n)
+ Taskp33 = PiuPazienti(Img33, n)
+ Taskp44 = PiuPazienti(Img44, n)
 
 
- dur1_1=durataFissTsk(csv_file,delta1,TimeT1[0],Img1)
- dur1_2 = durataFissTsk(csv_file, delta5, TimeT1[4],Img11)
 
- dur2_1=durataFissTsk(csv_file,delta9,TimeT2[0],Img2)
- dur2_2 = durataFissTsk(csv_file, delta13, TimeT2[4],Img22)
+ dur1_1=durataFissTsk(csv_file,delta1,TimeT1[0],Taskp1)
+ dur1_2 = durataFissTsk(csv_file, delta5, TimeT1[4],Taskp11)
 
- dur3_1=durataFissTsk(csv_file,delta17,TimeT3[0],Img3)
- dur3_2 = durataFissTsk(csv_file, delta21, TimeT3[4],Img33)
+ dur2_1=durataFissTsk(csv_file,delta9,TimeT2[0],Taskp2)
+ dur2_2 = durataFissTsk(csv_file, delta13, TimeT2[4],Taskp22)
 
- dur4_1=durataFissTsk(csv_file,delta31,TimeT4[0],Img4)
- dur4_2=durataFissTsk(csv_file, delta35, TimeT4[4],Img44)
+ dur3_1=durataFissTsk(csv_file,delta17,TimeT3[0],Taskp3)
+ dur3_2 = durataFissTsk(csv_file, delta21, TimeT3[4],Taskp33)
+
+ dur4_1=durataFissTsk(csv_file,delta31,TimeT4[0],Taskp4)
+ dur4_2=durataFissTsk(csv_file, delta35, TimeT4[4],Taskp44)
+
+ dur1_1 = PiuPazientiDur(dur1_1, n)
+ dur1_2 = PiuPazientiDur(dur1_2, n)
+ dur2_1 = PiuPazientiDur(dur2_1, n)
+ dur2_2 = PiuPazientiDur(dur2_2, n)
+ dur3_1 = PiuPazientiDur(dur3_1, n)
+ dur3_2 = PiuPazientiDur(dur3_2, n)
+ dur4_1 = PiuPazientiDur(dur4_1, n)
+ dur4_2 = PiuPazientiDur(dur4_2, n)
 
 
 
@@ -334,22 +352,21 @@ def RecupImg(dataTime):
 
 def PiuPazienti(Listfix,n):
     for i in range(len(Listfix)):
-        if n==0:
+        if n==1:
            Listfix[i]=Listfix[i]
-        if n>0:
+        if n>1:
            Listfix[i]=Listfix[i]+Listfix[i]
 
     return Listfix
 
 def PiuPazientiDur(Listfix1,n):
-    for i in range(len(Listfix1)):
-     Listfix1[i]=float(Listfix1[i])
-     if n==0:
-        Listfix1[i]=Listfix1[i]
-     if n>0:
-        Listfix1[i]=Listfix1[i]+Listfix1[i]
+  for j in range(len(Listfix1)):
+   if n==1:
+    Listfix1[j]=float(Listfix1[j])
+   elif n>1:
+    Listfix1[j]=float(Listfix1[j])+float(Listfix1[j])
 
-    return Listfix1
+  return Listfix1
 
 
 
@@ -365,24 +382,12 @@ for i in range(n):
         csv_file = sg.popup_get_file(sg.FileBrowse(), title="RECUPERA FILE FIX.CSV del paziente")
         Taskp1,Taskp11,Taskp2,Taskp22,Taskp3,Taskp33,Taskp4,Taskp44,dura1_1,dura1_2,dura2_1,dura2_2,dura3_1,dura3_2,dura4_1,dura4_2 = RecupImg(dataTime)
 
-        #new
-        Taskp1=PiuPazienti(Taskp1,n)
-        Taskp2 = PiuPazienti(Taskp2, n)
-        Taskp3= PiuPazienti(Taskp3, n)
-        Taskp4 = PiuPazienti(Taskp4, n)
-        Taskp11 = PiuPazienti(Taskp11, n)
-        Taskp22 = PiuPazienti(Taskp22, n)
-        Taskp33 = PiuPazienti(Taskp33, n)
-        Taskp44 = PiuPazienti(Taskp44, n)
 
-        dura1_1 = PiuPazientiDur(dura1_1, n)
-        dura1_2= PiuPazientiDur(dura1_2, n)
-        dura2_1 = PiuPazientiDur(dura2_1, n)
-        dura2_2 = PiuPazientiDur(dura2_2, n)
-        dura3_1 = PiuPazientiDur(dura3_1, n)
-        dura3_2 = PiuPazientiDur(dura3_2, n)
-        dura4_1 = PiuPazientiDur(dura4_1, n)
-        dura4_2 = PiuPazientiDur(dura4_2, n)
+
+
+
+
+
 
 
 
