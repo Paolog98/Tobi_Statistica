@@ -264,15 +264,7 @@ xtemp=min(sum_f1)
 xtemp2=min(sum_f2)
 xtempf=[xtemp,xtemp2]
 
-'''
-# Dati per la distribuzione normale
-mu = np.mean(sum_f1)
-sigma = np.std(sum_f1)
-# Calcolo la distribuzione normale
-x = np.linspace(min(sum_f1), max(sum_f1),10)
-y = norm.pdf(x, mu, sigma)
-# Aggiungo la distribuzione normale al grafico
-plt.plot(x*(max(xtempf)/max(x)), y*(max(ytempf)/max(y)), 'r--', label='Distribuzione normale')'''
+
 
 
 # Annotazioni per ogni barra che restituisce il numero di fissazioni

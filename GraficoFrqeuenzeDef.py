@@ -458,11 +458,7 @@ for i in range(n):
 
 #CALCO FISS TASK 1    1 E 2 SECONDA VOLTA
 
-
-
-
-
-# Dettagli del grafico
+# GRAFICO DELLE FREQUENZE ASSOLUTE RELATIVO A OGNI SINGOLA IMMAGINE
 #Marcatori
 
 colors = ["blue","red","green"]
@@ -701,7 +697,7 @@ val3_2=[min3_01_2,min3_02_2,min3_03_2,min3_04_2,min3_05_2,min3_06_2,min3_07_2]
 
 
 
-#SECONDO GRAFICO VAL MAX MIN AVG
+#!!!!SECONDO GRAFICO A LINEE MULTIPLE VAL MAX MIN AVG!!!
 #dati grafico linee multiple max,medio,min
 #Prima Parte
 valmax1=max(Taskp1[1:5])
@@ -829,3 +825,62 @@ plt.plot(x, y, color='red')
 
 plt.show()'''
 
+# GRAFICO DELLE FREQUENZE ASSOLUTE RELATIVO A UN SINGOLO TASK
+#Marcatori
+Idimg=["Tsk1","Tsk2","Tsk3","Tsk4"]
+colors = ["green","purple"]
+
+fix1_1=sum(Taskp1[1:5])
+fix1_2=sum(Taskp1[6:9])
+
+fix2_1=sum(Taskp2[1:5])
+fix2_2=sum(Taskp2[6:9])
+
+fix3_1=sum(val3_1)
+fix3_2=sum(val3_2)
+
+fix4_1=sum(Taskp4[1:5])
+fix4_2=sum(Taskp4[6:9])
+
+
+
+fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12, 8))
+
+#PRIM0 TASK
+plt.bar(Idimg[0], fix1_1, width=0.3,color=colors[0],label="Prima visione del task")
+plt.bar(0.3, fix1_2, width=0.3,color=colors[1],label="Seconda visione del task")
+
+#SECONDO TASK
+
+plt.bar(Idimg[1], fix2_1, width=0.3,color=colors[0])
+plt.bar(1.3, fix2_2, width=0.3,color=colors[1])
+
+#TERZO TASK
+plt.bar(Idimg[2], fix3_1, width=0.3,color=colors[0])
+plt.bar(2.3, fix3_2, width=0.3,color=colors[1])
+
+#QUARTO TASK
+plt.bar(Idimg[3], fix4_1,width=0.3,color=colors[0])
+plt.bar(3.3, fix4_2, width=0.3,color=colors[1])
+
+
+
+
+plt.ylabel('Numero di fissazioni')
+plt.xlabel('Task eseguito ')
+plt.suptitle('Grafico delle frequenze assolute relativo a un singolo task',fontweight='bold', fontsize=15)
+plt.title("Visioniamo le frequenze assolute relativo a un singolo task(nella prima e seconda visone)",fontsize=10)
+plt.legend(loc="best")
+
+
+
+if count==1:
+ name=str(os.path.dirname(pathTime))
+ fig.savefig(name+"SingoloPazienteImg"+".png")
+elif count>2:
+    name = str(os.path.dirname(pathTime))
+    fig.savefig(name +"PiùPazientiImg" + ".png")
+
+
+
+plt.show()
