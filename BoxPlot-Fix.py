@@ -23,14 +23,6 @@ def delta_unix_respect_to_video_start(video_start_unix, actual_unix):
 
 
 
-
-
-
-csv_file= sg.popup_get_file(sg.FileBrowse(),title="RECUPERA FILE FIX.CSV del paziente")
-pathTime= sg.popup_get_file(sg.FileBrowse(),title="RECUPERA TEMPI.TXT del paziente")
-fileTime = pd.read_csv(pathTime, sep=',', engine='python', header=None)
-dataTime = fileTime.values.tolist()
-
 #!!!!FUNZIONE PER IL CALCOLO DEI tempi delle immagini IN DET INTERVALLO!!!!!
 def Fisstask(time1,time2,time3,time4,time5,time6,csv_filef):
     listTime = []
@@ -76,200 +68,46 @@ def Fisstask(time1,time2,time3,time4,time5,time6,csv_filef):
 
     return numF1
 
-def numFissP(dataTime):
-    # recupero tempi delle 1 immagini della prima parte TASK1
-    delta1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[7][2])
-    delta2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[7][3])
-    delta3 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[9][3])
-    delta4 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[11][3])
-    delta5 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[12][3])
-    delta6 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[13][3])
+n=int(sg.popup_get_text("Quanti pazienti vuoi analizzare(grafico immagini)?"))
 
 
-    # SECONDA IMMAGINE TASK 1 SECONDA VOLTA
-    delta7 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[63][2])
-    delta8= delta_unix_respect_to_video_start(dataTime[0][2], dataTime[63][3])
-    delta9 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[66][3])
-    delta10 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[68][3])
-    delta11 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[69][3])
-    delta12 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[70][3])
 
+ImgTask1 = []
+ImgTask2 = []
+ImgTask4 = []
+ImgTask3= []
 
 
 
 
+TimeT1=[]
 
-    # TEMPI TASK 2 PRIMA VOLTA
+TimeT2=[]
 
-    delta13 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[15][2])
-    delta14 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[15][3])
-    delta15 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[17][3])
-    delta16 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[19][3])
-    delta17 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[21][3])
-    delta18 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[22][3])
+TimeT3=[]
 
-    # SSECONDA VOLTA
-    delta19 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[72][2])
-    delta20 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[72][3])
-    delta21 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[74][3])
-    delta22 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[76][3])
-    delta23 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[77][3])
-    delta24 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[78][3])
 
+TimeT4=[]
 
 
 
+Taskp1=[]
+Taskp11=[]
+Taskp2=[]
+Taskp22=[]
+Taskp3=[]
+Taskp33=[]
+Taskp4=[]
+Taskp44=[]
 
-
-
-
-    # TEMPI TASK 3 PRIMA VOLTA
-    delta25 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[23][2])
-    delta26 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[23][3])
-    delta27 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[24][3])
-    delta28 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[26][3])
-    delta29 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[28][3])
-    delta30 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[29][3])
-
-    # SECONDA VOLTA TASK3
-    delta31 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[80][2])
-    delta32 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[80][3])
-    delta33 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[82][3])
-    delta34 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[84][3])
-    delta35 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[86][3])
-    delta36 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[87][3])
-
-
-
-
-
-
-
-    # TEMPI TASK 4 PRIMA VOLTA
-    delta37 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[31][2])
-    delta38 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[31][3])
-    delta39 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[33][3])
-    delta40 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[35][3])
-    delta41 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[37][3])
-    delta42 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[38][3])
-
-    # SECONDA VOLTA
-    delta43 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[90][2])
-    delta44 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[90][3])
-    delta45 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[92][3])
-    delta46 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[94][3])
-    delta47 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[96][3])
-    delta48 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[97][3])
-
-
-    #PRIME 4 IMMAGINI TASK 1 prima volta
-    Img1=Fisstask(delta1,delta2,delta3,delta4,delta5,delta6,csv_file)
-
-    #task2 prima volta
-    Img2=Fisstask(delta13, delta14, delta15, delta16, delta17, delta18, csv_file)
-
-    #task3 prima volta
-    Img3=Fisstask(delta25, delta26, delta27, delta28, delta29, delta30, csv_file)
-
-    #task4 primavolta
-    Img4=Fisstask(delta37, delta38, delta39, delta40, delta41, delta42, csv_file)
-
-
-
-    #SECONDA VOLTA 1 TASK
-    Img11=Fisstask(delta7,delta8,delta9,delta10,delta11,delta12,csv_file)
-
-    #SECONDA VOLTA 2 TASK
-    Img22=Fisstask(delta19,delta20,delta21,delta22,delta23,delta24,csv_file)
-
-    #SECONDA VOLTA 3 TASK
-    Img33=Fisstask(delta31,delta32,delta33,delta34,delta35,delta36,csv_file)
-
-
-    #SECONDA VOLTA 4 TASK
-    Img44=Fisstask(delta43,delta44,delta45,delta46,delta47,delta48,csv_file)
-    print("valoreeeeeeeeeee")
-    print(Img44)
-
-
-    FisstaskP=[Img1[1],Img1[2],Img1[3],Img1[4],Img2[1],Img2[2],Img2[3],Img2[4],Img3[1],Img3[2],Img3[3],Img3[4],Img4[1],Img4[2],Img4[3],Img4[4]]
-    FisstaskP2 = [Img11[1], Img11[2], Img11[3], Img11[4], Img22[1], Img22[2], Img22[3], Img22[4], Img33[1], Img33[2], Img33[3], Img33[4], Img44[1], Img44[2], Img44[3], Img44[4]]
-
-
-
-    return FisstaskP,FisstaskP2
-
-fiss1,fiss2=numFissP(dataTime)
-
-
-
-
-
-
-
-
-#PRIMO TASK 1 E SECONDA PARTE
-
-# Creazione del box-plot
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#primo task
-fix1=[fiss1[0],fiss1[1],fiss1[2],fiss1[3]]
-fix2=[fiss2[0],fiss2[1],fiss2[2],fiss2[3]]
-
-#secondo task
-fix3=[fiss1[4],fiss1[5],fiss1[6],fiss1[7]]
-fix4=[fiss2[4],fiss2[5],fiss2[6],fiss2[7]]
-
-#terzo task
-fix5=[fiss1[8],fiss1[9],fiss1[10],fiss1[11]]
-fix6=[fiss2[8],fiss2[9],fiss2[10],fiss2[11]]
-
-#quarto task
-fix7=[fiss1[12],fiss1[13],fiss1[14],fiss1[15]]
-fix8=[fiss2[12],fiss2[13],fiss2[14],fiss2[15]]
-
-fixx1 = []
-fixx2 = []
-fixx3 = []
-fixx4 = []
-
-for element in fix1:
-
-    fixx1.append(int(element))
-
-for element in fix3:
-
-    fixx2.append(int(element))
-
-for element in fix5:
-
-    fixx3.append(int(element))
-
-
-for element in fix7:
-
-    fixx4.append(int(element))
-
-
-
-
-
-
+dura1_1=[]
+dura1_2=[]
+dura2_1=[]
+dura2_2=[]
+dura3_1=[]
+dura3_2=[]
+dura4_1=[]
+dura4_2=[]
 
 def durataFissTsk(csv_file,time1,line,fix1):
  fileFix = pd.read_csv(csv_file, sep=',', engine='python', header=None)
@@ -298,9 +136,9 @@ def durataFissTsk(csv_file,time1,line,fix1):
 
 
   for l in range(sum(fix1)):#se non ci sono valori neutri
-   duration_tsk1.append(dataFix[line+l][2])
-   print(time1)
-   print(line)
+    duration_tsk1.append(dataFix[line+l][2])
+    print(time1)
+    print(line)
 
 
 
@@ -311,53 +149,266 @@ def durataFissTsk(csv_file,time1,line,fix1):
 
 
 
-deltaTSK1= delta_unix_respect_to_video_start(dataTime[0][2], dataTime[7][2])
-deltaTSK2=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[15][2])
-deltaTSK3=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[23][2])
-deltaTSK4=delta_unix_respect_to_video_start(dataTime[0][2], dataTime[31][2])
-
-line1=""
-line2=""
-line3=""
-line4=""
-
-dur_task1=durataFissTsk(csv_file,deltaTSK1,line1,fixx1)
-dur_task2=durataFissTsk(csv_file,deltaTSK2,line2,fixx2)
-dur_task3=durataFissTsk(csv_file,deltaTSK3,line3,fixx3)
-dur_task4=durataFissTsk(csv_file,deltaTSK4,line4,fixx4)
-
-durdeftsk1=[]
-durdeftsk2=[]
-durdeftsk3=[]
-durdeftsk4=[]
-
-
-
-for element in dur_task1:
-    durdeftsk1.append(float(element))
-
-
-for element in dur_task2:
-    durdeftsk2.append(float(element))
-
-for element in dur_task3:
-    durdeftsk3.append(float(element))
-
-for element in dur_task4:
-    durdeftsk4.append(float(element))
 
 
 
 
 
-data=[durdeftsk1,durdeftsk2,durdeftsk3,durdeftsk4]
+
+
+
+
+
+
+def RecupImg(dataTime):
+ for numr,i in enumerate(dataTime):
+     if i[0] == "['Image'" and i[1].startswith(" 'T1"):
+        ImgTask1.append(i[1])
+        TimeT1.append(numr)
+        print(TimeT1)
+
+
+     if i[0] == "['Image'" and i[1].startswith(" 'T2"):
+        ImgTask2.append(i[1])
+        TimeT2.append(numr)
+
+
+
+
+     if i[0] == "['Image'" and i[1].startswith(" 'T3"):
+        ImgTask3.append(i[1])
+        TimeT3.append(numr)
+        print(TimeT3)
+
+
+
+
+     if i[0] == "['Decision_making_image'" and i[1].startswith(" 'T4"):
+        ImgTask4.append(i[1])
+        TimeT4.append(numr)
+
+
+
+
+ #TEMPI FOTO T1
+ delta1 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT1[0]][2])
+ delta2 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT1[1]][2])
+ delta3 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT1[2]][2])
+ delta4 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT1[3]][2])
+
+ #seconda parte
+ delta5 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT1[4]][2])
+ delta6 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT1[5]][2])
+ delta7 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT1[6]][2])
+ delta8 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT1[7]][2])
+
+
+
+ #TEMPI FOTO 2
+ delta9 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT2[0]][2])
+ delta10 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT2[1]][2])
+ delta11 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT2[2]][2])
+ delta12 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT2[3]][2])
+
+
+ delta13 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT2[4]][2])
+ delta14 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT2[5]][2])
+ delta15 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT2[6]][2])
+ delta16 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT2[7]][2])
+
+
+
+#TEMPI T3
+ delta17 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT3[0]][2])
+ delta18 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT3[1]][2])
+ delta19 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT3[2]][2])
+ delta20 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT3[3]][2])
+
+
+ delta21 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT3[4]][2])
+ delta22= delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT3[5]][2])
+ delta23 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT3[6]][2])
+ delta24 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT3[7]][2])
+
+
+
+ #TEMPI T4
+ delta31 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT4[0]][2])
+ delta32 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT4[1]][2])
+ delta33 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT4[2]][2])
+ delta34 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT4[3]][2])
+
+
+ delta35 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT4[4]][2])
+ delta36 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT4[5]][2])
+ delta37 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT4[6]][2])
+ delta38 = delta_unix_respect_to_video_start(dataTime[0][2], dataTime[TimeT4[7]][2])
+
+
+
+
+
+
+  #RECUPERIMAO LE FISSAZIONI DI OGNI FOTO
+
+
+
+
+  #TASK 1 PRIMA VOLTA
+ Img1=Fisstask(delta1,delta1,delta2,delta3,delta4,delta4,csv_file)
+
+
+    #task2 prima volta
+ Img2=Fisstask(delta9,delta9,delta10,delta11,delta12,delta12, csv_file)
+
+
+
+
+
+ Img3=Fisstask(delta17,delta17,delta18,delta19,delta20,delta20, csv_file)
+
+
+    #task4 primavolta
+ Img4=Fisstask(delta31, delta31, delta32, delta33, delta34, delta34, csv_file)
+
+
+
+
+
+
+
+    #SECONDA VOLTA 1 TASK
+ Img11=Fisstask(delta5,delta5,delta6,delta7,delta8,delta8,csv_file)
+
+
+
+    #SECONDA VOLTA 2 TASK
+ Img22=Fisstask(delta13,delta13,delta14,delta15,delta16,delta16,csv_file)
+
+
+ #TASK 3 SECONDA VOLTA
+ Img33=Fisstask(delta21,delta21,delta22,delta23,delta24,delta24,csv_file)
+
+
+
+
+
+    #SECONDA VOLTA 4 TASK
+ Img44=Fisstask(delta35,delta35,delta36,delta37,delta38,delta38,csv_file)
+
+ Img1.remove(Img1[0])
+ Img2.remove(Img2[0])
+ Img3.remove(Img3[0])
+ Img4.remove(Img4[0])
+
+ Img11.remove(Img11[0])
+ Img22.remove(Img22[0])
+ Img33.remove(Img33[0])
+ Img44.remove(Img44[0])
+
+
+
+ dur1_1=durataFissTsk(csv_file,delta1,TimeT1[0],Img1)
+ dur1_2 = durataFissTsk(csv_file, delta5, TimeT1[4],Img11)
+
+ dur2_1=durataFissTsk(csv_file,delta9,TimeT2[0],Img2)
+ dur2_2 = durataFissTsk(csv_file, delta13, TimeT2[4],Img22)
+
+ dur3_1=durataFissTsk(csv_file,delta17,TimeT3[0],Img3)
+ dur3_2 = durataFissTsk(csv_file, delta21, TimeT3[4],Img33)
+
+ dur4_1=durataFissTsk(csv_file,delta31,TimeT4[0],Img4)
+ dur4_2=durataFissTsk(csv_file, delta35, TimeT4[4],Img44)
+
+
+
+
+
+
+ return  Img1,Img11,Img2,Img22,Img3,Img33,Img4,Img44,dur1_1,dur1_2,dur2_1,dur2_2,dur3_1,dur3_2,dur4_1,dur4_2
+
+
+
+
+
+
+def PiuPazienti(Listfix,n):
+    for i in range(len(Listfix)):
+        if n==0:
+           Listfix[i]=Listfix[i]
+        if n>0:
+           Listfix[i]=Listfix[i]+Listfix[i]
+
+    return Listfix
+
+def PiuPazientiDur(Listfix1,n):
+    for i in range(len(Listfix1)):
+     Listfix1[i]=float(Listfix1[i])
+     if n==0:
+        Listfix1[i]=Listfix1[i]
+     if n>0:
+        Listfix1[i]=Listfix1[i]+Listfix1[i]
+
+    return Listfix1
+
+
+
+
+
+
+for i in range(n):
+        sg.popup("Inserire i file del paziente n:", i + 1)
+        pathTime = sg.popup_get_file(sg.FileBrowse(), title="RECUPERA TEMPI.TXT del paziente")
+        fileTime = pd.read_csv(pathTime, sep=',', engine='python', header=None)
+        dataTime = fileTime.values.tolist()
+        # print(dataTime)
+        csv_file = sg.popup_get_file(sg.FileBrowse(), title="RECUPERA FILE FIX.CSV del paziente")
+        Taskp1,Taskp11,Taskp2,Taskp22,Taskp3,Taskp33,Taskp4,Taskp44,dura1_1,dura1_2,dura2_1,dura2_2,dura3_1,dura3_2,dura4_1,dura4_2 = RecupImg(dataTime)
+
+        #new
+        Taskp1=PiuPazienti(Taskp1,n)
+        Taskp2 = PiuPazienti(Taskp2, n)
+        Taskp3= PiuPazienti(Taskp3, n)
+        Taskp4 = PiuPazienti(Taskp4, n)
+        Taskp11 = PiuPazienti(Taskp11, n)
+        Taskp22 = PiuPazienti(Taskp22, n)
+        Taskp33 = PiuPazienti(Taskp33, n)
+        Taskp44 = PiuPazienti(Taskp44, n)
+
+        dura1_1 = PiuPazientiDur(dura1_1, n)
+        dura1_2= PiuPazientiDur(dura1_2, n)
+        dura2_1 = PiuPazientiDur(dura2_1, n)
+        dura2_2 = PiuPazientiDur(dura2_2, n)
+        dura3_1 = PiuPazientiDur(dura3_1, n)
+        dura3_2 = PiuPazientiDur(dura3_2, n)
+        dura4_1 = PiuPazientiDur(dura4_1, n)
+        dura4_2 = PiuPazientiDur(dura4_2, n)
+
+
+
+
+
+
+
+
+
+
+print(dura1_1,dura2_1,dura3_1,dura4_1,dura1_2,dura2_2,dura3_2,dura4_2)
+
+
+
+
+
+
+data=[dura1_1,dura2_1,dura3_1,dura4_1,dura1_2,dura2_2,dura3_2,dura4_2]
 fig, ax = plt.subplots(figsize=(12,8))
-bp = ax.boxplot(data,labels=["Task1","Task2","Task3","Task4"])
+bp = ax.boxplot(data,labels=["Task1","Task2","Task3","Task4","Task1_2","Task2_2","Task3_2","Task4_2"])
 
 # Personalizzazione dell'asse y
 
 plt.suptitle("Vengono indicate le fissazioni nella durata di ogni singolo task")
-plt.ylabel("Tempo(sec)")
+plt.title("Rappresentazione visuale della durata delle fissazioni raggrupare per task(nella prima e seconda visione)",fontsize=9)
+plt.ylabel("Tempo(ms)")
 plt.xlabel("Task visionato")
 plt.title('Boxplot per ogni singolo task')
 plt.legend(loc="best")
