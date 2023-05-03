@@ -406,7 +406,14 @@ def RecupImg(dataTime):
 
 
 
+def PiuPazienti(Listfix,n):
+    for i in range(len(Listfix)):
+        if n==0:
+           Listfix[i]=Listfix[i]
+        if n>0:
+           Listfix[i]=Listfix[i]+Listfix[i]
 
+    return Listfix
 
 
 
@@ -426,6 +433,18 @@ for i in range(n):
         csv_file = sg.popup_get_file(sg.FileBrowse(), title="RECUPERA FILE FIX.CSV del paziente")
         Taskp1, Taskp2, Taskp3_01, Taskp3_02, Taskp3_03, Taskp3_04, Taskp3_05, Taskp3_06, Taskp3_07, Taskp4 = RecupImg(dataTime)
         ImgTask11,ImgTask22,ImgTask44,ImgTask33_01, ImgTask33_02, ImgTask33_03, ImgTask33_04, ImgTask33_05, ImgTask33_06, ImgTask33_07=RecupImg(dataTime)
+        #new
+        Taskp1=PiuPazienti(Taskp1,n)
+        Taskp2 = PiuPazienti(Taskp2, n)
+        Taskp3_01 = PiuPazienti(Taskp3_01, n)
+        Taskp3_02 = PiuPazienti(Taskp3_02, n)
+        Taskp3_03 = PiuPazienti(Taskp3_03, n)
+        Taskp3_04 = PiuPazienti(Taskp3_04, n)
+        Taskp3_05 = PiuPazienti(Taskp3_05, n)
+        Taskp3_06 = PiuPazienti(Taskp3_06, n)
+        Taskp3_07 = PiuPazienti(Taskp3_07, n)
+        Taskp4 = PiuPazienti(Taskp4, n)
+
         print("TEMPI DELLE FOTO")
         print(ImgTask11,ImgTask22,ImgTask44,ImgTask33_01, ImgTask33_02, ImgTask33_03, ImgTask33_04, ImgTask33_05, ImgTask33_06, ImgTask33_07)
         '''ImgTask1.append(ImgTask11)
