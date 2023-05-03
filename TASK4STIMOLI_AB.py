@@ -52,19 +52,15 @@ Time4=[]
 Time4_2=[]
 riga4=0
 
-dura1_1, dura1_2 = [],[]
-dura2_1, dura2_2 = [],[]
-dura3_1, dura3_2 = [],[]
-dura4_1, dura4_2 = [],[]
 
-dura1_11=[]
-dura1_22=[]
-dura2_11=[]
-dura2_22=[]
-dura3_11=[]
-dura3_22=[]
-dura4_11=[]
-dura4_22=[]
+dur1_1=[]
+dur1_2=[]
+dur2_1=[]
+dur2_2=[]
+dur3_1=[]
+dur3_2=[]
+dur4_1=[]
+dur4_2=[]
 
 
 
@@ -323,15 +319,37 @@ def RecupImg(dataTime):
  if (len(dx5) == 0): dx5.append(0)
  print(shop)
 
- return sx2, dx2, sx3, dx3, sx4, dx4, sx5, dx5, delta1, delta2, delta3, delta4
+ line1 = ""
+ line2 = ""
+ line3 = ""
+ line4 = ""
+
+ dura1_1,dura1_2 = durataFiss(csv_file, delta1, line1, dx2, sx2)
+ dura2_1,dura2_2 = durataFiss(csv_file, delta2, line2, dx3, sx3)
+ dura3_1,dura3_2 = durataFiss(csv_file, delta3, line3, dx4, sx4)
+ dura4_1,dura4_2 = durataFiss(csv_file, delta4, line4, dx5, sx5)
+
+ dura1_1=PiuPazientiDur(dura1_1,n)
+ dura1_2=PiuPazientiDur(dura1_2,n)
+
+ dura2_1 = PiuPazientiDur(dura2_1, n)
+ dura2_2 = PiuPazientiDur(dura2_2, n)
+
+ dura3_1 = PiuPazientiDur(dura3_1, n)
+ dura3_2 = PiuPazientiDur(dura3_2, n)
+
+ dura4_1 = PiuPazientiDur(dura4_1, n)
+ dura4_2 = PiuPazientiDur(dura4_2, n)
+
+ return sx2, dx2, sx3, dx3, sx4, dx4, sx5, dx5, dura1_1,dura1_2,dura2_1,dura2_2,dura3_1,dura3_2,dura4_1,dura4_2
 
 
 def PiuPazientiDur(Listfix1, n):
  for i in range(len(Listfix1)):
   Listfix1[i] = float(Listfix1[i])
-  if n == 0:
+  if n == 1:
    Listfix1[i] = Listfix1[i]
-  if n > 0:
+  if n > 2:
    Listfix1[i] = Listfix1[i] + Listfix1[i]
 
  return Listfix1
@@ -347,30 +365,12 @@ for i in range(n):
         dataTime = fileTime.values.tolist()
         # print(dataTime)
         csv_file = sg.popup_get_file(sg.FileBrowse(), title="RECUPERA FILE FIX.CSV del paziente")
-        sxx2, dxx2, sxx3, dxx3, sxx4, dxx4, sxx5, dxx5, delta11, delta22, delta33, delta44=RecupImg(dataTime)
-
-        line1 = ""
-        line2 = ""
-        line3 = ""
-        line4 = ""
+        sxx2, dxx2, sxx3, dxx3, sxx4, dxx4, sxx5, dxx5,dur1_1,dur1_2,dur2_1,dur2_2,dur3_1,dur3_2,dur4_1,dur4_2=RecupImg(dataTime)
 
 
-        dura1_1,dura1_2 = durataFiss(csv_file, delta11, line1, dxx2, sxx2)
-        dura2_1,dura2_2 = durataFiss(csv_file, delta22, line2, dxx3, sxx3)
-        dura3_1,dura3_2 = durataFiss(csv_file, delta33, line3, dxx4, sxx4)
-        dura4_1,dura4_2 = durataFiss(csv_file, delta44, line4, dxx5, sxx5)
 
-        dura1_11=PiuPazientiDur(dura1_1,n)
-        dura1_22=PiuPazientiDur(dura1_2,n)
 
-        dura2_11 = PiuPazientiDur(dura2_1, n)
-        dura2_22 = PiuPazientiDur(dura2_2, n)
 
-        dura3_11 = PiuPazientiDur(dura3_1, n)
-        dura3_22 = PiuPazientiDur(dura3_2, n)
-
-        dura4_11 = PiuPazientiDur(dura4_1, n)
-        dura4_22 = PiuPazientiDur(dura4_2, n)
 
 
 
@@ -396,8 +396,7 @@ for i in range(n):
 
         print("durateeeeeeeee")
 
-        print(dura1_1, dura1_2,dura3_1,dura4_1)
-        print(dura1_2, dura2_2,dura3_2, dura4_2)
+
 
 
 
@@ -450,8 +449,8 @@ fig.savefig('grafic/STIMOLONEU_AB.png')
 
 plt.show()
 
-dur_stimolo=dura1_11+dura2_11+dura3_11+dura4_11
-dur_neutro=dura1_22+dura2_22+dura3_22+dura4_22
+dur_stimolo=dur1_1+dur2_1+dur3_1+dur4_1
+dur_neutro=dur1_2+dur2_2+dur3_2+dur4_2
 
 
 #BOXPLOT
