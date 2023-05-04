@@ -752,7 +752,7 @@ valarray=[valmax1,valmax2,valavg2,valmin1,valmin2]
 fig, ax = plt.subplots(num='Conteggio Fissazioni', figsize=(12, 8))
 
 # Dati per il grafico
-x = [26,60,90,133,206,236,266,319]  # Valori sull'asse x
+x = ["Task1","Task2","Task3","Task4","Task1_2","Task2_2","Task3_2","Task4_2"]  # Valori sull'asse x
 y1 = [valmax1,valmax2,valmax3,valmax4,valmax1_2,valmax2_2,valmax3_2,valmax4_2]  # Valori max
 y2 = [valmin1,valmin2,valmin3,valmin4,valmin1_2,valmin2_2,valmin3_2,valmin4_2]  # Valori min
 y3 = [valavg1,valavg2,valavg3,valavg4,valavg1_2,valavg2_2,valavg3_2,valavg4_2]  # Valori avg
@@ -765,7 +765,7 @@ plt.plot(x, y1,'-o',label='Valore max')
 # Aggiunta di etichette e titolo
 plt.xlabel('Tempo(sec)')
 plt.ylabel('Valori fissazioni')
-plt.suptitle('Grafico a linee multiple(26-133sec/206-319sec)')
+plt.suptitle('Grafico a linee multiple')
 plt.title("Ogni pallino indica il valore min,max e avg di ogni task(nei tempi della prima e seconda volta)",fontsize=10)
 plt.legend(loc="best")
 
