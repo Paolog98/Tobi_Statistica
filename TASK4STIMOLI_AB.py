@@ -349,7 +349,7 @@ def PiuPazientiDur(Listfix1, n):
   Listfix1[i] = float(Listfix1[i])
   if n == 1:
    Listfix1[i] = Listfix1[i]
-  if n > 2:
+  if n >= 2:
    Listfix1[i] = Listfix1[i] + Listfix1[i]
 
  return Listfix1
@@ -367,7 +367,17 @@ for i in range(n):
         csv_file = sg.popup_get_file(sg.FileBrowse(), title="RECUPERA FILE FIX.CSV del paziente")
         sxx2, dxx2, sxx3, dxx3, sxx4, dxx4, sxx5, dxx5,dur1_1,dur1_2,dur2_1,dur2_2,dur3_1,dur3_2,dur4_1,dur4_2=RecupImg(dataTime)
 
+        dur1_1 = PiuPazientiDur(dur1_1, n)
+        dur1_2 = PiuPazientiDur(dur1_2, n)
 
+        dur2_1 = PiuPazientiDur(dur2_1, n)
+        dur2_2 = PiuPazientiDur(dur2_2, n)
+
+        dur3_1 = PiuPazientiDur(dur3_1, n)
+        dur3_2 = PiuPazientiDur(dur3_2, n)
+
+        dur4_1 = PiuPazientiDur(dur4_1, n)
+        dur4_2 = PiuPazientiDur(dur4_2, n)
 
 
 
@@ -461,7 +471,7 @@ bp = ax.boxplot(data,labels=["Immagini con stimolo","Neutre"])
 
 # Personalizzazione dell'asse y
 
-plt.ylabel("Tempo(ms)",size=9)
+plt.ylabel("Tempo(sec)",size=9)
 plt.suptitle("Boxplot task 4 dicotomico:\nRappresentazione visuale della durata delle fissazioni",size=11,fontweight='bold')
 plt.title("Le durate delle fissazioni fanno riferimento alle foto che hanno la sigla AB,dove:la foto neutra è a dx, e la foto con stimolo è a sx", transform=ax.transAxes,
         fontsize=10, va='top', ha='center')
